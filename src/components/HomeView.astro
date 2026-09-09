@@ -1,6 +1,6 @@
 ---
 import { getCategoriesByLevel, getRecentManual, getRecentFirmware, getRecentVideo } from '../lib/data';
-import { useTranslations, localizedPath, translated, formatDate, type Lang } from '../i18n/utils';
+import { useTranslations, localizedPath, siteAsset, translated, formatDate, type Lang } from '../i18n/utils';
 
 interface Props {
   lang: Lang;
@@ -50,7 +50,7 @@ const videos = await getRecentVideo(4);
             {(m.data.fileEs || m.data.fileEn || m.data.externalUrl) && (
               <a
                 class="btn-download"
-                href={(lang === 'es' ? m.data.fileEs : m.data.fileEn) ?? m.data.externalUrl}
+                href={siteAsset((lang === 'es' ? m.data.fileEs : m.data.fileEn) ?? m.data.externalUrl ?? '')}
                 target="_blank"
                 rel="noopener"
               >

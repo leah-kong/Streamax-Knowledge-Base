@@ -8,6 +8,7 @@ import {
 import {
   useTranslations,
   localizedPath,
+  siteAsset,
   translated,
   formatDate,
   type Lang,
@@ -146,7 +147,7 @@ const hasFaq = false;
                       {(m.data.fileEs || m.data.fileEn || m.data.externalUrl) && (
                         <a
                           class="btn-download"
-                          href={(lang === 'es' ? m.data.fileEs : m.data.fileEn) ?? m.data.externalUrl}
+                          href={siteAsset((lang === 'es' ? m.data.fileEs : m.data.fileEn) ?? m.data.externalUrl ?? '')}
                           target="_blank"
                           rel="noopener"
                         >
@@ -187,7 +188,7 @@ const hasFaq = false;
                 </div>
                 {f.data.checksum && <div class="checksum">{f.data.checksum}</div>}
               </div>
-              <a class="btn-download" href={f.data.downloadUrl} target="_blank" rel="noopener">
+              <a class="btn-download" href={siteAsset(f.data.downloadUrl ?? '')} target="_blank" rel="noopener">
                 {t('field.download')}
               </a>
             </li>

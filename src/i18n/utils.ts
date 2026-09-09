@@ -2,8 +2,40 @@ import { ui, defaultLang } from './ui';
 
 export type Lang = keyof typeof ui;
 
+// 站点 base：
+//   '/'                          → 部署在域名根目录
+//   '/Streamax-Knowledge-Base/'  → GitHub Pages 项目页
+//   './'                         → 离线 file:// 分发
+const BASE: string = import.meta.env.BASE_URL ?? '/';
+const OFFLINE = BASE === './';
+
+// 去掉路径里的 base 前缀，得到"站点内相对路径"（如 /en/category/truck/）
+function stripBase(p: string): string {
+  if (OFFLINE || BASE === '/') return p;
+  const b = BASE.replace(/\/+$/, '');
+  if (p === b || p === `${b}/`) return '/';
+  if (p.startsWith(`${b}/`)) return p.slice(b.length);
+  return p;
+}
+
+// 给站内相对路径补上 base 前缀
+function withBase(p: string): string {
+  if (OFFLINE || BASE === '/') return p;
+  return BASE.replace(/\/+$/, '') + (p.startsWith('/') ? p : `/${p}`);
+}
+
+// 站内资源（如 /docs/xxx.pdf）也要带 base，否则会打到域名根目录导致 404
+export function siteAsset(url: string): string {
+  if (!url) return url;
+  // 外链、mailto、锚点、相对路径保持原样
+  if (/^(https?:|mailto:|tel:|data:|#)/.test(url) || url.startsWith('./') || url.startsWith('../')) {
+    return url;
+  }
+  return withBase(url);
+}
+
 export function getLangFromUrl(url: URL): Lang {
-  const segment = url.pathname.split('/')[1];
+  const segment = stripBase(url.pathname).split('/')[1];
   return segment === 'en' ? 'en' : 'es';
 }
 
@@ -15,23 +47,24 @@ export function useTranslations(lang: Lang) {
   };
 }
 
-// 离线模式（base 为 './'）下链接必须相对且带 .html，否则 file:// 打不开
-const BASE: string = import.meta.env.BASE_URL ?? '/';
-const OFFLINE = BASE === './';
-
 // 西语为默认语言、不带前缀；英语统一加 /en 前缀
 export function localizedPath(lang: Lang, path: string): string {
   const clean = path === '/' ? '' : path.startsWith('/') ? path : `/${path}`;
   let p = lang === 'en' ? `/en${clean}` : clean;
   if (p.endsWith('/')) p = p.slice(0, -1);
-  if (p === '') p = '/index';
-  return OFFLINE ? `.${p}.html` : p === '/index' ? '/' : `${p}/`;
+  if (OFFLINE) return `.${p === '' ? '/index' : p}.html`;
+  // 首页必须带尾斜杠，否则拼锚点会变成 /base#xxx
+  if (p === '') return BASE.endsWith('/') ? BASE : `${BASE}/`;
+  return `${withBase(p)}/`;
 }
 
 // 生成另一侧语言的对应路径
 export function switchLangPath(currentLang: Lang, pathname: string): string {
   const target: Lang = currentLang === 'es' ? 'en' : 'es';
-  const normalized = pathname.replace(/\/+$/, '').replace(/\.html$/, '').replace(/^\/index$/, '');
+  const normalized = stripBase(pathname)
+    .replace(/\/+$/, '')
+    .replace(/\.html$/, '')
+    .replace(/^\/index$/, '');
   let p: string;
   if (target === 'en') {
     p = `/en${normalized}`;
@@ -39,7 +72,9 @@ export function switchLangPath(currentLang: Lang, pathname: string): string {
     p = normalized.replace(/^\/en(\/|$)/, '/');
   }
   if (p.endsWith('/')) p = p.slice(0, -1);
-  return OFFLINE ? `.${p === '' ? '/index' : p}.html` : p === '' ? '/' : `${p}/`;
+  if (OFFLINE) return `.${p === '' ? '/index' : p}.html`;
+  if (p === '' || p === '/') return BASE.endsWith('/') ? BASE : `${BASE}/`;
+  return `${withBase(p)}/`;
 }
 
 export function formatDate(date: Date, lang: Lang): string {
