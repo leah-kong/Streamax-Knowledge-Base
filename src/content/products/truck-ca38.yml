@@ -1,0 +1,8 @@
+# truck / Camera
+model: "CA38"
+name:
+  es: "CA38"
+  en: "CA38"
+category: truck
+subcategory: truck-camera
+order: 14

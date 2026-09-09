@@ -1,0 +1,8 @@
+# public-transit / Camera
+model: "C20D"
+name:
+  es: "C20D"
+  en: "C20D"
+category: public-transit
+subcategory: public-transit-camera
+order: 2

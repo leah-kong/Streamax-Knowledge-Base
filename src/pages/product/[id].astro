@@ -1,0 +1,16 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProductView from '../../components/ProductView.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const products = await getCollection('products');
+  return products.map((p) => ({ params: { id: p.id } }));
+}
+
+const { id } = Astro.params;
+---
+
+<BaseLayout>
+  <ProductView lang="es" productId={id!} />
+</BaseLayout>

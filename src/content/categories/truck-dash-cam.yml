@@ -1,0 +1,6 @@
+name:
+  es: "Dash cam"
+  en: "Dash cam"
+level: 2
+parent: truck
+order: 1

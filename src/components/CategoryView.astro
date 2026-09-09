@@ -1,0 +1,152 @@
+---
+import { getCollection } from 'astro:content';
+import {
+  useTranslations,
+  localizedPath,
+  translated,
+  type Lang,
+} from '../i18n/utils';
+
+interface Props {
+  lang: Lang;
+  categoryId: string;
+}
+
+const { lang, categoryId } = Astro.props;
+const t = useTranslations(lang);
+
+const allCategories = await getCollection('categories');
+const allProducts = await getCollection('products');
+
+const category = allCategories.find((c) => c.id === categoryId)!;
+
+// 向上追溯祖先链：chain[0] 为一级分类
+function buildChain(id: string) {
+  const result = [];
+  let current = allCategories.find((c) => c.id === id);
+  while (current) {
+    result.unshift(current);
+    current = current.data.parent
+      ? allCategories.find((c) => c.id === current!.data.parent)
+      : undefined;
+  }
+  return result;
+}
+
+const chain = buildChain(categoryId);
+const l1 = chain[0]?.id;
+const l2 = chain[1]?.id;
+const l3 = chain[2]?.id;
+
+// 与当前分类同级的兄弟（顶部 tab）
+const topTabs = allCategories
+  .filter((c) => c.data.level === category.data.level && (c.data.parent ?? '') === (category.data.parent ?? ''))
+  .sort((a, b) => a.data.order - b.data.order);
+
+// 下一级分类（chip 分组）
+const children = allCategories
+  .filter((c) => c.data.parent === categoryId)
+  .sort((a, b) => a.data.order - b.data.order);
+
+const groupField =
+  category.data.level === 1 ? 'subcategory' : category.data.level === 2 ? 'platform' : null;
+
+const scopedProducts = allProducts
+  .filter((p) => (l1 ? p.data.category === l1 : true))
+  .filter((p) => (l2 ? p.data.subcategory === l2 : true))
+  .filter((p) => (l3 ? p.data.platform === l3 : true))
+  .sort((a, b) => a.data.order - b.data.order || a.data.model.localeCompare(b.data.model));
+
+const groups = children.length
+  ? children.map((child) => ({
+      category: child,
+      items: scopedProducts.filter((p) =>
+        groupField === 'subcategory'
+          ? p.data.subcategory === child.id
+          : p.data.platform === child.id
+      ),
+    }))
+  : [{ category: null, items: scopedProducts }];
+---
+
+<nav class="breadcrumb">
+  <a href={localizedPath(lang, '/')}>{t('breadcrumb.home')}</a>
+  {
+    chain.map((c) => (
+      <>
+        <span class="sep">/</span>
+        {c.id === categoryId ? (
+          <span>{translated(c.data.name, lang)}</span>
+        ) : (
+          <a href={localizedPath(lang, `/category/${c.id}`)}>{translated(c.data.name, lang)}</a>
+        )}
+      </>
+    ))
+  }
+</nav>
+
+<h1 style="font-size:24px;margin:8px 0 0;">{translated(category.data.name, lang)}</h1>
+
+{
+  topTabs.length > 1 && (
+    <div class="tabs">
+      {topTabs.map((c) => (
+        <a
+          class={c.id === categoryId ? 'active' : ''}
+          href={localizedPath(lang, `/category/${c.id}`)}
+        >
+          {translated(c.data.name, lang)}
+        </a>
+      ))}
+    </div>
+  )
+}
+
+{
+  children.length > 0 && (
+    <div class="chips">
+      {children.map((c) => (
+        <a class="chip" href={localizedPath(lang, `/category/${c.id}`)}>
+          {translated(c.data.name, lang)}
+        </a>
+      ))}
+    </div>
+  )
+}
+
+{
+  scopedProducts.length === 0 && <div class="empty">{t('category.empty')}</div>
+}
+
+{
+  groups.map(
+    (group) =>
+      group.items.length > 0 && (
+        <section>
+          {group.category && (
+            <div class="section-head">
+              <h2>{translated(group.category.data.name, lang)}</h2>
+            </div>
+          )}
+          <div class="product-grid">
+            {group.items.map((p) => (
+              <a
+                class="product-card"
+                href={localizedPath(lang, `/product/${p.id}`)}
+              >
+                <div class="thumb">
+                  {p.data.image ? <img src={p.data.image} alt="" /> : p.data.model}
+                </div>
+                <div class="meta">
+                  <div class="model">{p.data.model}</div>
+                  {p.data.series && (
+                    <div class="series">{translated(p.data.series, lang)}</div>
+                  )}
+                </div>
+              </a>
+            ))}
+          </div>
+        </section>
+      )
+  )
+}

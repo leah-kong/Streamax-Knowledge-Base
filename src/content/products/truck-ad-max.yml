@@ -1,0 +1,8 @@
+# truck / Dash cam
+model: "AD Max"
+name:
+  es: "AD Max"
+  en: "AD Max"
+category: truck
+subcategory: truck-dash-cam
+order: 6

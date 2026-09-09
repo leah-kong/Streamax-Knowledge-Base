@@ -1,0 +1,8 @@
+# truck / Camera
+model: "960C53"
+name:
+  es: "960C53"
+  en: "960C53"
+category: truck
+subcategory: truck-camera
+order: 4

@@ -1,0 +1,8 @@
+# truck / Camera
+model: "AD Kit 3.0 (+CA20S)"
+name:
+  es: "AD Kit 3.0 (+CA20S)"
+  en: "AD Kit 3.0 (+CA20S)"
+category: truck
+subcategory: truck-camera
+order: 3

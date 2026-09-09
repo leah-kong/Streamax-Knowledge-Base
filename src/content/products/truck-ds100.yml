@@ -1,0 +1,8 @@
+# truck / Dash cam
+model: "DS100"
+name:
+  es: "DS100"
+  en: "DS100"
+category: truck
+subcategory: truck-dash-cam
+order: 1

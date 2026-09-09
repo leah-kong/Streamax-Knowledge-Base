@@ -1,0 +1,8 @@
+# truck / Asset Security
+model: "Z5"
+name:
+  es: "Z5"
+  en: "Z5"
+category: truck
+subcategory: truck-asset-security
+order: 1

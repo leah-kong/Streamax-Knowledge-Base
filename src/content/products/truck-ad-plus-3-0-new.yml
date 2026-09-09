@@ -1,0 +1,8 @@
+# truck / Dash cam
+model: "AD Plus 3.0 (new)"
+name:
+  es: "AD Plus 3.0 (new)"
+  en: "AD Plus 3.0 (new)"
+category: truck
+subcategory: truck-dash-cam
+order: 5

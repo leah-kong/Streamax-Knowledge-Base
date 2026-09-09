@@ -1,0 +1,223 @@
+---
+import { getCollection, getEntry } from 'astro:content';
+import {
+  getManualByProduct,
+  getFirmwareByProduct,
+  getVideoByProduct,
+} from '../lib/data';
+import {
+  useTranslations,
+  localizedPath,
+  translated,
+  formatDate,
+  type Lang,
+} from '../i18n/utils';
+
+interface Props {
+  lang: Lang;
+  productId: string;
+}
+
+const { lang, productId } = Astro.props;
+const t = useTranslations(lang);
+
+const product = await getEntry('products', productId);
+if (!product) throw new Error(`Producto no encontrado: ${productId}`);
+
+const allCategories = await getCollection('categories');
+const allProducts = await getCollection('products');
+
+function buildChain(id: string) {
+  const result = [];
+  let current = allCategories.find((c) => c.id === id);
+  while (current) {
+    result.unshift(current);
+    current = current.data.parent
+      ? allCategories.find((c) => c.id === current!.data.parent)
+      : undefined;
+  }
+  return result;
+}
+
+const chain = buildChain(product.data.category);
+
+const siblings = allProducts
+  .filter((p) => p.data.category === product.data.category && p.id !== product.id)
+  .sort((a, b) => a.data.order - b.data.order)
+  .slice(0, 12);
+
+const manuals = await getManualByProduct(productId);
+const firmwares = await getFirmwareByProduct(productId);
+const videos = await getVideoByProduct(productId);
+
+// 按文档类型分组，只保留有内容的类型
+const docGroups = [...new Set(manuals.map((m) => m.data.docType))].map((type) => ({
+  type,
+  items: manuals.filter((m) => m.data.docType === type),
+}));
+
+const hasFaq = false;
+---
+
+<nav class="breadcrumb">
+  <a href={localizedPath(lang, '/')}>{t('breadcrumb.home')}</a>
+  {
+    chain.map((c) => (
+      <>
+        <span class="sep">/</span>
+        <a href={localizedPath(lang, `/category/${c.id}`)}>{translated(c.data.name, lang)}</a>
+      </>
+    ))
+  }
+  <span class="sep">/</span>
+  <span>{product.data.model}</span>
+</nav>
+
+<div class="product-hero">
+  <div class="hero-image">
+    {product.data.image ? <img src={product.data.image} alt="" /> : product.data.model}
+  </div>
+  <div>
+    <h1>{product.data.model}</h1>
+    {product.data.series && <p class="subtitle">{translated(product.data.series, lang)}</p>}
+    {product.data.name && <p class="subtitle">{translated(product.data.name, lang)}</p>}
+  </div>
+</div>
+
+{
+  siblings.length > 0 && (
+    <>
+      <div class="section-head" style="margin-bottom:6px;">
+        <h2>{t('product.related')}</h2>
+      </div>
+      <div class="related-rail">
+        {siblings.map((p) => (
+          <a href={localizedPath(lang, `/product/${p.id}`)}>
+            <div class="thumb">{p.data.image ? <img src={p.data.image} alt="" /> : p.data.model}</div>
+            <div class="name">{p.data.model}</div>
+          </a>
+        ))}
+      </div>
+    </>
+  )
+}
+
+<div class="tabs" style="margin-top:22px;">
+  <a href="#panel-document" class="tab-link">{t('tab.document')}</a>
+  <a href="#panel-firmware" class="tab-link">{t('tab.firmware')}</a>
+  <a href="#panel-video" class="tab-link">{t('tab.video')}</a>
+</div>
+
+<div class="panels">
+  <!-- Document -->
+  <section id="panel-document" class="tab-panel">
+    <div class="resource-layout">
+      <aside class="doc-sidebar">
+        <ul>
+          {
+            docGroups.map((g) => (
+              <li>
+                <a href={`#doc-${g.type}`}>{t(`doctype.${g.type}`)}</a>
+              </li>
+            ))
+          }
+        </ul>
+      </aside>
+      <div>
+        {
+          docGroups.length === 0 ? (
+            <div class="empty">{t('common.noData')}</div>
+          ) : (
+            docGroups.map((g) => (
+              <div id={`doc-${g.type}`} style="padding-top:8px;">
+                <div class="section-head" style="margin:14px 0 8px;">
+                  <h2 style="font-size:16px;">{t(`doctype.${g.type}`)}</h2>
+                </div>
+                <ul class="resource-list">
+                  {g.items.map((m) => (
+                    <li>
+                      <div class="main">
+                        <div class="title">{translated(m.data.title, lang)}</div>
+                        <div class="sub">
+                          {m.data.version ? `${t('field.version')} ${m.data.version} · ` : ''}
+                          {formatDate(m.data.date, lang)}
+                        </div>
+                      </div>
+                      {(m.data.fileEs || m.data.fileEn || m.data.externalUrl) && (
+                        <a
+                          class="btn-download"
+                          href={(lang === 'es' ? m.data.fileEs : m.data.fileEn) ?? m.data.externalUrl}
+                          target="_blank"
+                          rel="noopener"
+                        >
+                          {t('field.download')}
+                        </a>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))
+          )
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Firmware -->
+  <section id="panel-firmware" class="tab-panel">
+    {
+      firmwares.length === 0 ? (
+        <div class="empty">{t('common.noData')}</div>
+      ) : (
+        <ul class="resource-list" style="margin-top:18px;">
+          {firmwares.map((f) => (
+            <li class="firmware-item">
+              <div class="main">
+                <div class="version">
+                  {f.data.version}
+                  {f.data.mandatory && <span class="badge">{t('field.mandatory')}</span>}
+                </div>
+                {f.data.releaseNotes && (
+                  <div class="notes">{translated(f.data.releaseNotes, lang)}</div>
+                )}
+                <div class="sub">
+                  {formatDate(f.data.date, lang)}
+                  {f.data.fileSize ? ` · ${f.data.fileSize}` : ''}
+                </div>
+                {f.data.checksum && <div class="checksum">{f.data.checksum}</div>}
+              </div>
+              <a class="btn-download" href={f.data.downloadUrl} target="_blank" rel="noopener">
+                {t('field.download')}
+              </a>
+            </li>
+          ))}
+        </ul>
+      )
+    }
+  </section>
+
+  <!-- Video -->
+  <section id="panel-video" class="tab-panel">
+    {
+      videos.length === 0 ? (
+        <div class="empty">{t('common.noData')}</div>
+      ) : (
+        <div class="video-grid" style="margin-top:18px;">
+          {videos.map((v) => (
+            <a class="video-card" href={v.data.url} target="_blank" rel="noopener">
+              <div class="cover">
+                {v.data.cover ? <img src={v.data.cover} alt="" /> : t('field.watch')}
+              </div>
+              <div class="title">{translated(v.data.title, lang)}</div>
+              <div class="meta">
+                {formatDate(v.data.date, lang)}
+                {v.data.duration ? ` · ${v.data.duration}` : ''}
+              </div>
+            </a>
+          ))}
+        </div>
+      )
+    }
+  </section>
+</div>

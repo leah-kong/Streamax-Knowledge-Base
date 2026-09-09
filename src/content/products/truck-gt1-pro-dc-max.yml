@@ -1,0 +1,8 @@
+# truck / Dash cam
+model: "GT1 Pro + DC Max"
+name:
+  es: "GT1 Pro + DC Max"
+  en: "GT1 Pro + DC Max"
+category: truck
+subcategory: truck-dash-cam
+order: 7

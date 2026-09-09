@@ -1,0 +1,8 @@
+# truck / MDVR
+model: "M3N"
+name:
+  es: "M3N"
+  en: "M3N"
+category: truck
+subcategory: truck-mdvr
+order: 3

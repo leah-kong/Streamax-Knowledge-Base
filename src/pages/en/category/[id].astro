@@ -1,0 +1,16 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import CategoryView from '../../../components/CategoryView.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const categories = await getCollection('categories');
+  return categories.map((c) => ({ params: { id: c.id } }));
+}
+
+const { id } = Astro.params;
+---
+
+<BaseLayout>
+  <CategoryView lang="en" categoryId={id!} />
+</BaseLayout>

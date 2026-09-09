@@ -1,0 +1,6 @@
+model: "FT Cloud"
+name:
+  es: "FT Cloud"
+  en: "FT Cloud"
+category: platform
+order: 99

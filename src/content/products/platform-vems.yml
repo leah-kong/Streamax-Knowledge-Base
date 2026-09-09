@@ -1,0 +1,6 @@
+model: "VEMS"
+name:
+  es: "VEMS"
+  en: "VEMS"
+category: platform
+order: 99

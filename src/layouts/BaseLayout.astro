@@ -1,0 +1,78 @@
+---
+import '../styles/global.css';
+import '../styles/tabs.css';
+import {
+  getLangFromUrl,
+  useTranslations,
+  localizedPath,
+  switchLangPath,
+  type Lang,
+} from '../i18n/utils';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+const lang: Lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const altHref = switchLangPath(lang, Astro.url.pathname);
+const altLabel = lang === 'es' ? 'English' : 'Español';
+const htmlLang = lang === 'es' ? 'es-MX' : 'en';
+const pageTitle = title ? `${title} · ${t('site.title')}` : t('site.title');
+---
+
+<!doctype html>
+<html lang={htmlLang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    {description && <meta name="description" content={description} />}
+    <slot name="head" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <a class="brand" href={localizedPath(lang, '/')}>
+          {t('site.title')}<span>.</span>
+        </a>
+        <nav class="main-nav">
+          <a href={localizedPath(lang, '/')}>{t('nav.home')}</a>
+          <a href={`${localizedPath(lang, '/')}#documents`}>{t('nav.documents')}</a>
+          <a href={`${localizedPath(lang, '/')}#firmware`}>{t('nav.downloads')}</a>
+          <a href={`${localizedPath(lang, '/')}#videos`}>{t('nav.videos')}</a>
+        </nav>
+        <div class="header-right">
+          <a class="lang-switch" href={altHref}>{altLabel}</a>
+        </div>
+      </div>
+    </header>
+
+    <div class="search-bar">
+      <div class="container">
+        <form action={localizedPath(lang, '/search')} method="get">
+          <input
+            type="search"
+            name="q"
+            placeholder={t('search.placeholder')}
+            aria-label={t('search.placeholder')}
+          />
+          <button type="submit">{t('product.search')}</button>
+        </form>
+      </div>
+    </div>
+
+    <main class="container">
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div>{t('site.title')} — {t('site.tagline')}</div>
+        <div>{new Date().getFullYear()}</div>
+      </div>
+    </footer>
+  </body>
+</html>

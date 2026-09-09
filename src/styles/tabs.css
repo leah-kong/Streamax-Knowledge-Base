@@ -1,0 +1,27 @@
+/* 无 JS 的 tab 切换：基于 :target，静态站可用 */
+.tab-panel {
+  display: none;
+}
+
+.panels .tab-panel:first-child {
+  display: block;
+}
+
+.panels:has(.tab-panel:target) .tab-panel:first-child:not(:target) {
+  display: none;
+}
+
+.panels:has(.tab-panel:target) .tab-panel:target {
+  display: block;
+}
+
+/* 不支持 :has 的浏览器退化为全部展开，保证内容可见 */
+@supports not selector(:has(*)) {
+  .tab-panel {
+    display: block;
+  }
+}
+
+.tab-link {
+  cursor: pointer;
+}

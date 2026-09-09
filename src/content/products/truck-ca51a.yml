@@ -1,0 +1,8 @@
+# truck / Camera
+model: "CA51A"
+name:
+  es: "CA51A"
+  en: "CA51A"
+category: truck
+subcategory: truck-camera
+order: 11

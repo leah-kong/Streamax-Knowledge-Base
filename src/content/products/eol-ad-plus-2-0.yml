@@ -1,0 +1,6 @@
+model: "AD Plus 2.0"
+name:
+  es: "AD Plus 2.0"
+  en: "AD Plus 2.0"
+category: eol-product
+order: 99

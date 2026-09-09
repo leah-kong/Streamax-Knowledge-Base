@@ -1,0 +1,8 @@
+# truck / Camera
+model: "CA46"
+name:
+  es: "CA46"
+  en: "CA46"
+category: truck
+subcategory: truck-camera
+order: 6

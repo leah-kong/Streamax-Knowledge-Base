@@ -1,0 +1,8 @@
+# truck / MDVR
+model: "M1N 2.0"
+name:
+  es: "M1N 2.0"
+  en: "M1N 2.0"
+category: truck
+subcategory: truck-mdvr
+order: 2

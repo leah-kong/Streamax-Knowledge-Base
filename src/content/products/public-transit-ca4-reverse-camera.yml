@@ -1,0 +1,8 @@
+# public-transit / Camera
+model: "CA4 reverse camera"
+name:
+  es: "CA4 reverse camera"
+  en: "CA4 reverse camera"
+category: public-transit
+subcategory: public-transit-camera
+order: 15

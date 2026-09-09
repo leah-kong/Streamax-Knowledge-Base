@@ -1,0 +1,8 @@
+# public-transit / MDVR
+model: "A8Pro2.0"
+name:
+  es: "A8Pro2.0"
+  en: "A8Pro2.0"
+category: public-transit
+subcategory: public-transit-mdvr
+order: 6

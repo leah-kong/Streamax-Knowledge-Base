@@ -1,0 +1,8 @@
+# truck / Camera
+model: "CA42 Kit"
+name:
+  es: "CA42 Kit"
+  en: "CA42 Kit"
+category: truck
+subcategory: truck-camera
+order: 7

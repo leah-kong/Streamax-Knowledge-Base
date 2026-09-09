@@ -1,0 +1,8 @@
+# truck / Peripherals
+model: "B2 / B3"
+name:
+  es: "B2 / B3"
+  en: "B2 / B3"
+category: truck
+subcategory: truck-peripherals
+order: 1

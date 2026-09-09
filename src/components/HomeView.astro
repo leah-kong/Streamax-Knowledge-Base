@@ -1,0 +1,120 @@
+---
+import { getCategoriesByLevel, getRecentManual, getRecentFirmware, getRecentVideo } from '../lib/data';
+import { useTranslations, localizedPath, translated, formatDate, type Lang } from '../i18n/utils';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const categories = await getCategoriesByLevel(1);
+const manuals = await getRecentManual(6);
+const firmwares = await getRecentFirmware(5);
+const videos = await getRecentVideo(4);
+---
+
+<h1 style="font-size:28px;margin:26px 0 4px;">{t('home.heading')}</h1>
+<p style="color:var(--ink-soft);margin:0 0 8px;">{t('home.subheading')}</p>
+
+<div class="category-grid" style="margin-top:22px;">
+  {
+    categories.map((c) => (
+      <a class="category-card" href={localizedPath(lang, `/category/${c.id}`)}>
+        <div>
+          <h3>{translated(c.data.name, lang)}</h3>
+          {c.data.summary && <p>{translated(c.data.summary, lang)}</p>}
+        </div>
+      </a>
+    ))
+  }
+</div>
+
+<section id="documents">
+  <div class="section-head">
+    <h2>{t('home.latest')}</h2>
+  </div>
+  {
+    manuals.length === 0 ? (
+      <div class="empty">{t('common.noData')}</div>
+    ) : (
+      <ul class="resource-list">
+        {manuals.map((m) => (
+          <li>
+            <div class="main">
+              <div class="title">{translated(m.data.title, lang)}</div>
+              <div class="sub">{t(`doctype.${m.data.docType}`)}</div>
+            </div>
+            <div class="date">{formatDate(m.data.date, lang)}</div>
+            {(m.data.fileEs || m.data.fileEn || m.data.externalUrl) && (
+              <a
+                class="btn-download"
+                href={(lang === 'es' ? m.data.fileEs : m.data.fileEn) ?? m.data.externalUrl}
+                target="_blank"
+                rel="noopener"
+              >
+                {t('field.download')}
+              </a>
+            )}
+          </li>
+        ))}
+      </ul>
+    )
+  }
+</section>
+
+<section id="firmware">
+  <div class="section-head">
+    <h2>{t('home.latestFirmware')}</h2>
+  </div>
+  {
+    firmwares.length === 0 ? (
+      <div class="empty">{t('common.noData')}</div>
+    ) : (
+      <ul class="resource-list">
+        {firmwares.map((f) => (
+          <li class="firmware-item">
+            <div class="main">
+              <div class="version">
+                {f.data.version}
+                {f.data.mandatory && <span class="badge">{t('field.mandatory')}</span>}
+              </div>
+              {f.data.releaseNotes && (
+                <div class="notes">{translated(f.data.releaseNotes, lang)}</div>
+              )}
+            </div>
+            <div class="date">{formatDate(f.data.date, lang)}</div>
+            <a class="btn-download" href={f.data.downloadUrl} target="_blank" rel="noopener">
+              {t('field.download')}
+            </a>
+          </li>
+        ))}
+      </ul>
+    )
+  }
+</section>
+
+<section id="videos">
+  <div class="section-head">
+    <h2>{t('home.videos')}</h2>
+  </div>
+  {
+    videos.length === 0 ? (
+      <div class="empty">{t('common.noData')}</div>
+    ) : (
+      <div class="video-grid">
+        {videos.map((v) => (
+          <a class="video-card" href={v.data.url} target="_blank" rel="noopener">
+            <div class="cover">{v.data.cover ? <img src={v.data.cover} alt="" /> : t('field.watch')}</div>
+            <div class="title">{translated(v.data.title, lang)}</div>
+            <div class="meta">
+              {formatDate(v.data.date, lang)}
+              {v.data.duration ? ` · ${v.data.duration}` : ''}
+            </div>
+          </a>
+        ))}
+      </div>
+    )
+  }
+</section>

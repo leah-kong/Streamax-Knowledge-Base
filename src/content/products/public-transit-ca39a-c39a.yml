@@ -1,0 +1,8 @@
+# public-transit / Camera
+model: "CA39A / C39A"
+name:
+  es: "CA39A / C39A"
+  en: "CA39A / C39A"
+category: public-transit
+subcategory: public-transit-camera
+order: 12

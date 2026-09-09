@@ -1,0 +1,8 @@
+# public-transit / Display
+model: "CP5"
+name:
+  es: "CP5"
+  en: "CP5"
+category: public-transit
+subcategory: public-transit-display
+order: 3

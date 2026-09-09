@@ -1,0 +1,115 @@
+﻿backend:
+  name: github
+  repo: leah-kong/Streamax-Knowledge-Base
+  branch: main
+  base_url: https://api.github.com
+
+media_folder: public/uploads
+public_folder: /Streamax-Knowledge-Base/uploads
+
+# 双语：西语（墨西哥）为默认，字段在单个文件内以 es / en 分组保存
+i18n:
+  structure: single_file
+  locales: [es, en]
+  default_locale: es
+
+collections:
+  - name: categories
+    label: Categorías / Categories
+    folder: src/content/categories
+    extension: yml
+    create: true
+    identifier_field: name
+    fields:
+      - { label: Nombre, name: name, widget: string, i18n: true }
+      - label: Nivel
+        name: level
+        widget: select
+        options:
+          - { label: 'Nivel 1 (categoría principal)', value: 1 }
+          - { label: 'Nivel 2 (pestaña)', value: 2 }
+          - { label: 'Nivel 3 (agrupación)', value: 3 }
+      - { label: Categoría padre, name: parent, widget: relation, collection: categories, search_fields: [name], value_field: name, display_fields: [name], required: false }
+      - { label: Orden, name: order, widget: number, value_type: int, default: 99, required: false }
+      - { label: Descripción, name: summary, widget: text, i18n: true, required: false }
+
+  - name: products
+    label: Productos / Products
+    folder: src/content/products
+    extension: yml
+    create: true
+    identifier_field: model
+    fields:
+      - { label: Modelo, name: model, widget: string, i18n: false }
+      - { label: Nombre, name: name, widget: string, i18n: true }
+      - { label: Serie, name: series, widget: string, i18n: true, required: false }
+      - { label: 'Categoría (nivel 1)', name: category, widget: relation, collection: categories, search_fields: [name], value_field: name, display_fields: [name] }
+      - { label: 'Subcategoría (nivel 2)', name: subcategory, widget: relation, collection: categories, search_fields: [name], value_field: name, display_fields: [name], required: false }
+      - { label: 'Agrupación (nivel 3)', name: platform, widget: relation, collection: categories, search_fields: [name], value_field: name, display_fields: [name], required: false }
+      - { label: Imagen, name: image, widget: image, required: false }
+      - { label: Orden, name: order, widget: number, value_type: int, default: 99, required: false }
+      - { label: 'Fin de vida (EOL)', name: eol, widget: boolean, default: false, required: false }
+
+  - name: manual
+    label: Manuales / Manuals
+    folder: src/content/manual
+    extension: yml
+    create: true
+    identifier_field: title
+    fields:
+      - { label: Título, name: title, widget: string, i18n: true }
+      - label: Tipo de documento
+        name: docType
+        widget: select
+        options:
+          - { label: Datasheet, value: datasheet }
+          - { label: 'User Guide', value: user-guide }
+          - { label: 'Wiring Diagram', value: wiring-diagram }
+          - { label: Certification, value: certification }
+      - { label: Productos, name: products, widget: relation, collection: products, multiple: true, search_fields: [model], value_field: model, display_fields: [model] }
+      - { label: Versión, name: version, widget: string, required: false }
+      - { label: Fecha, name: date, widget: datetime, date_format: YYYY-MM-DD, time_format: false }
+      # URL de descarga：建议指向 GitHub Releases，避免把 PDF 提交进仓库
+      - { label: 'Archivo ES (URL)', name: fileEs, widget: string, required: false, hint: 'URL del PDF en español, por ejemplo un asset de GitHub Releases' }
+      - { label: 'Archivo EN (URL)', name: fileEn, widget: string, required: false }
+      - { label: 'Enlace externo', name: externalUrl, widget: string, required: false }
+      - { label: Resumen, name: summary, widget: text, i18n: true, required: false }
+
+  - name: firmware
+    label: 'Firmware y herramientas'
+    folder: src/content/firmware
+    extension: yml
+    create: true
+    identifier_field: version
+    fields:
+      - { label: Versión, name: version, widget: string }
+      - { label: Productos, name: products, widget: relation, collection: products, multiple: true, search_fields: [model], value_field: model, display_fields: [model] }
+      - { label: Fecha, name: date, widget: datetime, date_format: YYYY-MM-DD, time_format: false }
+      - label: Tipo
+        name: type
+        widget: select
+        options:
+          - { label: Firmware, value: firmware }
+          - { label: Herramienta, value: tool }
+        default: firmware
+      - { label: 'Tamaño del archivo', name: fileSize, widget: string, required: false }
+      - { label: Checksum, name: checksum, widget: string, required: false }
+      - { label: 'URL de descarga', name: downloadUrl, widget: string, hint: 'Enlace directo al asset de GitHub Releases' }
+      - { label: Notas de versión, name: releaseNotes, widget: text, i18n: true, required: false }
+      - { label: 'Actualización obligatoria', name: mandatory, widget: boolean, default: false, required: false }
+
+  - name: video
+    label: Videos
+    folder: src/content/video
+    extension: yml
+    create: true
+    identifier_field: title
+    fields:
+      - { label: Título, name: title, widget: string, i18n: true }
+      - { label: Productos, name: products, widget: relation, collection: products, multiple: true, search_fields: [model], value_field: model, display_fields: [model] }
+      - { label: Fecha, name: date, widget: datetime, date_format: YYYY-MM-DD, time_format: false }
+      - { label: Duración, name: duration, widget: string, required: false }
+      - { label: 'URL del video', name: url, widget: string }
+      - { label: 'Enlace externo', name: external, widget: boolean, default: true, required: false }
+      - { label: Portada, name: cover, widget: string, required: false }
+      - { label: Resumen, name: summary, widget: text, i18n: true, required: false }

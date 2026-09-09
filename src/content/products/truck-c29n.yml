@@ -1,0 +1,8 @@
+# truck / Camera
+model: "C29N"
+name:
+  es: "C29N"
+  en: "C29N"
+category: truck
+subcategory: truck-camera
+order: 2

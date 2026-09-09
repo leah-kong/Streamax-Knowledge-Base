@@ -1,0 +1,6 @@
+name:
+  es: "Camera"
+  en: "Camera"
+level: 2
+parent: public-transit
+order: 2

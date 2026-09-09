@@ -1,0 +1,8 @@
+# public-transit / Display
+model: "DP12S"
+name:
+  es: "DP12S"
+  en: "DP12S"
+category: public-transit
+subcategory: public-transit-display
+order: 9

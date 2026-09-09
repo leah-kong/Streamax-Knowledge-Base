@@ -1,0 +1,8 @@
+# truck / Camera
+model: "CA39A / C39A"
+name:
+  es: "CA39A / C39A"
+  en: "CA39A / C39A"
+category: truck
+subcategory: truck-camera
+order: 9

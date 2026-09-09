@@ -1,0 +1,8 @@
+# truck / Camera
+model: "CA4 reverse camera"
+name:
+  es: "CA4 reverse camera"
+  en: "CA4 reverse camera"
+category: truck
+subcategory: truck-camera
+order: 12

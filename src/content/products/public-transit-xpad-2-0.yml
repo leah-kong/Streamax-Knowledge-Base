@@ -1,0 +1,8 @@
+# public-transit / Display
+model: "XPAD 2.0"
+name:
+  es: "XPAD 2.0"
+  en: "XPAD 2.0"
+category: public-transit
+subcategory: public-transit-display
+order: 1

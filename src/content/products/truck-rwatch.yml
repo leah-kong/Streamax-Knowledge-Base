@@ -1,0 +1,8 @@
+# truck / Peripherals
+model: "RWatch"
+name:
+  es: "RWatch"
+  en: "RWatch"
+category: truck
+subcategory: truck-peripherals
+order: 3

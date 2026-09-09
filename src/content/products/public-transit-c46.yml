@@ -1,0 +1,8 @@
+# public-transit / Camera
+model: "C46"
+name:
+  es: "C46"
+  en: "C46"
+category: public-transit
+subcategory: public-transit-camera
+order: 8

@@ -1,0 +1,8 @@
+# public-transit / Camera
+model: "CA38"
+name:
+  es: "CA38"
+  en: "CA38"
+category: public-transit
+subcategory: public-transit-camera
+order: 17

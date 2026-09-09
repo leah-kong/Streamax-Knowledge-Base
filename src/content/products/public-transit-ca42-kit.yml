@@ -1,0 +1,8 @@
+# public-transit / Camera
+model: "CA42 Kit"
+name:
+  es: "CA42 Kit"
+  en: "CA42 Kit"
+category: public-transit
+subcategory: public-transit-camera
+order: 10

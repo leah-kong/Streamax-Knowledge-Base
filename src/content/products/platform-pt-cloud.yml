@@ -1,0 +1,6 @@
+model: "PT Cloud"
+name:
+  es: "PT Cloud"
+  en: "PT Cloud"
+category: platform
+order: 99

@@ -1,0 +1,14 @@
+# 示例条目，替换为真实文件
+title:
+  es: DS100 Datasheet
+  en: DS100 Datasheet
+docType: datasheet
+products:
+  - truck-ds100
+version: "1.3"
+date: 2026-08-12
+fileEs: /docs/placeholder-es.pdf
+fileEn: /docs/placeholder-en.pdf
+summary:
+  es: Especificaciones técnicas y dimensiones
+  en: Technical specifications and dimensions

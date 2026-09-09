@@ -1,0 +1,6 @@
+name:
+  es: "Automatic People Counting"
+  en: "Automatic People Counting"
+level: 2
+parent: public-transit
+order: 3

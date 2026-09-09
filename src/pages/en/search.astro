@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { useTranslations } from '../../i18n/utils';
+
+const t = useTranslations('en');
+const pf = import.meta.env.BASE_URL === './' ? './pagefind' : '/pagefind';
+---
+
+<BaseLayout title={t('product.search')}>
+  <link slot="head" rel="stylesheet" href={`${pf}/pagefind-ui.css`} />
+  <h1 style="font-size:22px;margin:26px 0 14px;">{t('product.search')}</h1>
+  <div id="search"></div>
+  <script is:inline src={`${pf}/pagefind-ui.js`}></script>
+  <script is:inline>
+    window.addEventListener('DOMContentLoaded', function () {
+      if (window.PagefindUI) {
+        new window.PagefindUI({ element: '#search', showSubResults: true });
+      }
+    });
+  </script>
+</BaseLayout>

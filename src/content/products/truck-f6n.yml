@@ -1,0 +1,8 @@
+# truck / MDVR
+model: "F6N"
+name:
+  es: "F6N"
+  en: "F6N"
+category: truck
+subcategory: truck-mdvr
+order: 1

@@ -1,0 +1,8 @@
+# public-transit / Display
+model: "LED"
+name:
+  es: "LED"
+  en: "LED"
+category: public-transit
+subcategory: public-transit-display
+order: 11

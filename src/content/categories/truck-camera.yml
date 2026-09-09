@@ -1,0 +1,6 @@
+name:
+  es: "Camera"
+  en: "Camera"
+level: 2
+parent: truck
+order: 4

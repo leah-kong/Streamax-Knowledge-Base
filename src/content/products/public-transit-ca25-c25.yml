@@ -1,0 +1,8 @@
+# public-transit / Camera
+model: "CA25 / C25"
+name:
+  es: "CA25 / C25"
+  en: "CA25 / C25"
+category: public-transit
+subcategory: public-transit-camera
+order: 13

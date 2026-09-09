@@ -1,0 +1,8 @@
+# public-transit / Display
+model: "DP7S-T"
+name:
+  es: "DP7S-T"
+  en: "DP7S-T"
+category: public-transit
+subcategory: public-transit-display
+order: 6

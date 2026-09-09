@@ -1,0 +1,8 @@
+# public-transit / Camera
+model: "CA51A"
+name:
+  es: "CA51A"
+  en: "CA51A"
+category: public-transit
+subcategory: public-transit-camera
+order: 14

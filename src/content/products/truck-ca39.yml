@@ -1,0 +1,8 @@
+# truck / Camera
+model: "CA39"
+name:
+  es: "CA39"
+  en: "CA39"
+category: truck
+subcategory: truck-camera
+order: 13

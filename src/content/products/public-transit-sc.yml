@@ -1,0 +1,8 @@
+# public-transit / Camera
+model: "SC"
+name:
+  es: "SC"
+  en: "SC"
+category: public-transit
+subcategory: public-transit-camera
+order: 6

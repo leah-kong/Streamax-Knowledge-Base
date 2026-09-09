@@ -1,0 +1,8 @@
+# truck / Peripherals
+model: "Power Box Max"
+name:
+  es: "Power Box Max"
+  en: "Power Box Max"
+category: truck
+subcategory: truck-peripherals
+order: 4

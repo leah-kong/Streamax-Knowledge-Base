@@ -1,0 +1,8 @@
+# public-transit / Camera
+model: "CA20S"
+name:
+  es: "CA20S"
+  en: "CA20S"
+category: public-transit
+subcategory: public-transit-camera
+order: 3

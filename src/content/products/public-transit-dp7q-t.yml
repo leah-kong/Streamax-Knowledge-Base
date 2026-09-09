@@ -1,0 +1,8 @@
+# public-transit / Display
+model: "DP7Q-T"
+name:
+  es: "DP7Q-T"
+  en: "DP7Q-T"
+category: public-transit
+subcategory: public-transit-display
+order: 7

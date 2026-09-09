@@ -1,0 +1,8 @@
+# public-transit / Display
+model: "C16Max"
+name:
+  es: "C16Max"
+  en: "C16Max"
+category: public-transit
+subcategory: public-transit-display
+order: 4

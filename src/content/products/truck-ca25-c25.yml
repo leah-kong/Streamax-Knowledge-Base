@@ -1,0 +1,8 @@
+# truck / Camera
+model: "CA25 / C25"
+name:
+  es: "CA25 / C25"
+  en: "CA25 / C25"
+category: truck
+subcategory: truck-camera
+order: 10

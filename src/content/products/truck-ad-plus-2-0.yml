@@ -1,0 +1,8 @@
+# truck / Dash cam
+model: "AD Plus 2.0"
+name:
+  es: "AD Plus 2.0"
+  en: "AD Plus 2.0"
+category: truck
+subcategory: truck-dash-cam
+order: 4

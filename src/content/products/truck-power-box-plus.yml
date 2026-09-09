@@ -1,0 +1,8 @@
+# truck / Peripherals
+model: "Power Box Plus"
+name:
+  es: "Power Box Plus"
+  en: "Power Box Plus"
+category: truck
+subcategory: truck-peripherals
+order: 5

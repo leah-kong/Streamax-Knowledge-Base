@@ -1,0 +1,8 @@
+# public-transit / Camera
+model: "C29N"
+name:
+  es: "C29N"
+  en: "C29N"
+category: public-transit
+subcategory: public-transit-camera
+order: 4

@@ -1,0 +1,8 @@
+# public-transit / MDVR
+model: "M1N 2.0"
+name:
+  es: "M1N 2.0"
+  en: "M1N 2.0"
+category: public-transit
+subcategory: public-transit-mdvr
+order: 1

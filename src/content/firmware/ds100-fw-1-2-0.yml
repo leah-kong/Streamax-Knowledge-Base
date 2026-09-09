@@ -1,0 +1,13 @@
+# 示例条目，替换为 GitHub Releases 直链
+version: "1.2.0"
+products:
+  - truck-ds100
+date: 2026-09-01
+type: firmware
+mandatory: false
+fileSize: 86 MB
+checksum: "SHA256: 9b2c4e6a8d1f3a5c7e9b0d2f4a6c8e1b3d5f7a9c0e2b4d6f8a1c3e5b7d9f0a2c"
+releaseNotes:
+  es: "Mejora la detección de eventos y corrige un error de sincronización GPS."
+  en: "Improves event detection and fixes a GPS sync issue."
+downloadUrl: https://github.com/OWNER/REPO/releases/download/fw-ds100-1.2.0/ds100_1.2.0.zip

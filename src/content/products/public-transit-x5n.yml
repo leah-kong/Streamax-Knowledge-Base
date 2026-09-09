@@ -1,0 +1,8 @@
+# public-transit / MDVR
+model: "X5N"
+name:
+  es: "X5N"
+  en: "X5N"
+category: public-transit
+subcategory: public-transit-mdvr
+order: 4

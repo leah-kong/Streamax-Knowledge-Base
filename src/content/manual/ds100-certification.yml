@@ -1,0 +1,10 @@
+# 示例条目，替换为真实文件
+title:
+  es: DS100 Certification (CE / FCC)
+  en: DS100 Certification (CE / FCC)
+docType: certification
+products:
+  - truck-ds100
+date: 2026-04-22
+fileEs: /docs/placeholder-es.pdf
+fileEn: /docs/placeholder-en.pdf

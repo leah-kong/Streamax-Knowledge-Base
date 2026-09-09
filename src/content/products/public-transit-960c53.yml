@@ -1,0 +1,8 @@
+# public-transit / Camera
+model: "960C53"
+name:
+  es: "960C53"
+  en: "960C53"
+category: public-transit
+subcategory: public-transit-camera
+order: 7

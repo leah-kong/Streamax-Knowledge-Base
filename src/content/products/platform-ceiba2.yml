@@ -1,0 +1,6 @@
+model: "CEIBA2"
+name:
+  es: "CEIBA2"
+  en: "CEIBA2"
+category: platform
+order: 99

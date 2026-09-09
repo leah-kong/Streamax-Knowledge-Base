@@ -1,0 +1,8 @@
+# truck / Peripherals
+model: "iButton"
+name:
+  es: "iButton"
+  en: "iButton"
+category: truck
+subcategory: truck-peripherals
+order: 2

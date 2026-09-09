@@ -1,0 +1,8 @@
+# truck / Camera
+model: "CA20S"
+name:
+  es: "CA20S"
+  en: "CA20S"
+category: truck
+subcategory: truck-camera
+order: 1

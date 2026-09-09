@@ -1,0 +1,8 @@
+# public-transit / Display
+model: "L16Max (215/286)"
+name:
+  es: "L16Max (215/286)"
+  en: "L16Max (215/286)"
+category: public-transit
+subcategory: public-transit-display
+order: 10

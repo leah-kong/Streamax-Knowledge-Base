@@ -1,0 +1,8 @@
+# public-transit / Peripherals
+model: "IMS 100"
+name:
+  es: "IMS 100"
+  en: "IMS 100"
+category: public-transit
+subcategory: public-transit-peripherals
+order: 1
