@@ -5,7 +5,7 @@
   base_url: https://api.github.com
 
 media_folder: public/uploads
-public_folder: /Streamax-Knowledge-Base/uploads
+public_folder: /uploads
 
 # 双语：西语（墨西哥）为默认，字段在单个文件内以 es / en 分组保存
 i18n:

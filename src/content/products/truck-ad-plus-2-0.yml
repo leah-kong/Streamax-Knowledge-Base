@@ -1,9 +1,12 @@
-model: AD Plus 2.0
-name: AD Plus 2.0
-series: ''
+# truck / Dash cam
+model: "AD Plus 2.0"
+name:
+  es: "AD Plus 2.0"
+  en: "AD Plus 2.0"
+series: ""
 category: truck
 subcategory: truck-dash-cam
-platform: ''
-image: /Streamax-Knowledge-Base/uploads/AD Plus 2.0 Cabin Side_2-No Background.png
+platform: ""
+image: /uploads/AD Plus 2.0 Cabin Side_2-No Background.png
 order: 4
 eol: false

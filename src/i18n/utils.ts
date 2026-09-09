@@ -88,9 +88,11 @@ export function formatDate(date: Date, lang: Lang): string {
 
 // 取双语字段在当前语言下的值
 export function translated(
-  value: { es?: string; en?: string } | undefined | null,
+  value: { es?: string; en?: string } | string | undefined | null,
   lang: Lang
 ): string {
   if (!value) return '';
+  // 后台可能把双语字段存成普通字符串，此时两种语言都显示它
+  if (typeof value === 'string') return value;
   return value[lang] ?? value.es ?? value.en ?? '';
 }

@@ -1,11 +1,16 @@
 import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
 
-// 双语文本：西语（墨西哥）为默认，英语为第二语言
-const i18nText = z.object({
-  es: z.string(),
-  en: z.string(),
-});
+// 双语文本：西语（墨西哥）为默认，英语为第二语言。
+// 后台（Sveltia CMS）可能把双语字段保存成普通字符串，这里对象/字符串都接受，
+// 由 translated() 统一取值 —— 避免非技术人员在后台改内容导致整站构建失败。
+const i18nText = z.union([
+  z.object({
+    es: z.string().optional(),
+    en: z.string().optional(),
+  }),
+  z.string(),
+]);
 
 // 一级 / 二级 / 三级分类
 const categories = defineCollection({

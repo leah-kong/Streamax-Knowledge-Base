@@ -76,7 +76,7 @@ const hasFaq = false;
 
 <div class="product-hero">
   <div class="hero-image">
-    {product.data.image ? <img src={product.data.image} alt="" /> : product.data.model}
+    {product.data.image ? <img src={siteAsset(product.data.image)} alt="" /> : product.data.model}
   </div>
   <div>
     <h1>{product.data.model}</h1>
@@ -94,7 +94,7 @@ const hasFaq = false;
       <div class="related-rail">
         {siblings.map((p) => (
           <a href={localizedPath(lang, `/product/${p.id}`)}>
-            <div class="thumb">{p.data.image ? <img src={p.data.image} alt="" /> : p.data.model}</div>
+            <div class="thumb">{p.data.image ? <img src={siteAsset(p.data.image)} alt="" /> : p.data.model}</div>
             <div class="name">{p.data.model}</div>
           </a>
         ))}

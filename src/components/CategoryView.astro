@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import {
   useTranslations,
   localizedPath,
+  siteAsset,
   translated,
   type Lang,
 } from '../i18n/utils';
@@ -135,7 +136,7 @@ const groups = children.length
                 href={localizedPath(lang, `/product/${p.id}`)}
               >
                 <div class="thumb">
-                  {p.data.image ? <img src={p.data.image} alt="" /> : p.data.model}
+                  {p.data.image ? <img src={siteAsset(p.data.image)} alt="" /> : p.data.model}
                 </div>
                 <div class="meta">
                   <div class="model">{p.data.model}</div>
