@@ -1,0 +1,8 @@
+# public-transport / public-transport-mdvr
+model: "M1N 2.0"
+name:
+  es: "M1N 2.0"
+  en: "M1N 2.0"
+category: public-transport
+subcategory: public-transport-mdvr
+order: 1

@@ -1,0 +1,8 @@
+# camera / camera-avm
+model: "CA51"
+name:
+  es: "CA51"
+  en: "CA51"
+category: camera
+subcategory: camera-avm
+order: 1

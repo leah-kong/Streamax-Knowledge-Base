@@ -1,7 +1,7 @@
 # 示例条目，替换为 GitHub Releases 直链
 version: "1.2.0"
 products:
-  - truck-ds100
+  - trucking-ds100
 date: 2026-09-01
 type: firmware
 mandatory: false

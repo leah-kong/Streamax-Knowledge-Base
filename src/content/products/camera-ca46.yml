@@ -1,0 +1,8 @@
+# camera / camera-bsd
+model: "CA46"
+name:
+  es: "CA46"
+  en: "CA46"
+category: camera
+subcategory: camera-bsd
+order: 3

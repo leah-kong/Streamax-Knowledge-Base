@@ -1,0 +1,8 @@
+# trucking / trucking-mdvr
+model: "M1N 2.0"
+name:
+  es: "M1N 2.0"
+  en: "M1N 2.0"
+category: trucking
+subcategory: trucking-mdvr
+order: 2

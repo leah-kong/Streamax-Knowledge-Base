@@ -1,0 +1,6 @@
+name:
+  es: "Surveillance Camera"
+  en: "Surveillance Camera"
+level: 2
+parent: camera
+order: 5

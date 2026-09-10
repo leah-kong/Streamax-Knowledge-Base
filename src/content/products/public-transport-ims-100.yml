@@ -1,0 +1,8 @@
+# public-transport / public-transport-pis
+model: "IMS 100"
+name:
+  es: "IMS 100"
+  en: "IMS 100"
+category: public-transport
+subcategory: public-transport-pis
+order: 1

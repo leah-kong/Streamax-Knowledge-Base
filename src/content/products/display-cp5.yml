@@ -1,0 +1,7 @@
+# display
+model: "CP5"
+name:
+  es: "CP5"
+  en: "CP5"
+category: display
+order: 9

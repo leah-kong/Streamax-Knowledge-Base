@@ -1,0 +1,7 @@
+# display
+model: "CP4"
+name:
+  es: "CP4"
+  en: "CP4"
+category: display
+order: 8

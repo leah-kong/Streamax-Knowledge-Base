@@ -1,0 +1,7 @@
+# display
+model: "DP12S"
+name:
+  es: "DP12S"
+  en: "DP12S"
+category: display
+order: 7

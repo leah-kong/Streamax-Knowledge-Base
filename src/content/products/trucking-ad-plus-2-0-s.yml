@@ -1,0 +1,8 @@
+# trucking / trucking-dash-camera
+model: "AD Plus 2.0-S"
+name:
+  es: "AD Plus 2.0-S"
+  en: "AD Plus 2.0-S"
+category: trucking
+subcategory: trucking-dash-camera
+order: 5

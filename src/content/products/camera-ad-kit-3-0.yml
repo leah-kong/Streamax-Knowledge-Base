@@ -1,0 +1,8 @@
+# camera / camera-dms
+model: "AD Kit 3.0"
+name:
+  es: "AD Kit 3.0"
+  en: "AD Kit 3.0"
+category: camera
+subcategory: camera-dms
+order: 2

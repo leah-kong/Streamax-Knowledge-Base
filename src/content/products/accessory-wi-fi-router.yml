@@ -1,0 +1,7 @@
+# accessory
+model: "Wi-Fi Router"
+name:
+  es: "Wi-Fi Router"
+  en: "Wi-Fi Router"
+category: accessory
+order: 9

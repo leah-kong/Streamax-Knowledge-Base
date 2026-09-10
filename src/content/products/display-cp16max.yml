@@ -1,0 +1,7 @@
+# display
+model: "CP16Max"
+name:
+  es: "CP16Max"
+  en: "CP16Max"
+category: display
+order: 10

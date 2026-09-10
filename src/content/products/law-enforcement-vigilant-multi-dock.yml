@@ -1,0 +1,8 @@
+# law-enforcement / law-enforcement-office
+model: "Vigilant Multi Dock"
+name:
+  es: "Vigilant Multi Dock"
+  en: "Vigilant Multi Dock"
+category: law-enforcement
+subcategory: law-enforcement-office
+order: 1

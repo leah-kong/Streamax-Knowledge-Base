@@ -1,0 +1,7 @@
+# accessory
+model: "B2"
+name:
+  es: "B2"
+  en: "B2"
+category: accessory
+order: 4

@@ -1,0 +1,8 @@
+# camera / camera-surveillance
+model: "C39A"
+name:
+  es: "C39A"
+  en: "C39A"
+category: camera
+subcategory: camera-surveillance
+order: 4

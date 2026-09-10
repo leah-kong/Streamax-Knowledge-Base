@@ -1,0 +1,6 @@
+name:
+  es: "AVM"
+  en: "AVM"
+level: 2
+parent: camera
+order: 4

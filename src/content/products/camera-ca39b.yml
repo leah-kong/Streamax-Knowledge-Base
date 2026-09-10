@@ -1,0 +1,8 @@
+# camera / camera-surveillance
+model: "CA39B"
+name:
+  es: "CA39B"
+  en: "CA39B"
+category: camera
+subcategory: camera-surveillance
+order: 1

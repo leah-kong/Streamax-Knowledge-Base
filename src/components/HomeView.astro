@@ -1,5 +1,11 @@
 ---
-import { getCategoriesByLevel, getRecentManual, getRecentFirmware, getRecentVideo } from '../lib/data';
+import {
+  getCategoriesByLevel,
+  getProductsByCategory,
+  getRecentManual,
+  getRecentFirmware,
+  getRecentVideo,
+} from '../lib/data';
 import { useTranslations, localizedPath, siteAsset, translated, formatDate, type Lang } from '../i18n/utils';
 
 interface Props {
@@ -10,6 +16,14 @@ const { lang } = Astro.props;
 const t = useTranslations(lang);
 
 const categories = await getCategoriesByLevel(1);
+// 每个一级分类带上二级分类与产品数，卡片上直接展示，方便快速定位产品
+const cards = await Promise.all(
+  categories.map(async (c) => ({
+    category: c,
+    children: await getCategoriesByLevel(2, c.id),
+    count: (await getProductsByCategory(c.id)).length,
+  }))
+);
 const manuals = await getRecentManual(6);
 const firmwares = await getRecentFirmware(5);
 const videos = await getRecentVideo(4);
@@ -20,12 +34,20 @@ const videos = await getRecentVideo(4);
 
 <div class="category-grid" style="margin-top:22px;">
   {
-    categories.map((c) => (
+    cards.map(({ category: c, children, count }) => (
       <a class="category-card" href={localizedPath(lang, `/category/${c.id}`)}>
-        <div>
+        <div class="card-head">
           <h3>{translated(c.data.name, lang)}</h3>
-          {c.data.summary && <p>{translated(c.data.summary, lang)}</p>}
+          <span class="card-count">{count}</span>
         </div>
+        {c.data.summary && <p>{translated(c.data.summary, lang)}</p>}
+        {children.length > 0 && (
+          <ul class="card-chips">
+            {children.map((s) => (
+              <li>{translated(s.data.name, lang)}</li>
+            ))}
+          </ul>
+        )}
       </a>
     ))
   }

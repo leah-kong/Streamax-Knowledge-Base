@@ -1,0 +1,6 @@
+name:
+  es: "Passenger Information System"
+  en: "Passenger Information System"
+level: 2
+parent: public-transport
+order: 3

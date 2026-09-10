@@ -1,0 +1,8 @@
+# camera / camera-surveillance
+model: "C25"
+name:
+  es: "C25"
+  en: "C25"
+category: camera
+subcategory: camera-surveillance
+order: 6

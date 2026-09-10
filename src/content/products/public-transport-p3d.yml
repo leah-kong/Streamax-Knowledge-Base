@@ -1,0 +1,8 @@
+# public-transport / public-transport-apc
+model: "P3D"
+name:
+  es: "P3D"
+  en: "P3D"
+category: public-transport
+subcategory: public-transport-apc
+order: 3

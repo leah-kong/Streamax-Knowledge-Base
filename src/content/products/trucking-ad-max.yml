@@ -1,0 +1,8 @@
+# trucking / trucking-dash-camera
+model: "AD Max"
+name:
+  es: "AD Max"
+  en: "AD Max"
+category: trucking
+subcategory: trucking-dash-camera
+order: 6

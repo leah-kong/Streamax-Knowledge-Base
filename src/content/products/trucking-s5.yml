@@ -1,0 +1,8 @@
+# trucking / trucking-asset-security
+model: "S5"
+name:
+  es: "S5"
+  en: "S5"
+category: trucking
+subcategory: trucking-asset-security
+order: 2

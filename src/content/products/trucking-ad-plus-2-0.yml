@@ -1,0 +1,9 @@
+# trucking / trucking-dash-camera
+model: "AD Plus 2.0"
+name:
+  es: "AD Plus 2.0"
+  en: "AD Plus 2.0"
+category: trucking
+subcategory: trucking-dash-camera
+image: /uploads/AD Plus 2.0 Cabin Side_2-No Background.png
+order: 4

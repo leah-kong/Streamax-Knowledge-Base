@@ -1,0 +1,8 @@
+# public-transport / public-transport-apc
+model: "P3"
+name:
+  es: "P3"
+  en: "P3"
+category: public-transport
+subcategory: public-transport-apc
+order: 1

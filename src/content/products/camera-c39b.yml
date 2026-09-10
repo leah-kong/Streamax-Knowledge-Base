@@ -1,0 +1,8 @@
+# camera / camera-surveillance
+model: "C39B"
+name:
+  es: "C39B"
+  en: "C39B"
+category: camera
+subcategory: camera-surveillance
+order: 2

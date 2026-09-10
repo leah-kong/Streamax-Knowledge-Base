@@ -1,0 +1,8 @@
+# camera / camera-surveillance
+model: "CA25"
+name:
+  es: "CA25"
+  en: "CA25"
+category: camera
+subcategory: camera-surveillance
+order: 5

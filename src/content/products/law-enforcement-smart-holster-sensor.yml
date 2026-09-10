@@ -1,0 +1,8 @@
+# law-enforcement / law-enforcement-on-site
+model: "Smart Holster Sensor"
+name:
+  es: "Smart Holster Sensor"
+  en: "Smart Holster Sensor"
+category: law-enforcement
+subcategory: law-enforcement-on-site
+order: 2

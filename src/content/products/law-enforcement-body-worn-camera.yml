@@ -1,0 +1,8 @@
+# law-enforcement / law-enforcement-on-site
+model: "Body-Worn Camera"
+name:
+  es: "Body-Worn Camera"
+  en: "Body-Worn Camera"
+category: law-enforcement
+subcategory: law-enforcement-on-site
+order: 1

@@ -1,0 +1,8 @@
+# public-transport / public-transport-pis
+model: "LED"
+name:
+  es: "LED"
+  en: "LED"
+category: public-transport
+subcategory: public-transport-pis
+order: 4

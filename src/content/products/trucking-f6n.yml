@@ -1,0 +1,8 @@
+# trucking / trucking-mdvr
+model: "F6N"
+name:
+  es: "F6N"
+  en: "F6N"
+category: trucking
+subcategory: trucking-mdvr
+order: 1

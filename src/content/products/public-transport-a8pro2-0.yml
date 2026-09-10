@@ -1,0 +1,8 @@
+# public-transport / public-transport-mdvr
+model: "A8Pro2.0"
+name:
+  es: "A8Pro2.0"
+  en: "A8Pro2.0"
+category: public-transport
+subcategory: public-transport-mdvr
+order: 6

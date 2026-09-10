@@ -1,0 +1,8 @@
+# camera / camera-surveillance
+model: "CA4"
+name:
+  es: "CA4"
+  en: "CA4"
+category: camera
+subcategory: camera-surveillance
+order: 8

@@ -1,0 +1,7 @@
+# accessory
+model: "iButton"
+name:
+  es: "iButton"
+  en: "iButton"
+category: accessory
+order: 2

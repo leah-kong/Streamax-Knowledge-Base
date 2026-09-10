@@ -1,0 +1,6 @@
+name:
+  es: "ADAS"
+  en: "ADAS"
+level: 2
+parent: camera
+order: 1

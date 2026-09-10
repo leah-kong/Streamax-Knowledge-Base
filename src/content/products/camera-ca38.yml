@@ -1,0 +1,8 @@
+# camera / camera-surveillance
+model: "CA38"
+name:
+  es: "CA38"
+  en: "CA38"
+category: camera
+subcategory: camera-surveillance
+order: 10

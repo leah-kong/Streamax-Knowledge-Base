@@ -1,0 +1,8 @@
+# camera / camera-bsd
+model: "CA42 Wireless Camera"
+name:
+  es: "CA42 Wireless Camera"
+  en: "CA42 Wireless Camera"
+category: camera
+subcategory: camera-bsd
+order: 4

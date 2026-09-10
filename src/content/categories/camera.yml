@@ -1,0 +1,8 @@
+name:
+  es: "Camera"
+  en: "Camera"
+level: 1
+order: 3
+summary:
+  es: "Cámaras ADAS, DMS, BSD, AVM y vigilancia"
+  en: "ADAS, DMS, BSD, AVM and surveillance cameras"

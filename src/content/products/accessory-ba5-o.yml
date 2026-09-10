@@ -1,0 +1,7 @@
+# accessory
+model: "BA5-O"
+name:
+  es: "BA5-O"
+  en: "BA5-O"
+category: accessory
+order: 7

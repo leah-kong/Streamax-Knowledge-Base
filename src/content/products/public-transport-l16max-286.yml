@@ -1,0 +1,8 @@
+# public-transport / public-transport-pis
+model: "L16Max - 286"
+name:
+  es: "L16Max - 286"
+  en: "L16Max - 286"
+category: public-transport
+subcategory: public-transport-pis
+order: 3

@@ -1,0 +1,8 @@
+# public-transport / public-transport-mdvr
+model: "A16Max (IBCU)"
+name:
+  es: "A16Max (IBCU)"
+  en: "A16Max (IBCU)"
+category: public-transport
+subcategory: public-transport-mdvr
+order: 7

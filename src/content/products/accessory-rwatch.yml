@@ -1,0 +1,7 @@
+# accessory
+model: "RWatch"
+name:
+  es: "RWatch"
+  en: "RWatch"
+category: accessory
+order: 1

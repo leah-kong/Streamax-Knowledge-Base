@@ -1,0 +1,8 @@
+# trucking / trucking-dash-camera
+model: "C6 Lite 2.0"
+name:
+  es: "C6 Lite 2.0"
+  en: "C6 Lite 2.0"
+category: trucking
+subcategory: trucking-dash-camera
+order: 2

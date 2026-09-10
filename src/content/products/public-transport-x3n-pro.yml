@@ -1,0 +1,8 @@
+# public-transport / public-transport-mdvr
+model: "X3N Pro"
+name:
+  es: "X3N Pro"
+  en: "X3N Pro"
+category: public-transport
+subcategory: public-transport-mdvr
+order: 3

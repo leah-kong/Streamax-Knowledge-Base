@@ -1,0 +1,8 @@
+# trucking / trucking-dash-camera
+model: "GT1 Pro + DC Max"
+name:
+  es: "GT1 Pro + DC Max"
+  en: "GT1 Pro + DC Max"
+category: trucking
+subcategory: trucking-dash-camera
+order: 7

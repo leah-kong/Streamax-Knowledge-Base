@@ -1,0 +1,7 @@
+# display
+model: "XPAD 2.0"
+name:
+  es: "XPAD 2.0"
+  en: "XPAD 2.0"
+category: display
+order: 1

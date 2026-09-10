@@ -1,0 +1,8 @@
+# public-transport / public-transport-mdvr
+model: "X5N Pro"
+name:
+  es: "X5N Pro"
+  en: "X5N Pro"
+category: public-transport
+subcategory: public-transport-mdvr
+order: 5

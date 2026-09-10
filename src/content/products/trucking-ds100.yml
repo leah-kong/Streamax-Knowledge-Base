@@ -1,0 +1,8 @@
+# trucking / trucking-dash-camera
+model: "DS100"
+name:
+  es: "DS100"
+  en: "DS100"
+category: trucking
+subcategory: trucking-dash-camera
+order: 1

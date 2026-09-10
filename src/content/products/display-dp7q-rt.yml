@@ -1,0 +1,7 @@
+# display
+model: "DP7Q-RT"
+name:
+  es: "DP7Q-RT"
+  en: "DP7Q-RT"
+category: display
+order: 6

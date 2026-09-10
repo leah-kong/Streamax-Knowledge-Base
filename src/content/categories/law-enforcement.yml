@@ -1,8 +1,8 @@
 name:
-  es: Law Enforcement
-  en: Law Enforcement
+  es: "Law Enforcement Solution"
+  en: "Law Enforcement Solution"
 level: 1
-order: 3
+order: 5
 summary:
-  es: Soluciones para fuerzas de seguridad (catálogo pendiente)
-  en: Law enforcement solutions (catalog pending)
+  es: "Soluciones para cuerpos de seguridad"
+  en: "Law enforcement solutions"

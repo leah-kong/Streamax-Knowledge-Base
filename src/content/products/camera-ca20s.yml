@@ -1,0 +1,8 @@
+# camera / camera-adas
+model: "CA20S"
+name:
+  es: "CA20S"
+  en: "CA20S"
+category: camera
+subcategory: camera-adas
+order: 3

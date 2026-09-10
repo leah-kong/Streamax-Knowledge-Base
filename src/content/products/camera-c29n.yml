@@ -1,0 +1,8 @@
+# camera / camera-dms
+model: "C29N"
+name:
+  es: "C29N"
+  en: "C29N"
+category: camera
+subcategory: camera-dms
+order: 1

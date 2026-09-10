@@ -1,0 +1,7 @@
+# accessory
+model: "LED Alarm"
+name:
+  es: "LED Alarm"
+  en: "LED Alarm"
+category: accessory
+order: 3

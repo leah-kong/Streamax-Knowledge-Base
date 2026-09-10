@@ -1,0 +1,7 @@
+# accessory
+model: "Switch"
+name:
+  es: "Switch"
+  en: "Switch"
+category: accessory
+order: 8
