@@ -49,9 +49,20 @@ img {
 
 /* ---------- 顶部导航 ---------- */
 .site-header {
+  position: relative;
   background: linear-gradient(90deg, #abcd03 0%, #8ca800 100%);
   color: #1c2530;
-  border-bottom: 4px solid var(--brand);
+}
+
+.site-header::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -12px;
+  height: 12px;
+  background: linear-gradient(to bottom, rgba(0, 117, 194, 0.22), rgba(0, 117, 194, 0));
+  pointer-events: none;
 }
 
 .site-header .container {
@@ -609,12 +620,23 @@ img {
 }
 
 .site-footer {
-  border-top: 4px solid var(--brand);
+  position: relative;
   background: linear-gradient(90deg, #abcd03 0%, #8ca800 100%);
   margin-top: 40px;
   padding: 28px 0;
   font-size: 13px;
   color: rgba(28, 37, 48, 0.92);
+}
+
+.site-footer::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -12px;
+  height: 12px;
+  background: linear-gradient(to top, rgba(0, 117, 194, 0.22), rgba(0, 117, 194, 0));
+  pointer-events: none;
 }
 
 .site-footer .container {
