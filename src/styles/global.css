@@ -49,9 +49,9 @@ img {
 
 /* ---------- 顶部导航 ---------- */
 .site-header {
-  background: #12171f;
+  background: linear-gradient(90deg, #0075c2 0%, #00568f 100%);
   color: #fff;
-  border-top: 3px solid var(--accent);
+  border-bottom: 4px solid var(--accent);
 }
 
 .site-header .container {
@@ -110,8 +110,8 @@ img {
 
 /* ---------- 搜索条 ---------- */
 .search-bar {
-  background: var(--surface-alt);
-  border-bottom: 1px solid var(--line);
+  background: #eaf4fb;
+  border-bottom: 1px solid #cfe4f4;
 }
 
 .search-bar .container {
@@ -142,14 +142,16 @@ img {
   padding: 9px 18px;
   border: 0;
   border-radius: 0 6px 6px 0;
-  background: var(--brand);
-  color: #fff;
+  background: var(--accent);
+  color: #1c2530;
   font-size: 14px;
+  font-weight: 600;
   cursor: pointer;
 }
 
 .search-bar button:hover {
-  background: var(--brand-dark);
+  background: var(--accent-dark);
+  color: #fff;
 }
 
 /* ---------- 面包屑 ---------- */
@@ -178,8 +180,11 @@ img {
 
 .section-head h2 {
   font-size: 20px;
-  font-weight: 600;
+  font-weight: 700;
   margin: 0;
+  color: var(--brand);
+  border-bottom: 3px solid var(--accent);
+  padding-bottom: 4px;
 }
 
 .section-head a {
@@ -196,6 +201,7 @@ img {
 
 .category-card {
   border: 1px solid var(--line);
+  border-left: 6px solid var(--accent);
   border-radius: var(--radius);
   padding: 36px 32px;
   background: #fff;
@@ -217,6 +223,7 @@ img {
   font-size: 28px;
   font-weight: 650;
   line-height: 1.3;
+  color: var(--brand);
 }
 
 /* 标题行：分类名 + 产品数量 */
@@ -257,9 +264,9 @@ img {
 
 .card-chips li {
   font-size: 13px;
-  color: var(--ink-soft);
-  background: var(--surface-alt);
-  border: 1px solid var(--line);
+  color: #4f6100;
+  background: rgba(171, 205, 3, 0.18);
+  border: 1px solid rgba(171, 205, 3, 0.5);
   border-radius: 999px;
   padding: 6px 13px;
 }
@@ -521,14 +528,17 @@ img {
   padding: 7px 15px;
   border: 1px solid var(--brand);
   border-radius: 6px;
-  color: var(--brand);
+  background: var(--brand);
+  color: #fff;
   font-size: 13px;
+  font-weight: 600;
   white-space: nowrap;
 }
 
 .btn-download:hover {
-  background: var(--brand);
-  color: #fff;
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #1c2530;
 }
 
 .badge {
@@ -600,12 +610,12 @@ img {
 }
 
 .site-footer {
-  border-top: 1px solid var(--line);
-  background: var(--surface-alt);
+  border-top: 4px solid var(--accent);
+  background: linear-gradient(90deg, #0075c2 0%, #00568f 100%);
   margin-top: 40px;
   padding: 28px 0;
   font-size: 13px;
-  color: var(--ink-soft);
+  color: rgba(255, 255, 255, 0.92);
 }
 
 .site-footer .container {
