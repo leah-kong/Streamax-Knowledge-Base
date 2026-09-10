@@ -1,5 +1,5 @@
 :root {
-  /* 品牌双色：蓝 #0075c2 为主色，青柠 #abcd03 为辅色 */
+  /* 品牌双色：青柠 #abcd03 为主色（大色块/主按钮），蓝 #0075c2 为辅色（描边/链接/下划线） */
   --brand: #0075c2;
   --brand-dark: #00568f;
   --accent: #abcd03;
@@ -49,9 +49,9 @@ img {
 
 /* ---------- 顶部导航 ---------- */
 .site-header {
-  background: linear-gradient(90deg, #0075c2 0%, #00568f 100%);
-  color: #fff;
-  border-bottom: 4px solid var(--accent);
+  background: linear-gradient(90deg, #abcd03 0%, #8ca800 100%);
+  color: #1c2530;
+  border-bottom: 4px solid var(--brand);
 }
 
 .site-header .container {
@@ -69,7 +69,7 @@ img {
 }
 
 .brand span {
-  color: var(--accent);
+  color: var(--brand);
 }
 
 .main-nav {
@@ -85,7 +85,7 @@ img {
 
 .main-nav a:hover {
   opacity: 1;
-  border-bottom: 2px solid var(--accent);
+  border-bottom: 2px solid var(--brand);
 }
 
 .header-right {
@@ -105,13 +105,13 @@ img {
 
 .lang-switch:hover {
   opacity: 1;
-  border-color: var(--accent);
+  border-color: var(--brand);
 }
 
 /* ---------- 搜索条 ---------- */
 .search-bar {
-  background: #eaf4fb;
-  border-bottom: 1px solid #cfe4f4;
+  background: #f3f7e3;
+  border-bottom: 1px solid #e0ecc4;
 }
 
 .search-bar .container {
@@ -182,8 +182,8 @@ img {
   font-size: 20px;
   font-weight: 700;
   margin: 0;
-  color: var(--brand);
-  border-bottom: 3px solid var(--accent);
+  color: var(--accent-dark);
+  border-bottom: 3px solid var(--brand);
   padding-bottom: 4px;
 }
 
@@ -201,7 +201,7 @@ img {
 
 .category-card {
   border: 1px solid var(--line);
-  border-left: 6px solid var(--accent);
+  border-left: 6px solid var(--brand);
   border-radius: var(--radius);
   padding: 36px 32px;
   background: #fff;
@@ -223,7 +223,7 @@ img {
   font-size: 28px;
   font-weight: 650;
   line-height: 1.3;
-  color: var(--brand);
+  color: var(--ink);
 }
 
 /* 标题行：分类名 + 产品数量 */
@@ -526,19 +526,19 @@ img {
   align-items: center;
   gap: 6px;
   padding: 7px 15px;
-  border: 1px solid var(--brand);
+  border: 1px solid var(--accent);
   border-radius: 6px;
-  background: var(--brand);
-  color: #fff;
+  background: var(--accent);
+  color: #1c2530;
   font-size: 13px;
   font-weight: 600;
   white-space: nowrap;
 }
 
 .btn-download:hover {
-  background: var(--accent);
-  border-color: var(--accent);
-  color: #1c2530;
+  background: var(--brand);
+  border-color: var(--brand);
+  color: #fff;
 }
 
 .badge {
@@ -610,12 +610,12 @@ img {
 }
 
 .site-footer {
-  border-top: 4px solid var(--accent);
-  background: linear-gradient(90deg, #0075c2 0%, #00568f 100%);
+  border-top: 4px solid var(--brand);
+  background: linear-gradient(90deg, #abcd03 0%, #8ca800 100%);
   margin-top: 40px;
   padding: 28px 0;
   font-size: 13px;
-  color: rgba(255, 255, 255, 0.92);
+  color: rgba(28, 37, 48, 0.92);
 }
 
 .site-footer .container {
