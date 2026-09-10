@@ -1,7 +1,9 @@
 :root {
-  --brand: #0f6cbd;
-  --brand-dark: #0a4f8f;
-  --accent: #00a6a7;
+  /* 品牌双色：蓝 #0075c2 为主色，青柠 #abcd03 为辅色 */
+  --brand: #0075c2;
+  --brand-dark: #00568f;
+  --accent: #abcd03;
+  --accent-dark: #8ca800;
   --ink: #1c1e21;
   --ink-soft: #5b6470;
   --ink-faint: #8a93a0;
@@ -49,6 +51,7 @@ img {
 .site-header {
   background: #12171f;
   color: #fff;
+  border-top: 3px solid var(--accent);
 }
 
 .site-header .container {
@@ -205,7 +208,7 @@ img {
 
 .category-card:hover {
   border-color: var(--brand);
-  box-shadow: 0 6px 22px rgba(15, 108, 189, 0.13);
+  box-shadow: 0 6px 22px rgba(0, 117, 194, 0.13);
   transform: translateY(-2px);
 }
 
@@ -227,9 +230,9 @@ img {
 .card-count {
   flex: none;
   font-size: 12px;
-  color: var(--ink-soft);
-  background: var(--surface-alt);
-  border: 1px solid var(--line);
+  color: #5f7300;
+  background: rgba(171, 205, 3, 0.16);
+  border: 1px solid rgba(171, 205, 3, 0.45);
   border-radius: 999px;
   padding: 2px 10px;
   white-space: nowrap;
