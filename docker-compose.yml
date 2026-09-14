@@ -1,0 +1,14 @@
+# 服务器上一键构建并启动：docker compose up -d --build
+# 正式域名/路径可通过同级 .env 文件覆盖（见 .env.example）
+services:
+  kb:
+    build:
+      context: .
+      args:
+        SITE_URL: ${SITE_URL:-https://example.com}
+        BASE_PATH: ${BASE_PATH:-/}
+    image: streamax-kb:latest
+    container_name: streamax-kb
+    restart: unless-stopped
+    ports:
+      - "80:80"

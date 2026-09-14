@@ -1,0 +1,54 @@
+name: Deploy to Private Server
+
+# 仅手动触发；不影响 GitHub Pages 的自动部署
+on:
+  workflow_dispatch:
+    inputs:
+      site_url:
+        description: "正式站点地址，如 https://kb.example.com"
+        required: true
+      base_path:
+        description: "站点根路径；独立域名填 /"
+        required: true
+        default: "/"
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install dependencies
+        run: |
+          rm -f package-lock.json
+          npm install --no-audit --no-fund
+
+      - name: Build site (server mode)
+        env:
+          SITE_URL: ${{ inputs.site_url }}
+          BASE_PATH: ${{ inputs.base_path }}
+        run: |
+          npx astro build
+          npx pagefind --site dist --output-subdir search
+
+      - name: Deploy via rsync over SSH
+        env:
+          SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
+          HOST: ${{ secrets.DEPLOY_HOST }}
+          USER: ${{ secrets.DEPLOY_USER }}
+          TARGET: ${{ secrets.DEPLOY_PATH }}
+        run: |
+          mkdir -p ~/.ssh
+          printf '%s\n' "$SSH_KEY" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan -H "$HOST" >> ~/.ssh/known_hosts 2>/dev/null || true
+          rsync -az --delete -e "ssh -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=accept-new" \
+            dist/ "$USER@$HOST:$TARGET"
+          ssh -i ~/.ssh/id_ed25519 "$USER@$HOST" \
+            "sudo nginx -t && sudo systemctl reload nginx || true"

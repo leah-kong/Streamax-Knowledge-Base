@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# 上线正式域名后，可在此追加（域名确定后取消注释并替换）：
+# Sitemap: https://kb.example.com/sitemap-index.xml
