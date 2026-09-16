@@ -49,6 +49,16 @@ collections:
       - { label: Imagen, name: image, widget: image, required: false }
       - { label: Orden, name: order, widget: number, value_type: int, default: 99, required: false }
       - { label: 'Fin de vida (EOL)', name: eol, widget: boolean, default: false, required: false }
+      - label: 'Productos relacionados (manual)'
+        name: related
+        widget: relation
+        collection: products
+        multiple: true
+        search_fields: [model]
+        value_field: model
+        display_fields: [model]
+        required: false
+        hint: 'Selecciona manualmente los productos relacionados. Tienen prioridad sobre la asociación automática por categoría.'
 
   - name: manual
     label: Manuales / Manuals

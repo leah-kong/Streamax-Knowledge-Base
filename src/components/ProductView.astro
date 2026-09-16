@@ -1,5 +1,5 @@
 ---
-import { getCollection, getEntry } from 'astro:content';
+import { getCollection, getEntry, type CollectionEntry } from 'astro:content';
 import {
   getManualByProduct,
   getFirmwareByProduct,
@@ -42,10 +42,31 @@ function buildChain(id: string) {
 
 const chain = buildChain(product.data.category);
 
+// 手动指定的关联产品优先（编辑器在 CMS 中勾选）；未指定时回退到同分类自动关联。
+// 同时兼容 slug(id) 与 model 两种存储方式，避免与现有 products 字段不一致。
+function resolveRelated(vals: string[] | undefined): CollectionEntry<'products'>[] {
+  if (!vals || vals.length === 0) return [];
+  const out: CollectionEntry<'products'>[] = [];
+  const seen = new Set<string>();
+  for (const v of vals) {
+    const p = allProducts.find((x) => x.id === v || x.data.model === v);
+    if (p && p.id !== product.id && !seen.has(p.id)) {
+      seen.add(p.id);
+      out.push(p);
+    }
+  }
+  return out;
+}
+
+const manualRelated = resolveRelated(product.data.related);
 const siblings = allProducts
   .filter((p) => p.data.category === product.data.category && p.id !== product.id)
-  .sort((a, b) => a.data.order - b.data.order)
-  .slice(0, 12);
+  .sort((a, b) => a.data.order - b.data.order);
+const shownIds = new Set(manualRelated.map((p) => p.id));
+const relatedProducts = [
+  ...manualRelated,
+  ...siblings.filter((p) => !shownIds.has(p.id)),
+].slice(0, 12);
 
 const manuals = await getManualByProduct(productId);
 const firmwares = await getFirmwareByProduct(productId);
@@ -86,13 +107,13 @@ const hasFaq = false;
 </div>
 
 {
-  siblings.length > 0 && (
+  relatedProducts.length > 0 && (
     <>
       <div class="section-head" style="margin-bottom:6px;">
         <h2>{t('product.related')}</h2>
       </div>
       <div class="related-rail">
-        {siblings.map((p) => (
+        {relatedProducts.map((p) => (
           <a href={localizedPath(lang, `/product/${p.id}`)}>
             <div class="thumb">{p.data.image ? <img src={siteAsset(p.data.image)} alt="" /> : p.data.model}</div>
             <div class="name">{p.data.model}</div>

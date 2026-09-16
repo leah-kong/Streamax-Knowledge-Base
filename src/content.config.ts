@@ -38,6 +38,8 @@ const products = defineCollection({
     image: z.string().optional(),
     order: z.number().default(99),
     eol: z.boolean().default(false),
+    // 手动指定的关联产品（产品 id / slug 或 model 均可），优先于自动同分类关联
+    related: z.array(z.string()).optional(),
   }),
 });
 
