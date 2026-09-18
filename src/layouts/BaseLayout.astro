@@ -35,8 +35,8 @@ const pageTitle = title ? `${title} · ${t('site.title')}` : t('site.title');
   <body>
     <header class="site-header">
       <div class="container">
-        <a class="brand" href={localizedPath(lang, '/')}>
-          {t('site.title')}<span>.</span>
+        <a class="brand" href={localizedPath(lang, '/')} aria-label={t('site.title')}>
+          <img src="/assets/streamax-logo.png" alt="" class="brand-logo" width="249" height="34" />
         </a>
         <nav class="main-nav">
           <a href={localizedPath(lang, '/')}>{t('nav.home')}</a>
