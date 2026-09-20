@@ -1,4 +1,5 @@
-# 示例条目，替换为真实视频链接
+# 演示条目：url 指向可嵌入的 YouTube 视频，产品页直接显示播放器。
+# 换成真实资料时，把 url 改成你的 YouTube 观看链接即可。
 title:
   es: Instalación del DS100
   en: DS100 installation
@@ -7,4 +8,4 @@ products:
 date: 2026-08-05
 duration: "05:24"
 external: true
-url: https://www.youtube.com/watch?v=REEMPLAZAR
+url: https://www.youtube.com/watch?v=aqz-KE-bpKQ
