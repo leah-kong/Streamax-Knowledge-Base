@@ -4,7 +4,8 @@ name: Deploy to Cloudflare Pages
 # 前置：在 repo Settings → Secrets and variables → Actions 里加两个 secret：
 #   CLOUDFLARE_API_TOKEN  → Cloudflare API Token（权限：Account > Cloudflare Pages > Edit）
 #   CLOUDFLARE_ACCOUNT_ID → Cloudflare 控制台右侧的 "Account ID"
-# 首次运行前若还没建项目，本工作流会用 projectName 自动创建。
+# 注意：Wrangler v4 的 `pages deploy` 不会自动建项目，所以下面有一步
+#       `wrangler pages project create` 在项目不存在时先创建它（幂等）。
 
 on:
   push:
@@ -42,10 +43,18 @@ jobs:
           npx astro build
           npx pagefind --site dist --output-subdir search
 
+      # Wrangler v4 的 `pages deploy` 不会自动建项目，所以先确保项目存在。
+      # 项目不存在 → 创建（production branch = main）；已存在 → 报错，用 || true 忽略（幂等）。
+      - name: Create Pages project if missing
+        run: npx wrangler pages project create streamax-kb --production-branch main || true
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+
       # 用 Wrangler 官方 action (v4) 部署到 Cloudflare Pages。
       # 不再用 cloudflare/pages-action（该仓库已不可解析）。
       # 命令：pages deploy dist --project-name=streamax-kb
-      #   - 若项目 streamax-kb 不存在，Wrangler 会自动创建
+      #   - 项目已由上一步确保存在
       #   - dist 是 astro build 的产物目录
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/wrangler-action@v4
