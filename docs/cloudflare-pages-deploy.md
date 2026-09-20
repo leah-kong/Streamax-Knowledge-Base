@@ -4,6 +4,24 @@ Guía para mover el sitio de GitHub Pages a **Cloudflare Pages** (CDN global, HT
 gratuito, despliegue automático desde GitHub). El código ya soporta este modo: basta
 con construir con `SITE_URL` + `BASE_PATH=/` (modo 3 en `astro.config.mjs`).
 
+> **Método activo en este repo:** el despliegue lo hace GitHub Actions con
+> `.github/workflows/deploy-cloudflare.yml` (acción oficial `cloudflare/wrangler-action@v4`,
+> comando `pages deploy dist --project-name=streamax-kb`). No hace falta "Connect to Git"
+> en el panel de Cloudflare: el workflow se autentica con el API Token. Basta con añadir
+> dos *repository secrets* (paso 0) y luego re-ejecutar el workflow o hacer `push` a `main`.
+> (El antiguo `cloudflare/pages-action` ya no existe en GitHub y se reemplazó por este.)
+
+## 0. Secrets de GitHub (obligatorio antes del primer despliegue)
+En el repo → **Settings → Secrets and variables → Actions → New repository secret**, añade dos:
+- `CLOUDFLARE_API_TOKEN` → token de API de Cloudflare (permiso: *Account → Cloudflare Pages → Edit*).
+  ⚠️ Nunca se pega un token real en el chat; si se filtró, créalo de nuevo en
+  dash.cloudflare.com → My Profile → API Tokens.
+- `CLOUDFLARE_ACCOUNT_ID` → el "Account ID" de Cloudflare (~32 caracteres hex, se ve en la
+  barra lateral derecha del panel; **NO** es tu correo de login).
+Con eso el workflow ya puede autenticarse; no requiere conectar Git en el dashboard.
+Tras añadirlos, ve a la pestaña **Actions** → el workflow "Deploy to Cloudflare Pages" →
+**Re-run all jobs** (o simplemente haz `push` a `main`).
+
 ## Por qué Cloudflare Pages
 - CDN global rápido (resuelve la lentitud de GitHub Pages en algunas regiones).
 - HTTPS por defecto y cabeceras de seguridad — sin servidor, sin base de datos.
