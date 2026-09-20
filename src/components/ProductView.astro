@@ -68,6 +68,15 @@ const relatedProducts = [
   ...siblings.filter((p) => !shownIds.has(p.id)),
 ].slice(0, 12);
 
+// 把 YouTube 观看/短链/you.be 链接转成可嵌入的 embed 地址；非 YouTube 返回 null
+function youtubeEmbed(url: string): string | null {
+  if (!url) return null;
+  const m = url.match(
+    /(?:youtube\.com\/(?:watch\?v=|embed\/|shorts\/)|youtu\.be\/)([\w-]{11})/
+  );
+  return m ? `https://www.youtube.com/embed/${m[1]}` : null;
+}
+
 const manuals = await getManualByProduct(productId);
 const firmwares = await getFirmwareByProduct(productId);
 const videos = await getVideoByProduct(productId);
@@ -172,7 +181,9 @@ const hasFaq = false;
                           target="_blank"
                           rel="noopener"
                         >
-                          {t('field.download')}
+                          {m.data.externalUrl && !m.data.fileEs && !m.data.fileEn
+                            ? t('field.open')
+                            : t('field.download')}
                         </a>
                       )}
                     </li>
@@ -226,18 +237,56 @@ const hasFaq = false;
         <div class="empty">{t('common.noData')}</div>
       ) : (
         <div class="video-grid" style="margin-top:18px;">
-          {videos.map((v) => (
-            <a class="video-card" href={v.data.url} target="_blank" rel="noopener">
-              <div class="cover">
-                {v.data.cover ? <img src={v.data.cover} alt="" /> : t('field.watch')}
-              </div>
-              <div class="title">{translated(v.data.title, lang)}</div>
-              <div class="meta">
-                {formatDate(v.data.date, lang)}
-                {v.data.duration ? ` · ${v.data.duration}` : ''}
-              </div>
-            </a>
-          ))}
+          {videos.map((v) => {
+            const embed = youtubeEmbed(v.data.url);
+            if (embed) {
+              return (
+                <div class="video-embed">
+                  <div class="video-frame">
+                    <iframe
+                      src={embed}
+                      title={translated(v.data.title, lang)}
+                      loading="lazy"
+                      allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowfullscreen
+                    ></iframe>
+                  </div>
+                  <div class="title">{translated(v.data.title, lang)}</div>
+                  <div class="meta">
+                    {formatDate(v.data.date, lang)}
+                    {v.data.duration ? ` · ${v.data.duration}` : ''}
+                    <a class="ext" href={v.data.url} target="_blank" rel="noopener">{t('field.watch')} ↗</a>
+                  </div>
+                </div>
+              );
+            }
+            if (!v.data.external) {
+              return (
+                <div class="video-embed">
+                  <div class="video-frame">
+                    <video src={siteAsset(v.data.url)} controls preload="none"></video>
+                  </div>
+                  <div class="title">{translated(v.data.title, lang)}</div>
+                  <div class="meta">
+                    {formatDate(v.data.date, lang)}
+                    {v.data.duration ? ` · ${v.data.duration}` : ''}
+                  </div>
+                </div>
+              );
+            }
+            return (
+              <a class="video-card" href={v.data.url} target="_blank" rel="noopener">
+                <div class="cover">
+                  {v.data.cover ? <img src={v.data.cover} alt="" /> : t('field.watch')}
+                </div>
+                <div class="title">{translated(v.data.title, lang)}</div>
+                <div class="meta">
+                  {formatDate(v.data.date, lang)}
+                  {v.data.duration ? ` · ${v.data.duration}` : ''}
+                </div>
+              </a>
+            );
+          })}
         </div>
       )
     }

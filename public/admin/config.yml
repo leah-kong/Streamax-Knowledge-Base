@@ -81,7 +81,7 @@ collections:
       # URL de descarga：建议指向 GitHub Releases，避免把 PDF 提交进仓库
       - { label: 'Archivo ES (URL)', name: fileEs, widget: string, required: false, hint: 'URL del PDF en español, por ejemplo un asset de GitHub Releases' }
       - { label: 'Archivo EN (URL)', name: fileEn, widget: string, required: false }
-      - { label: 'Enlace externo', name: externalUrl, widget: string, required: false }
+      - { label: 'Enlace externo', name: externalUrl, widget: string, required: false, hint: 'Enlace a Google Drive (o cualquier URL externa). Se muestra como botón "Abrir" en la ficha del producto.' }
       - { label: Resumen, name: summary, widget: text, i18n: true, required: false }
 
   - name: firmware
@@ -118,7 +118,7 @@ collections:
       - { label: Productos, name: products, widget: relation, collection: products, multiple: true, search_fields: [model], display_fields: [model] }
       - { label: Fecha, name: date, widget: datetime, date_format: YYYY-MM-DD, time_format: false }
       - { label: Duración, name: duration, widget: string, required: false }
-      - { label: 'URL del video', name: url, widget: string }
+      - { label: 'URL del video', name: url, widget: string, hint: 'Enlace de YouTube (se incrusta el reproductor) u otra URL de video externa.' }
       - { label: 'Enlace externo', name: external, widget: boolean, default: true, required: false }
       - { label: Portada, name: cover, widget: string, required: false }
       - { label: Resumen, name: summary, widget: text, i18n: true, required: false }

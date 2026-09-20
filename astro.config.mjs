@@ -1,12 +1,14 @@
 import { defineConfig } from 'astro/config';
 
-// 三种构建模式，全部由环境变量驱动；不传变量时保持 GitHub Pages 现状（不影响线上站点）：
+// 构建模式，全部由环境变量驱动；不传变量时保持 GitHub Pages 现状（不影响线上站点）：
 //  1) GitHub Pages（默认）   → npm run build
 //       site=https://leah-kong.github.io  base=/Streamax-Knowledge-Base
 //  2) 离线分发（双击即看）   → OFFLINE=1 npm run build
 //       base=./  输出 category/truck.html
-//  3) 自有服务器（正式上线） → SITE_URL=https://kb.example.com BASE_PATH=/ npm run build
+//  3) 自有服务器 / Cloudflare Pages（正式上线，推荐） → SITE_URL=https://kb.example.com BASE_PATH=/ npm run build
 //       base=/   链接变为 /category/truck/，适配独立域名根路径
+//     Cloudflare Pages 连 GitHub 仓库后：Build command = `npm run build`，Output dir = `dist`。
+//     pagefind 检索索引由 postbuild 自动生成；文档/视频外链（Google Drive / YouTube）无需改代码。
 const offline = process.env.OFFLINE === '1';
 
 // 正式站点地址与根路径；服务器上线时用环境变量注入，无需改代码
