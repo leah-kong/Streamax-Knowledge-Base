@@ -44,11 +44,31 @@ jobs:
           USER: ${{ secrets.DEPLOY_USER }}
           TARGET: ${{ secrets.DEPLOY_PATH }}
         run: |
+          set -e
+          # 预检：缺任一密钥直接报清晰错误，避免得到难懂的 255
+          : "${SSH_KEY:?Falta el secret DEPLOY_SSH_KEY (clave privada SSH, con saltos de linea reales)}"
+          : "${HOST:?Falta el secret DEPLOY_HOST (p.ej. 203.0.113.10)}"
+          : "${USER:?Falta el secret DEPLOY_USER (p.ej. deploy)}"
+          : "${TARGET:?Falta el secret DEPLOY_PATH (ruta absoluta, p.ej. /var/www/kb)}"
+
           mkdir -p ~/.ssh
-          printf '%s\n' "$SSH_KEY" > ~/.ssh/id_ed25519
-          chmod 600 ~/.ssh/id_ed25519
-          ssh-keyscan -H "$HOST" >> ~/.ssh/known_hosts 2>/dev/null || true
-          rsync -az --delete -e "ssh -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=accept-new" \
+          chmod 700 ~/.ssh
+          # heredoc 写私钥，能正确处理多行；结尾补一个换行避免某些客户端报错
+          printf '%s\n' "$SSH_KEY" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+
+          # 信任主机密钥（避免 known_hosts 校验失败）；失败不阻断
+          ssh-keyscan -p 22 -H "$HOST" >> ~/.ssh/known_hosts 2>/dev/null || true
+
+          echo ">> Probando conexion SSH a $USER@$HOST ..."
+          ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=accept-new \
+              -o IdentitiesOnly=yes -o BatchMode=yes -o ConnectTimeout=20 \
+              "$USER@$HOST" "echo CONEXION_OK; uname -a"
+
+          echo ">> Rsync dist/ -> $USER@$HOST:$TARGET"
+          rsync -az --delete -e "ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=accept-new -o IdentitiesOnly=yes" \
             dist/ "$USER@$HOST:$TARGET"
-          ssh -i ~/.ssh/id_ed25519 "$USER@$HOST" \
-            "sudo nginx -t && sudo systemctl reload nginx || true"
+
+          echo ">> Recargando nginx"
+          ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=accept-new -o IdentitiesOnly=yes \
+            "$USER@$HOST" "sudo nginx -t && sudo systemctl reload nginx" || echo "nginx reload omitido (sin sudo o no es nginx)"
