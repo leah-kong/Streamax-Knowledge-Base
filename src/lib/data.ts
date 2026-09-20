@@ -33,25 +33,33 @@ export async function getProductsByPlatform(categoryId: string, platformId: stri
   );
 }
 
-export async function getManualByProduct(productId: string) {
-  const all = await getCollection('manual');
-  return all
-    .filter((m) => m.data.products.includes(productId))
+// 资源（manual/firmware/video）通过 products 字段关联产品。
+// 该字段可能存 slug（如 trucking-ds100）或 model（如 DS100）：
+//   - 仓库里手写的条目多用 slug；
+//   - /admin 的 relation 控件配置 value_field: model，存的是 model。
+// 这里两种都兼容，避免 CMS 用 model 存储时资源不显示在产品页。
+async function getResourcesByProduct<T extends { data: { products: string[]; date: Date } }>(
+  items: T[],
+  productId: string
+): Promise<T[]> {
+  const product = await getEntry('products', productId);
+  const keys = new Set<string>([productId]);
+  if (product) keys.add(product.data.model);
+  return items
+    .filter((it) => it.data.products.some((p) => keys.has(p)))
     .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+}
+
+export async function getManualByProduct(productId: string) {
+  return getResourcesByProduct(await getCollection('manual'), productId);
 }
 
 export async function getFirmwareByProduct(productId: string) {
-  const all = await getCollection('firmware');
-  return all
-    .filter((f) => f.data.products.includes(productId))
-    .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+  return getResourcesByProduct(await getCollection('firmware'), productId);
 }
 
 export async function getVideoByProduct(productId: string) {
-  const all = await getCollection('video');
-  return all
-    .filter((v) => v.data.products.includes(productId))
-    .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+  return getResourcesByProduct(await getCollection('video'), productId);
 }
 
 export async function getRecentManual(limit = 6) {
