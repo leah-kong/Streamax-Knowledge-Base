@@ -36,17 +36,30 @@ con construir con `SITE_URL` + `BASE_PATH=/` (modo 3 en `astro.config.mjs`).
 
 ## 3. Dominio propio (opcional)
 1. En el proyecto Pages → **Custom domains** → añadir `kb.tudominio.com`.
-2. Cloudflare da los registros DNS/NS; al activarlo, cambiar la variable `SITE_URL`
-   a `https://kb.tudominio.com` y volver a desplegar (o bien dejar el dominio en
-   Cloudflare y apuntar el CNAME).
-3. `BASE_PATH` se queda en `/`.
+2. Cloudflare da los registros DNS/NS; al activarlo, el `SITE_URL` se toma solo de
+   `CF_PAGES_URL` (o se sobreescribe con la variable `SITE_URL` en *Settings →
+   Environment variables*). `BASE_PATH` siempre es `/` en Cloudflare.
+3. No hace falta tocar `astro.config.mjs`: el build detecta `CF_PAGES=true` automáticamente.
 
 ## 4. Desactivar GitHub Pages (opcional)
 Si antes usabas GitHub Pages, puedes apagarlo en el repo → *Settings → Pages* (elegir
 *Deploy from a branch* → None) para no tener dos sitios. El workflow `.github/workflows/deploy.yml`
 puede quedar o eliminarse; no afecta a Cloudflare, que lee el repo directamente.
 
-## 5. Construcción local (mismo resultado)
+## 5. El logo de la empresa ya está en el sitio
+El logotipo Streamax (`public/assets/streamax-logo.png`) ya está en la cabecera de **todas**
+las páginas (esquina superior izquierda), añadido en el commit `c6f3df1`. Como Cloudflare
+construye la misma rama `main`, el logo aparece solo, sin pasos extra. Verificación rápida
+tras el despliegue:
+
+```bash
+curl -I https://<tu-proyecto>.pages.dev/assets/streamax-logo.png   # -> 200
+```
+
+Si se quisiera el logo también en el pie de página o como favicon, se añade en
+`src/layouts/BaseLayout.astro` (mismo archivo de imagen).
+
+## 6. Construcción local (mismo resultado)
 ```bash
 SITE_URL=https://<tu-proyecto>.pages.dev BASE_PATH=/ npm run build
 # dist/ listo para previsualizar con: npx serve dist
