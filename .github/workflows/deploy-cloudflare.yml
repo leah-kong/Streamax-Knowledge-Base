@@ -1,0 +1,51 @@
+name: Deploy to Cloudflare Pages
+
+# 自动部署到 Cloudflare Pages：push 到 main 即构建并上线（无需在仪表盘填 build 设置）。
+# 前置：在 repo Settings → Secrets and variables → Actions 里加两个 secret：
+#   CLOUDFLARE_API_TOKEN  → Cloudflare API Token（权限：Account > Cloudflare Pages > Edit）
+#   CLOUDFLARE_ACCOUNT_ID → Cloudflare 控制台右侧的 "Account ID"
+# 首次运行前若还没建项目，本工作流会用 projectName 自动创建。
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install dependencies
+        run: |
+          rm -f package-lock.json
+          npm install --no-audit --no-fund
+
+      # 注意：用 Actions 部署时构建发生在 GitHub 机器上，不会有 CF_PAGES 变量，
+      # 因此这里显式注入 SITE_URL / BASE_PATH=/，确保链接走根路径（不是 GitHub Pages 的 /Streamax-Knowledge-Base/）。
+      - name: Build (Cloudflare mode)
+        env:
+          SITE_URL: ${{ vars.SITE_URL || 'https://streamax-kb.pages.dev' }}
+          BASE_PATH: '/'
+        run: |
+          npx astro build
+          npx pagefind --site dist --output-subdir search
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          projectName: streamax-kb
+          directory: dist
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
