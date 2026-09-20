@@ -10,29 +10,59 @@ con construir con `SITE_URL` + `BASE_PATH=/` (modo 3 en `astro.config.mjs`).
 - Gratis para sitios estáticos. Despliegue automático en cada `git push` a `main`.
 - `/admin` (Sveltia CMS) y `/assets/*` (logo, etc.) se sirven igual que en local.
 
-## 1. Crear el proyecto en Cloudflare
-1. Ir a https://dash.cloudflare.com/ → **Workers & Pages** → **Create** → **Pages**.
-2. Elegir **Connect to Git** → autorizar GitHub → seleccionar `leah-kong/Streamax-Knowledge-Base`.
-3. Configuración de build:
-   - **Framework preset**: `Astro` (o dejar en *None* y poner los comandos manuales).
-   - **Build command**: `npm run build`
+## 1. Crear el proyecto en Cloudflare (paso a paso)
+
+> Requisitos: una cuenta gratuita en Cloudflare (registrarse en cloudflare.com) y que el
+> repo `leah-kong/Streamax-Knowledge-Base` sea accesible (es público, así que basta con
+> autorizar a Cloudflare a leerlo).
+
+1. Abrir **https://dash.cloudflare.com/** e iniciar sesión.
+2. En el menú lateral izquierdo, pulsar **Workers & Pages**.
+3. Arriba a la derecha, pulsar el botón **Create** (o **Create application**).
+4. En la pestaña **Pages**, pulsar **Create a project** (o directamente **Connect to Git**).
+5. Elegir la tarjeta **Connect to Git** (NO "Direct upload").
+6. **Conectar GitHub**: aparece una ventana de GitHub. Si ya autorizaste Cloudflare antes,
+   salta al paso 7. Si no:
+   - Pulsar **Connect GitHub** → iniciar sesión en GitHub si hace falta.
+   - GitHub pedirá autorizar a "Cloudflare Pages"; pulsar **Authorize Cloudflare Pages**.
+   - (Opcional) elegir si dar acceso a todos los repos o solo a
+     `Streamax-Knowledge-Base`; se recomienda "Only select repositories" → marcar el nuestro.
+7. En **Select a repository**, buscar / hacer clic en **`Streamax-Knowledge-Base`**
+   (debajo del usuario `leah-kong`).
+8. Pulsar **Begin setup**.
+9. Pantalla **Build settings** — rellenar exactamente:
+   - **Project name**: `streamax-kb` (o el que quieras; define el subdominio `.pages.dev`).
+   - **Production branch**: `main`.
+   - **Framework preset**: dejar en **None** (lo ponemos manual para asegurar pagefind).
+   - **Build command**: `npm run build`  ← importante: `run build`, no solo `astro build`,
+     porque el `postbuild` de package.json genera el índice de búsqueda (pagefind).
    - **Build output directory**: `dist`
-   - **Node.js version**: 22 (en *Settings → Build & deployments → Build system* o vía `package.json` `engines`).
-4. **Variables de entorno** (en *Settings → Environment variables*, para todas las ramas):
-   - `SITE_URL` = `https://<tu-proyecto>.pages.dev` (o tu dominio propio, ver paso 3)
-   - `BASE_PATH` = `/`
-5. Guardar y **Save and Deploy**. La primera compilación tarda ~1–2 min.
+   - **Root directory**: dejar en `/` (raíz del repo).
+   - **Node.js version**: `22` (en *Settings → Build & deployments → Build system* o vía
+     `package.json` `engines`; Astro 5 lo necesita).
+10. **Variables de entorno**: ninguna obligatoria. El `astro.config.mjs` ya detecta
+    `CF_PAGES=true` y usa `BASE_PATH=/` + `SITE_URL=CF_PAGES_URL` solo. (Si más adelante
+    usas dominio propio, aquí pondrías `SITE_URL=https://kb.tudominio.com`.)
+11. Pulsar **Save and Deploy**. La primera compilación tarda ~1–2 min; se ve el log en vivo.
 
 > El `postbuild` de `package.json` ejecuta `pagefind` sobre `dist/`, así que el buscador
 > estático se genera solo en cada despliegue. No se necesita `wrangler.toml`.
 
 ## 2. Verificar
-- Abrir la URL `https://<tu-proyecto>.pages.dev`.
-- `curl -I https://<...>/assets/streamax-logo.png` → `200`.
-- Entrar a un producto → pestaña **Videos**: los enlaces de YouTube se incrustan como
+- Al terminar, Cloudflare muestra **Visit your site** con la URL
+  `https://streamax-kb.pages.dev` (o el nombre que hayas puesto). Pulsarla.
+- En la página: el logotipo Streamax arriba a la izquierda (cabecera de todas las páginas).
+- Entrar a cualquier producto → pestaña **Videos**: los enlaces de YouTube se incrustan como
   reproductor; los manuales con `externalUrl` de Google Drive muestran el botón **Abrir**.
+- Probar el buscador (lupa / barra de búsqueda): debe devolver resultados.
+- (Opcional, desde terminal) `curl -I https://streamax-kb.pages.dev/assets/streamax-logo.png`
+  → debe responder `200`.
 - `/admin` → iniciar sesión con GitHub y crear/editar contenido; al guardar se hace
   `git commit` y Cloudflare re-despliega solo.
+
+## 2b. Despliegues siguientes (automático)
+Una vez creado, **cada `git push` a `main` re-despliega solo** (Cloudflare vigila el repo).
+No hace falta volver al panel salvo para dominio propio o ajustes.
 
 ## 3. Dominio propio (opcional)
 1. En el proyecto Pages → **Custom domains** → añadir `kb.tudominio.com`.
