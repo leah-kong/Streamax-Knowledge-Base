@@ -83,6 +83,10 @@ img {
   display: block;
   height: 34px;
   width: auto;
+  background: #ffffff;
+  padding: 5px 12px;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.18);
 }
 
 .main-nav {
