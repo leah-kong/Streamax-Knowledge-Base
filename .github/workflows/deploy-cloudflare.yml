@@ -13,6 +13,7 @@ on:
 
 permissions:
   contents: read
+  deployments: write   # necesario para registrar el Deployment en GitHub (gitHubToken)
 
 jobs:
   deploy:
@@ -41,11 +42,15 @@ jobs:
           npx astro build
           npx pagefind --site dist --output-subdir search
 
+      # 用 Wrangler 官方 action (v4) 部署到 Cloudflare Pages。
+      # 不再用 cloudflare/pages-action（该仓库已不可解析）。
+      # 命令：pages deploy dist --project-name=streamax-kb
+      #   - 若项目 streamax-kb 不存在，Wrangler 会自动创建
+      #   - dist 是 astro build 的产物目录
       - name: Deploy to Cloudflare Pages
-        uses: cloudflare/pages-action@v1
+        uses: cloudflare/wrangler-action@v4
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          projectName: streamax-kb
-          directory: dist
+          command: pages deploy dist --project-name=streamax-kb
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
