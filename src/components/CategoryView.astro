@@ -5,8 +5,10 @@ import {
   localizedPath,
   siteAsset,
   translated,
+  formatDate,
   type Lang,
 } from '../i18n/utils';
+import { youtubeEmbed } from '../lib/video';
 
 interface Props {
   lang: Lang;
@@ -68,6 +70,15 @@ const groups = children.length
       ),
     }))
   : [{ category: null, items: scopedProducts }];
+
+// 聚合该分类（含子级）下所有产品的视频，去重并按日期倒序。
+// products 字段可能存 slug 或 model，两种都匹配（与 getResourcesByProduct 一致）。
+const scopedIds = new Set(scopedProducts.map((p) => p.id));
+const scopedModels = new Set(scopedProducts.map((p) => p.data.model));
+const allVideos = await getCollection('video');
+const catVideos = allVideos
+  .filter((v) => v.data.products.some((ref) => scopedIds.has(ref) || scopedModels.has(ref)))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
 
 <nav class="breadcrumb">
@@ -149,5 +160,65 @@ const groups = children.length
           </div>
         </section>
       )
+  )
+}
+
+{
+  catVideos.length > 0 && (
+    <section style="margin-top:30px;">
+      <div class="section-head">
+        <h2>{t('category.videos')}</h2>
+      </div>
+      <div class="video-grid">
+        {catVideos.map((v) => {
+          const embed = youtubeEmbed(v.data.url);
+          if (embed) {
+            return (
+              <div class="video-tile">
+                <div class="video-frame">
+                  <iframe
+                    src={embed}
+                    title={translated(v.data.title, lang)}
+                    loading="lazy"
+                    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                  ></iframe>
+                </div>
+                <div class="title">{translated(v.data.title, lang)}</div>
+                <div class="meta">
+                  {formatDate(v.data.date, lang)}
+                  {v.data.duration ? ` · ${v.data.duration}` : ''}
+                  <a class="ext" href={v.data.url} target="_blank" rel="noopener">{t('field.watch')} ↗</a>
+                </div>
+              </div>
+            );
+          }
+          if (!v.data.external) {
+            return (
+              <div class="video-tile">
+                <div class="video-frame">
+                  <video src={siteAsset(v.data.url)} controls preload="none"></video>
+                </div>
+                <div class="title">{translated(v.data.title, lang)}</div>
+                <div class="meta">
+                  {formatDate(v.data.date, lang)}
+                  {v.data.duration ? ` · ${v.data.duration}` : ''}
+                </div>
+              </div>
+            );
+          }
+          return (
+            <a class="video-card" href={v.data.url} target="_blank" rel="noopener">
+              <div class="cover">{v.data.cover ? <img src={v.data.cover} alt="" /> : t('field.watch')}</div>
+              <div class="title">{translated(v.data.title, lang)}</div>
+              <div class="meta">
+                {formatDate(v.data.date, lang)}
+                {v.data.duration ? ` · ${v.data.duration}` : ''}
+              </div>
+            </a>
+          );
+        })}
+      </div>
+    </section>
   )
 }

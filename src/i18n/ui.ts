@@ -27,6 +27,7 @@ export const ui = {
     'breadcrumb.home': 'Inicio',
 
     'category.products': 'Productos',
+    'category.videos': 'Videos',
     'category.empty': 'No hay productos en esta categoría',
 
     'product.search': 'Buscar',
@@ -87,6 +88,7 @@ export const ui = {
     'breadcrumb.home': 'Home',
 
     'category.products': 'Products',
+    'category.videos': 'Videos',
     'category.empty': 'No products in this category',
 
     'product.search': 'Search',
