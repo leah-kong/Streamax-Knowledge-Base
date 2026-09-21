@@ -618,6 +618,29 @@ img {
   color: var(--ink-faint);
 }
 
+/* 首页视频网格里的内嵌播放单元（复用 .video-frame 的 16:9 画框） */
+.video-tile .title {
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 8px;
+}
+
+.video-tile .meta {
+  font-size: 12px;
+  color: var(--ink-faint);
+  margin-top: 2px;
+}
+
+.video-tile .meta .ext {
+  margin-left: 10px;
+  color: var(--brand);
+  text-decoration: none;
+}
+
+.video-tile .meta .ext:hover {
+  text-decoration: underline;
+}
+
 /* 嵌入视频（YouTube iframe / 本地 mp4）：占满整行，16:9 自适应 */
 .video-embed {
   grid-column: 1 / -1;

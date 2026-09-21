@@ -5,6 +5,7 @@ import {
   getFirmwareByProduct,
   getVideoByProduct,
 } from '../lib/data';
+import { youtubeEmbed } from '../lib/video';
 import {
   useTranslations,
   localizedPath,
@@ -67,15 +68,6 @@ const relatedProducts = [
   ...manualRelated,
   ...siblings.filter((p) => !shownIds.has(p.id)),
 ].slice(0, 12);
-
-// 把 YouTube 观看/短链/you.be 链接转成可嵌入的 embed 地址；非 YouTube 返回 null
-function youtubeEmbed(url: string): string | null {
-  if (!url) return null;
-  const m = url.match(
-    /(?:youtube\.com\/(?:watch\?v=|embed\/|shorts\/)|youtu\.be\/)([\w-]{11})/
-  );
-  return m ? `https://www.youtube.com/embed/${m[1]}` : null;
-}
 
 const manuals = await getManualByProduct(productId);
 const firmwares = await getFirmwareByProduct(productId);
