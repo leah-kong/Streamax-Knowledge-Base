@@ -6,7 +6,7 @@ import {
   getRecentFirmware,
   getRecentVideo,
 } from '../lib/data';
-import { youtubeEmbed } from '../lib/video';
+import { youtubeEmbed, youtubeWatch } from '../lib/video';
 import { useTranslations, localizedPath, siteAsset, translated, formatDate, type Lang } from '../i18n/utils';
 
 interface Props {
@@ -146,7 +146,7 @@ const videos = await getRecentVideo(4);
                 <div class="meta">
                   {formatDate(v.data.date, lang)}
                   {v.data.duration ? ` · ${v.data.duration}` : ''}
-                  <a class="ext" href={v.data.url} target="_blank" rel="noopener">{t('field.watch')} ↗</a>
+                  <a class="ext" href={youtubeWatch(v.data.url) ?? v.data.url} target="_blank" rel="noopener">{t('field.watch')} ↗</a>
                 </div>
               </div>
             );
@@ -168,7 +168,7 @@ const videos = await getRecentVideo(4);
           }
           // 非 YouTube 外链：保留跳转卡片
           return (
-            <a class="video-card" href={v.data.url} target="_blank" rel="noopener">
+            <a class="video-card" href={youtubeWatch(v.data.url) ?? v.data.url} target="_blank" rel="noopener">
               <div class="cover">{v.data.cover ? <img src={v.data.cover} alt="" /> : t('field.watch')}</div>
               <div class="title">{translated(v.data.title, lang)}</div>
               <div class="meta">

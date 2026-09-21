@@ -5,7 +5,7 @@ import {
   getFirmwareByProduct,
   getVideoByProduct,
 } from '../lib/data';
-import { youtubeEmbed } from '../lib/video';
+import { youtubeEmbed, youtubeWatch } from '../lib/video';
 import {
   useTranslations,
   localizedPath,
@@ -247,7 +247,7 @@ const hasFaq = false;
                   <div class="meta">
                     {formatDate(v.data.date, lang)}
                     {v.data.duration ? ` · ${v.data.duration}` : ''}
-                    <a class="ext" href={v.data.url} target="_blank" rel="noopener">{t('field.watch')} ↗</a>
+                    <a class="ext" href={youtubeWatch(v.data.url) ?? v.data.url} target="_blank" rel="noopener">{t('field.watch')} ↗</a>
                   </div>
                 </div>
               );
@@ -267,7 +267,7 @@ const hasFaq = false;
               );
             }
             return (
-              <a class="video-card" href={v.data.url} target="_blank" rel="noopener">
+              <a class="video-card" href={youtubeWatch(v.data.url) ?? v.data.url} target="_blank" rel="noopener">
                 <div class="cover">
                   {v.data.cover ? <img src={v.data.cover} alt="" /> : t('field.watch')}
                 </div>

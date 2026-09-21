@@ -1,0 +1,13 @@
+# DEMO 占位视频 —— 用公开示例片（Blender 开源动画）验证分类页视频聚合。
+# 换成真实资料时，把 url 改成你的 YouTube 观看链接，并去掉标题里的 “DEMO ·” 前缀。
+title:
+  es: "DEMO · Cámara C20D — vídeo de muestra"
+  en: "DEMO · Camera C20D — sample video"
+products:
+  - camera-c20d
+date: 2026-09-21
+duration: ''
+url: https://www.youtube.com/watch?v=aqz-KE-bpKQ
+external: true
+cover: ''
+summary: ''
