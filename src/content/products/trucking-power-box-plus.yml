@@ -1,8 +1,10 @@
-# trucking / trucking-dash-camera
-model: "Power Box Plus"
-name:
-  es: "Power Box Plus"
-  en: "Power Box Plus"
+model: Power Box Plus
+name: Power Box Plus
+series: ''
 category: trucking
 subcategory: trucking-dash-camera
+platform: ''
+image: /uploads/PBP1.png
 order: 9
+eol: false
+related: []
