@@ -24,6 +24,10 @@ export const ui = {
     'home.videos': 'Videos recientes',
     'home.viewAll': 'Ver todo',
 
+    'videos.title': 'Todos los videos',
+    'videos.filterBy': 'Filtrar por',
+    'videos.filterAll': 'Todas las categorías',
+
     'breadcrumb.home': 'Inicio',
 
     'category.products': 'Productos',
@@ -84,6 +88,10 @@ export const ui = {
     'home.latestFirmware': 'Latest firmware',
     'home.videos': 'Latest videos',
     'home.viewAll': 'View all',
+
+    'videos.title': 'All videos',
+    'videos.filterBy': 'Filter by',
+    'videos.filterAll': 'All categories',
 
     'breadcrumb.home': 'Home',
 

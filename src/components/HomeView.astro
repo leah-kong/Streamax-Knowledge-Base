@@ -121,6 +121,7 @@ const videos = await getRecentVideo(4);
 <section id="videos">
   <div class="section-head">
     <h2>{t('home.videos')}</h2>
+    <a href={localizedPath(lang, '/videos')}>{t('home.viewAll')} ↗</a>
   </div>
   {
     videos.length === 0 ? (

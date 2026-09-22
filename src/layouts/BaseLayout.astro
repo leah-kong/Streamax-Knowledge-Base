@@ -42,7 +42,7 @@ const pageTitle = title ? `${title} · ${t('site.title')}` : t('site.title');
           <a href={localizedPath(lang, '/')}>{t('nav.home')}</a>
           <a href={`${localizedPath(lang, '/')}#documents`}>{t('nav.documents')}</a>
           <a href={`${localizedPath(lang, '/')}#firmware`}>{t('nav.downloads')}</a>
-          <a href={`${localizedPath(lang, '/')}#videos`}>{t('nav.videos')}</a>
+          <a href={localizedPath(lang, '/videos')}>{t('nav.videos')}</a>
         </nav>
         <div class="header-right">
           <a class="lang-switch" href={altHref}>{altLabel}</a>

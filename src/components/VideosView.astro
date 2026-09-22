@@ -1,0 +1,178 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content';
+import {
+  useTranslations,
+  localizedPath,
+  siteAsset,
+  translated,
+  formatDate,
+  type Lang,
+} from '../i18n/utils';
+import { youtubeEmbed, youtubeWatch } from '../lib/video';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const allCategories = await getCollection('categories');
+const allProducts = await getCollection('products');
+const allVideos = await getCollection('video');
+
+// 一级分类（用于筛选下拉）
+const l1Categories = allCategories
+  .filter((c) => c.data.level === 1)
+  .sort((a, b) => a.data.order - b.data.order);
+
+// 把视频关联的 products（slug 或 model 两种存储都兼容）解析成产品条目
+function resolveProducts(refs: string[]): CollectionEntry<'products'>[] {
+  const out: CollectionEntry<'products'>[] = [];
+  const seen = new Set<string>();
+  for (const ref of refs) {
+    const p = allProducts.find((x) => x.id === ref || x.data.model === ref);
+    if (p && !seen.has(p.id)) {
+      seen.add(p.id);
+      out.push(p);
+    }
+  }
+  return out;
+}
+
+// 每个视频：解析产品、收集所属一级分类（用于筛选）、按日期倒序
+const items = allVideos
+  .map((v) => {
+    const products = resolveProducts(v.data.products);
+    const catIds = [...new Set(products.map((p) => p.data.category))];
+    return { video: v, products, catIds };
+  })
+  .sort((a, b) => b.video.data.date.valueOf() - a.video.data.date.valueOf());
+
+// 仅当视频确实跨多个一级分类时，才显示筛选下拉
+const activeCatIds = [...new Set(items.flatMap((i) => i.catIds))];
+const filterCats = l1Categories.filter((c) => activeCatIds.includes(c.id));
+---
+
+<h1 style="font-size:28px;margin:26px 0 4px;">{t('videos.title')}</h1>
+
+{
+  filterCats.length > 1 && (
+    <div class="video-filter">
+      <label for="video-filter">{t('videos.filterBy')}</label>
+      <select id="video-filter">
+        <option value="all">{t('videos.filterAll')}</option>
+        {filterCats.map((c) => (
+          <option value={c.id}>{translated(c.data.name, lang)}</option>
+        ))}
+      </select>
+      <span id="video-count" class="video-count" aria-live="polite"></span>
+    </div>
+  )
+}
+
+{
+  items.length === 0 ? (
+    <div class="empty">{t('common.noData')}</div>
+  ) : (
+    <div class="video-grid">
+      {items.map(({ video: v, products, catIds }) => {
+        const embed = youtubeEmbed(v.data.url);
+        if (embed) {
+          return (
+            <div class="video-tile" data-video-cats={catIds.join(' ')}>
+              <div class="video-frame">
+                <iframe
+                  src={embed}
+                  title={translated(v.data.title, lang)}
+                  loading="lazy"
+                  allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen
+                ></iframe>
+              </div>
+              <div class="title">{translated(v.data.title, lang)}</div>
+              <div class="meta">
+                {formatDate(v.data.date, lang)}
+                {v.data.duration ? ` · ${v.data.duration}` : ''}
+                <a class="ext" href={youtubeWatch(v.data.url) ?? v.data.url} target="_blank" rel="noopener">{t('field.watch')} ↗</a>
+              </div>
+              {products.length > 0 && (
+                <div class="video-products">
+                  <span class="label">{t('field.products')}:</span>
+                  {products.map((p) => (
+                    <a class="chip" href={localizedPath(lang, `/product/${p.id}`)}>{p.data.model}</a>
+                  ))}
+                </div>
+              )}
+            </div>
+          );
+        }
+        if (!v.data.external) {
+          return (
+            <div class="video-tile" data-video-cats={catIds.join(' ')}>
+              <div class="video-frame">
+                <video src={siteAsset(v.data.url)} controls preload="none"></video>
+              </div>
+              <div class="title">{translated(v.data.title, lang)}</div>
+              <div class="meta">
+                {formatDate(v.data.date, lang)}
+                {v.data.duration ? ` · ${v.data.duration}` : ''}
+              </div>
+              {products.length > 0 && (
+                <div class="video-products">
+                  <span class="label">{t('field.products')}:</span>
+                  {products.map((p) => (
+                    <a class="chip" href={localizedPath(lang, `/product/${p.id}`)}>{p.data.model}</a>
+                  ))}
+                </div>
+              )}
+            </div>
+          );
+        }
+        return (
+          <a
+            class="video-card"
+            data-video-cats={catIds.join(' ')}
+            href={youtubeWatch(v.data.url) ?? v.data.url}
+            target="_blank"
+            rel="noopener"
+          >
+            <div class="cover">{v.data.cover ? <img src={v.data.cover} alt="" /> : t('field.watch')}</div>
+            <div class="title">{translated(v.data.title, lang)}</div>
+            <div class="meta">
+              {formatDate(v.data.date, lang)}
+              {v.data.duration ? ` · ${v.data.duration}` : ''}
+            </div>
+            {products.length > 0 && (
+              <div class="video-products">
+                <span class="label">{t('field.products')}:</span>
+                {products.map((p) => (
+                  <a class="chip" href={localizedPath(lang, `/product/${p.id}`)}>{p.data.model}</a>
+                ))}
+              </div>
+            )}
+          </a>
+        );
+      })}
+    </div>
+  )
+}
+
+<script>
+  const sel = document.getElementById('video-filter') as HTMLSelectElement | null;
+  function applyFilter() {
+    if (!sel) return;
+    const val = sel.value;
+    let visible = 0;
+    document.querySelectorAll<HTMLElement>('[data-video-cats]').forEach((el) => {
+      const cats = (el.getAttribute('data-video-cats') || '').split(/\s+/).filter(Boolean);
+      const show = val === 'all' || cats.includes(val);
+      el.hidden = !show;
+      if (show) visible++;
+    });
+    const count = document.getElementById('video-count');
+    if (count) count.textContent = String(visible);
+  }
+  if (sel) sel.addEventListener('change', applyFilter);
+  applyFilter();
+</script>

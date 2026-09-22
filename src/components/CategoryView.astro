@@ -168,6 +168,7 @@ const catVideos = allVideos
     <section style="margin-top:30px;">
       <div class="section-head">
         <h2>{t('category.videos')}</h2>
+        <a href={localizedPath(lang, '/videos')}>{t('home.viewAll')} ↗</a>
       </div>
       <div class="video-grid">
         {catVideos.map((v) => {
