@@ -1,8 +1,10 @@
-# trucking / trucking-dash-camera
-model: "Power Box Max"
-name:
-  es: "Power Box Max"
-  en: "Power Box Max"
+model: Power Box Max
+name: Power Box Max
+series: ''
 category: trucking
 subcategory: trucking-dash-camera
+platform: ''
+image: /uploads/POWER BOX渲染-正面-45度右侧面.jpg
 order: 8
+eol: false
+related: []
