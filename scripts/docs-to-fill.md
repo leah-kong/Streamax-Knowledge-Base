@@ -659,3 +659,28 @@
 - [ ] **User Guide**: fileEs= | fileEn= | externalUrl= | title(es)= | title(en)=
 - [ ] **Wiring Diagram**: fileEs= | fileEn= | externalUrl= | title(es)= | title(en)=
 - [ ] **Certification**: fileEs= | fileEn= | externalUrl= | title(es)= | title(en)=
+
+---
+
+## 如何导入（填好后）
+
+把数据填进对应的 CSV，再用导入脚本批量生成 `manual` / `firmware` 条目。
+
+### 方式 A — CSV 导入（推荐）
+
+1. 在 `scripts/manuals-import.csv` 填各产品的手册（每个产品 4 行：datasheet / user-guide / wiring-diagram / certification）；
+   在 `scripts/firmware-import.csv` 填固件/工具的版本、发布说明、下载链接等（每个产品 1 行，工具可另加 `type=tool` 行）。
+2. 先预览，确认无误（只打印将要生成的 YAML，不写文件）：
+   `python3 scripts/import_docs.py all --dry-run`
+3. 正式生成（写入 `src/content/manual/*.yml` 与 `src/content/firmware/*.yml`）：
+   `python3 scripts/import_docs.py all`
+
+- 没填 `fileEs/fileEn/externalUrl` 的手册行、没填 `downloadUrl` 的固件行会**自动跳过**，不会生成空条目。
+- `date` 留空会自动用今天日期；`title` 留空会回退到产品名。
+- CSV 用 `utf-8-sig` 读取，Excel「另存为 CSV」产生的 BOM 不会破坏解析。
+
+### 方式 B — Google Drive 导入
+
+若文档/固件托管在 Google Drive，可用 `scripts/drive_to_repo.py` 按 manifest CSV 把 Drive 内容同步进仓库。详见该脚本头部说明。
+
+生成后 `git add` 并 push 到 `main`，Cloudflare Pages 会自动重新构建发布。
