@@ -260,7 +260,7 @@ def load_mapping(path):
     m = {}
     if not path:
         return m
-    with open(path, newline="", encoding="utf-8") as fh:
+    with open(path, newline="", encoding="utf-8-sig") as fh:
         for row in csv.DictReader(fh):
             fn = (row.get("filename") or "").strip()
             slug = (row.get("slug") or row.get("products") or "").strip()
@@ -305,7 +305,7 @@ def main():
     rows = folder_rows if folder_rows is not None else []
     if folder_rows is None:
         for mp in manifest_paths:
-            with open(mp, newline="", encoding="utf-8") as fh:
+            with open(mp, newline="", encoding="utf-8-sig") as fh:
                 for r in csv.DictReader(fh):
                     rows.append(r)
 
