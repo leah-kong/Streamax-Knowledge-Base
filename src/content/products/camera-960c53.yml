@@ -1,8 +1,10 @@
-# camera / camera-bsd
-model: "960C53"
-name:
-  es: "960C53"
-  en: "960C53"
+model: 960C53
+name: 960C53
+series: ''
 category: camera
 subcategory: camera-bsd
+platform: ''
+image: /uploads/C53黑色外盒ID图.png
 order: 1
+eol: false
+related: []
