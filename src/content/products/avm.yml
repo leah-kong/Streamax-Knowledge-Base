@@ -1,0 +1,10 @@
+model: AVM
+name: AVM
+series: ''
+category: camera-bsd
+subcategory: ''
+platform: ''
+image: /uploads/AVM BOX渲染-正面-30度侧面1.jpg
+order: 99
+eol: false
+related: []
