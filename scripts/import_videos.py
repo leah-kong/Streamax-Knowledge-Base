@@ -5,8 +5,9 @@ Bulk-import Streamax KB videos from a CSV into src/content/video/*.yml.
 Usage:
   python scripts/import_videos.py --template
       -> writes scripts/videos-import.csv with one row per product (url empty).
-  python scripts/import_videos.py [path/to/videos-import.csv]
+  python scripts/import_videos.py [path/to/videos-import.csv] [--dry-run]
       -> creates one yml record per row that has a non-empty url.
+         --dry-run prints what would be written without touching the repo.
 
 CSV columns:
   product    primary product slug (used for the filename + default products)
@@ -81,9 +82,9 @@ def yml_quote(s):
     return '"' + s.replace('"', "'") + '"'
 
 
-def import_csv(path):
+def import_csv(path, dry_run=False):
     created = 0
-    with open(path, newline="", encoding="utf-8") as fh:
+    with open(path, newline="", encoding="utf-8-sig") as fh:
         for row in csv.DictReader(fh):
             url_raw = (row.get("url") or "").strip()
             if not url_raw:
@@ -113,16 +114,25 @@ def import_csv(path):
                 "summary: ''\n"
             )
             out = unique_filename(products[0])
-            with open(out, "w", encoding="utf-8") as of:
-                of.write(content)
             created += 1
-            print(f"CREATED {os.path.basename(out)} -> {products} ({norm})")
-    print(f"Total created: {created}")
+            if dry_run:
+                print(f"[DRY-RUN] would CREATE {os.path.basename(out)} -> {products} ({norm})")
+                print("---8<---")
+                print(content.rstrip("\n"))
+                print("---8<---")
+            else:
+                with open(out, "w", encoding="utf-8") as of:
+                    of.write(content)
+                print(f"CREATED {os.path.basename(out)} -> {products} ({norm})")
+    print(f"Total created: {created}" + ("  (dry-run, nothing written)" if dry_run else ""))
 
 
 if __name__ == "__main__":
-    if len(sys.argv) > 1 and sys.argv[1] == "--template":
+    args = sys.argv[1:]
+    dry_run = "--dry-run" in args
+    positional = [a for a in args if not a.startswith("--")]
+    if "--template" in args:
         make_template()
     else:
-        csv_path = sys.argv[1] if len(sys.argv) > 1 else os.path.join(ROOT, "scripts", "videos-import.csv")
-        import_csv(csv_path)
+        csv_path = positional[0] if positional else os.path.join(ROOT, "scripts", "videos-import.csv")
+        import_csv(csv_path, dry_run=dry_run)
