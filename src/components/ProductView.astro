@@ -5,7 +5,7 @@ import {
   getFirmwareByProduct,
   getVideoByProduct,
 } from '../lib/data';
-import { youtubeEmbed, youtubeWatch } from '../lib/video';
+import VideoCard from './VideoCard.astro';
 import {
   useTranslations,
   localizedPath,
@@ -229,56 +229,9 @@ const hasFaq = false;
         <div class="empty">{t('common.noData')}</div>
       ) : (
         <div class="video-grid" style="margin-top:18px;">
-          {videos.map((v) => {
-            const embed = youtubeEmbed(v.data.url);
-            if (embed) {
-              return (
-                <div class="video-embed">
-                  <div class="video-frame">
-                    <iframe
-                      src={embed}
-                      title={translated(v.data.title, lang)}
-                      loading="lazy"
-                      allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowfullscreen
-                    ></iframe>
-                  </div>
-                  <div class="title">{translated(v.data.title, lang)}</div>
-                  <div class="meta">
-                    {formatDate(v.data.date, lang)}
-                    {v.data.duration ? ` · ${v.data.duration}` : ''}
-                    <a class="ext" href={youtubeWatch(v.data.url) ?? v.data.url} target="_blank" rel="noopener">{t('field.watch')} ↗</a>
-                  </div>
-                </div>
-              );
-            }
-            if (!v.data.external) {
-              return (
-                <div class="video-embed">
-                  <div class="video-frame">
-                    <video src={siteAsset(v.data.url)} controls preload="none"></video>
-                  </div>
-                  <div class="title">{translated(v.data.title, lang)}</div>
-                  <div class="meta">
-                    {formatDate(v.data.date, lang)}
-                    {v.data.duration ? ` · ${v.data.duration}` : ''}
-                  </div>
-                </div>
-              );
-            }
-            return (
-              <a class="video-card" href={youtubeWatch(v.data.url) ?? v.data.url} target="_blank" rel="noopener">
-                <div class="cover">
-                  {v.data.cover ? <img src={v.data.cover} alt="" /> : t('field.watch')}
-                </div>
-                <div class="title">{translated(v.data.title, lang)}</div>
-                <div class="meta">
-                  {formatDate(v.data.date, lang)}
-                  {v.data.duration ? ` · ${v.data.duration}` : ''}
-                </div>
-              </a>
-            );
-          })}
+          {videos.map((v) => (
+            <VideoCard video={v} lang={lang} fullWidth />
+          ))}
         </div>
       )
     }

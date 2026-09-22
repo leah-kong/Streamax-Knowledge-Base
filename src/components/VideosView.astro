@@ -3,12 +3,10 @@ import { getCollection, type CollectionEntry } from 'astro:content';
 import {
   useTranslations,
   localizedPath,
-  siteAsset,
   translated,
-  formatDate,
   type Lang,
 } from '../i18n/utils';
-import { youtubeEmbed, youtubeWatch } from '../lib/video';
+import VideoCard from './VideoCard.astro';
 
 interface Props {
   lang: Lang;
@@ -76,84 +74,9 @@ const filterCats = l1Categories.filter((c) => activeCatIds.includes(c.id));
     <div class="empty">{t('common.noData')}</div>
   ) : (
     <div class="video-grid">
-      {items.map(({ video: v, products, catIds }) => {
-        const embed = youtubeEmbed(v.data.url);
-        if (embed) {
-          return (
-            <div class="video-tile" data-video-cats={catIds.join(' ')}>
-              <div class="video-frame">
-                <iframe
-                  src={embed}
-                  title={translated(v.data.title, lang)}
-                  loading="lazy"
-                  allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen
-                ></iframe>
-              </div>
-              <div class="title">{translated(v.data.title, lang)}</div>
-              <div class="meta">
-                {formatDate(v.data.date, lang)}
-                {v.data.duration ? ` · ${v.data.duration}` : ''}
-                <a class="ext" href={youtubeWatch(v.data.url) ?? v.data.url} target="_blank" rel="noopener">{t('field.watch')} ↗</a>
-              </div>
-              {products.length > 0 && (
-                <div class="video-products">
-                  <span class="label">{t('field.products')}:</span>
-                  {products.map((p) => (
-                    <a class="chip" href={localizedPath(lang, `/product/${p.id}`)}>{p.data.model}</a>
-                  ))}
-                </div>
-              )}
-            </div>
-          );
-        }
-        if (!v.data.external) {
-          return (
-            <div class="video-tile" data-video-cats={catIds.join(' ')}>
-              <div class="video-frame">
-                <video src={siteAsset(v.data.url)} controls preload="none"></video>
-              </div>
-              <div class="title">{translated(v.data.title, lang)}</div>
-              <div class="meta">
-                {formatDate(v.data.date, lang)}
-                {v.data.duration ? ` · ${v.data.duration}` : ''}
-              </div>
-              {products.length > 0 && (
-                <div class="video-products">
-                  <span class="label">{t('field.products')}:</span>
-                  {products.map((p) => (
-                    <a class="chip" href={localizedPath(lang, `/product/${p.id}`)}>{p.data.model}</a>
-                  ))}
-                </div>
-              )}
-            </div>
-          );
-        }
-        return (
-          <a
-            class="video-card"
-            data-video-cats={catIds.join(' ')}
-            href={youtubeWatch(v.data.url) ?? v.data.url}
-            target="_blank"
-            rel="noopener"
-          >
-            <div class="cover">{v.data.cover ? <img src={v.data.cover} alt="" /> : t('field.watch')}</div>
-            <div class="title">{translated(v.data.title, lang)}</div>
-            <div class="meta">
-              {formatDate(v.data.date, lang)}
-              {v.data.duration ? ` · ${v.data.duration}` : ''}
-            </div>
-            {products.length > 0 && (
-              <div class="video-products">
-                <span class="label">{t('field.products')}:</span>
-                {products.map((p) => (
-                  <a class="chip" href={localizedPath(lang, `/product/${p.id}`)}>{p.data.model}</a>
-                ))}
-              </div>
-            )}
-          </a>
-        );
-      })}
+      {items.map(({ video: v, products, catIds }) => (
+        <VideoCard video={v} lang={lang} products={products} catIds={catIds} />
+      ))}
     </div>
   )
 }

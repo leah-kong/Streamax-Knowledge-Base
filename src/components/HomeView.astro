@@ -6,7 +6,7 @@ import {
   getRecentFirmware,
   getRecentVideo,
 } from '../lib/data';
-import { youtubeEmbed, youtubeWatch } from '../lib/video';
+import VideoCard from './VideoCard.astro';
 import { useTranslations, localizedPath, siteAsset, translated, formatDate, type Lang } from '../i18n/utils';
 
 interface Props {
@@ -128,57 +128,9 @@ const videos = await getRecentVideo(4);
       <div class="empty">{t('common.noData')}</div>
     ) : (
       <div class="video-grid">
-        {videos.map((v) => {
-          const embed = youtubeEmbed(v.data.url);
-          if (embed) {
-            // YouTube：直接在网页内嵌播放器，无需跳走
-            return (
-              <div class="video-tile">
-                <div class="video-frame">
-                  <iframe
-                    src={embed}
-                    title={translated(v.data.title, lang)}
-                    loading="lazy"
-                    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen
-                  ></iframe>
-                </div>
-                <div class="title">{translated(v.data.title, lang)}</div>
-                <div class="meta">
-                  {formatDate(v.data.date, lang)}
-                  {v.data.duration ? ` · ${v.data.duration}` : ''}
-                  <a class="ext" href={youtubeWatch(v.data.url) ?? v.data.url} target="_blank" rel="noopener">{t('field.watch')} ↗</a>
-                </div>
-              </div>
-            );
-          }
-          if (!v.data.external) {
-            // 本地 mp4
-            return (
-              <div class="video-tile">
-                <div class="video-frame">
-                  <video src={siteAsset(v.data.url)} controls preload="none"></video>
-                </div>
-                <div class="title">{translated(v.data.title, lang)}</div>
-                <div class="meta">
-                  {formatDate(v.data.date, lang)}
-                  {v.data.duration ? ` · ${v.data.duration}` : ''}
-                </div>
-              </div>
-            );
-          }
-          // 非 YouTube 外链：保留跳转卡片
-          return (
-            <a class="video-card" href={youtubeWatch(v.data.url) ?? v.data.url} target="_blank" rel="noopener">
-              <div class="cover">{v.data.cover ? <img src={v.data.cover} alt="" /> : t('field.watch')}</div>
-              <div class="title">{translated(v.data.title, lang)}</div>
-              <div class="meta">
-                {formatDate(v.data.date, lang)}
-                {v.data.duration ? ` · ${v.data.duration}` : ''}
-              </div>
-            </a>
-          );
-        })}
+        {videos.map((v) => (
+          <VideoCard video={v} lang={lang} />
+        ))}
       </div>
     )
   }

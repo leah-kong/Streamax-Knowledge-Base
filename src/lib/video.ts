@@ -21,3 +21,9 @@ export function youtubeWatch(url: string): string | null {
   const emb = youtubeEmbed(url);
   return emb ? emb.replace('/embed/', '/watch?v=') : null;
 }
+
+// YouTube 封面图（hqdefault），用于点击播放前的占位缩略图；非 YouTube 返回 null。
+export function youtubeThumb(url: string): string | null {
+  const id = youtubeEmbed(url)?.match(/embed\/([\w-]{11})/)?.[1];
+  return id ? `https://i.ytimg.com/vi/${id}/hqdefault.jpg` : null;
+}

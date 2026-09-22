@@ -1,0 +1,124 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import {
+  useTranslations,
+  localizedPath,
+  siteAsset,
+  translated,
+  formatDate,
+  type Lang,
+} from '../i18n/utils';
+import { youtubeEmbed, youtubeWatch, youtubeThumb } from '../lib/video';
+
+interface Props {
+  video: CollectionEntry<'video'>;
+  lang: Lang;
+  // 关联产品（用于展示“兼容产品” chip 并链接到产品页）
+  products?: CollectionEntry<'products'>[];
+  // 一级分类 id 列表，用于“全部视频”页的分类筛选（带 data-video-cats）
+  catIds?: string[];
+  // 产品页用：视频占满整行；否则按网格自适应
+  fullWidth?: boolean;
+}
+
+const { video: v, lang, products = [], catIds = [], fullWidth = false } = Astro.props;
+const t = useTranslations(lang);
+
+const embed = youtubeEmbed(v.data.url);
+const thumb = v.data.cover || (embed ? youtubeThumb(v.data.url) : null);
+const tileClass = fullWidth ? 'video-embed' : 'video-tile';
+const cats = catIds.join(' ');
+const hasChips = products.length > 0;
+---
+
+{
+  embed ? (
+    /* YouTube：先显示缩略图，点击后再加载 iframe（更轻量，无 JS 也能用“Ver ↗”外链观看） */
+    <div class={tileClass} data-video-cats={cats}>
+      <div class="video-frame video-thumb" data-yt={embed}>
+        {thumb && <img src={thumb} alt="" loading="lazy" />}
+        <button class="play-btn" type="button" aria-label={t('field.watch')}>
+          ▶
+        </button>
+      </div>
+      <div class="title">{translated(v.data.title, lang)}</div>
+      <div class="meta">
+        {formatDate(v.data.date, lang)}
+        {v.data.duration ? ` · ${v.data.duration}` : ''}
+        <a class="ext" href={youtubeWatch(v.data.url) ?? v.data.url} target="_blank" rel="noopener">
+          {t('field.watch')} ↗
+        </a>
+      </div>
+      {
+        hasChips && (
+          <div class="video-products">
+            <span class="label">{t('field.products')}:</span>
+            {products.map((p) => (
+              <a class="chip" href={localizedPath(lang, `/product/${p.id}`)}>
+                {p.data.model}
+              </a>
+            ))}
+          </div>
+        )
+      }
+    </div>
+  ) : !v.data.external ? (
+    /* 本地 mp4 */
+    <div class={tileClass} data-video-cats={cats}>
+      <div class="video-frame">
+        <video src={siteAsset(v.data.url)} controls preload="none"></video>
+      </div>
+      <div class="title">{translated(v.data.title, lang)}</div>
+      <div class="meta">
+        {formatDate(v.data.date, lang)}
+        {v.data.duration ? ` · ${v.data.duration}` : ''}
+      </div>
+      {
+        hasChips && (
+          <div class="video-products">
+            <span class="label">{t('field.products')}:</span>
+            {products.map((p) => (
+              <a class="chip" href={localizedPath(lang, `/product/${p.id}`)}>
+                {p.data.model}
+              </a>
+            ))}
+          </div>
+        )
+      }
+    </div>
+  ) : (
+    /* 非 YouTube 外链：跳转卡片 */
+    <a class="video-card" data-video-cats={cats} href={youtubeWatch(v.data.url) ?? v.data.url} target="_blank" rel="noopener">
+      <div class="cover">{thumb ? <img src={thumb} alt="" /> : t('field.watch')}</div>
+      <div class="title">{translated(v.data.title, lang)}</div>
+      <div class="meta">
+        {formatDate(v.data.date, lang)}
+        {v.data.duration ? ` · ${v.data.duration}` : ''}
+      </div>
+      {
+        hasChips && (
+          <div class="video-products">
+            <span class="label">{t('field.products')}:</span>
+            {products.map((p) => (
+              <a class="chip" href={localizedPath(lang, `/product/${p.id}`)}>
+                {p.data.model}
+              </a>
+            ))}
+          </div>
+        )
+      }
+    </a>
+  )
+}
+
+<script>
+  // 点击缩略图才加载 YouTube iframe（autoplay），避免一页多个 iframe 拖慢加载
+  document.querySelectorAll('.video-thumb').forEach((el) => {
+    el.addEventListener('click', () => {
+      const src = el.getAttribute('data-yt');
+      if (!src) return;
+      el.innerHTML = `<iframe src="${src}?autoplay=1" title="" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+      el.classList.remove('video-thumb');
+    });
+  });
+</script>
