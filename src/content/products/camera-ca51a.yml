@@ -1,8 +1,10 @@
-# camera / camera-surveillance
-model: "CA51A"
-name:
-  es: "CA51A"
-  en: "CA51A"
+model: CA51A
+name: CA51A
+series: ''
 category: camera
 subcategory: camera-surveillance
+platform: ''
+image: /uploads/CA51A.jpg
 order: 7
+eol: false
+related: []
