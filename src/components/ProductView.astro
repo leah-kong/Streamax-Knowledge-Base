@@ -169,7 +169,7 @@ const hasFaq = false;
                       {(m.data.fileEs || m.data.fileEn || m.data.externalUrl) && (
                         <a
                           class="btn-download"
-                          href={siteAsset((lang === 'es' ? m.data.fileEs : m.data.fileEn) ?? m.data.externalUrl ?? '')}
+                          href={siteAsset((lang === 'es' ? m.data.fileEs : m.data.fileEn) || m.data.externalUrl || '')}
                           target="_blank"
                           rel="noopener"
                         >
