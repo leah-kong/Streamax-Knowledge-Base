@@ -10,6 +10,7 @@ import {
   useTranslations,
   localizedPath,
   siteAsset,
+  googleEmbed,
   translated,
   formatDate,
   type Lang,
@@ -157,7 +158,9 @@ const hasFaq = false;
                   <h2 style="font-size:16px;">{t(`doctype.${g.type}`)}</h2>
                 </div>
                 <ul class="resource-list">
-                  {g.items.map((m) => (
+                  {g.items.map((m) => {
+                    const embed = googleEmbed(m.data.externalUrl);
+                    return (
                     <li>
                       <div class="main">
                         <div class="title">{translated(m.data.title, lang)}</div>
@@ -178,8 +181,17 @@ const hasFaq = false;
                             : t('field.download')}
                         </a>
                       )}
+                      {embed && (
+                        <iframe
+                          class="doc-embed"
+                          src={embed}
+                          title={translated(m.data.title, lang)}
+                          loading="lazy"
+                        ></iframe>
+                      )}
                     </li>
-                  ))}
+                    );
+                  })}
                 </ul>
               </div>
             ))

@@ -34,6 +34,17 @@ export function siteAsset(url: string): string {
   return withBase(url);
 }
 
+// Google Docs/Drive 链接转成可内嵌的 /preview 地址（用于 <iframe> 内嵌）。
+// 非谷歌链接返回 null。自动把 /edit、/view 换成 /preview，无需重新复制链接。
+export function googleEmbed(url: string | null | undefined): string | null {
+  if (!url) return null;
+  const doc = url.match(/docs\.google\.com\/document\/d\/([\w-]+)/);
+  if (doc) return `https://docs.google.com/document/d/${doc[1]}/preview`;
+  const file = url.match(/drive\.google\.com\/file\/d\/([\w-]+)/);
+  if (file) return `https://drive.google.com/file/d/${file[1]}/preview`;
+  return null;
+}
+
 export function getLangFromUrl(url: URL): Lang {
   const segment = stripBase(url.pathname).split('/')[1];
   return segment === 'en' ? 'en' : 'es';

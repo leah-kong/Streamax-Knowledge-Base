@@ -509,6 +509,7 @@ img {
 
 .resource-list li {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 16px;
   padding: 14px 4px;
@@ -555,6 +556,17 @@ img {
   background: var(--brand);
   border-color: var(--brand);
   color: #fff;
+}
+
+/* 谷歌文档/网盘内嵌 iframe（/preview），整行换行占满宽度 */
+.doc-embed {
+  flex-basis: 100%;
+  width: 100%;
+  height: 640px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  margin-top: 8px;
+  background: #fff;
 }
 
 .badge {
