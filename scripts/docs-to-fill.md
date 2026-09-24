@@ -679,28 +679,31 @@
 - `date` 留空会自动用今天日期；`title` 留空会回退到产品名。
 - CSV 用 `utf-8-sig` 读取，Excel「另存为 CSV」产生的 BOM 不会破坏解析。
 
-### 方式 B — Google Drive 导入（清单模式，无需 API 凭据）
+### 方式 B — Google Drive 导入（你填链接，按产品 slug 直接挂，无需 API 凭据）
+
+最适合「你填链接、我导入」的协作：清单已按目录预填好每个产品的手册/固件行，
+你只需在 `drive_url` 列贴对应 Drive 文件的分享链接（固件行再填 `version`），
+`scripts/drive_import.py` 按 `slug` 直接把链接挂到该产品——无需逐个找文件、也不需 Drive API。
 
 前提：Drive 里每个文件都要设为「任何知道链接的人可查看」，否则公开网站访客打不开。
 
-`scripts/drive_to_repo.py` 按文件名里的产品型号自动匹配产品，并据扩展名推断类型（pdf/doc→manual，bin/zip→firmware，mp4→video），生成对应 yml。已附模板 `scripts/drive-manifest.csv` 与 `scripts/drive-mapping.csv`。
-
-1. 拿分享链接 / 文件 ID：Drive 右键文件 → 获取链接（权限设「知道链接的人可查看」）。
+1. 清单已生成：`scripts/drive-manifest.csv`（400 行 = 80 产品 × 4 手册类型 + 1 固件行），列：
+   `slug, product, kind, docType, version, drive_url, title_es, title_en, date, ...`
+   - `slug` / `product` / `kind` / `docType` / 标题 已预填，**你不用动**。
+   - 你只填：`drive_url`（每个文件的 Drive 分享链接或文件 ID）+ 固件行的 `version`（如 `2.3.1`）。
+   - 留空的行 = 你还没有该文件，导入时自动跳过，不会生成空条目。
+2. 拿分享链接：Drive 右键文件 → 获取链接（权限「知道链接的人可查看」），贴进 `drive_url`。
    链接形如 `https://drive.google.com/file/d/<FILE_ID>/view?usp=sharing`，只复制 `<FILE_ID>` 也行。
-2. 填清单 `scripts/drive-manifest.csv`，列：`filename, drive_url, type, title_es, title_en, date, docType, version`
-   - `filename`：文件名（**含产品型号**，如 `DS100_UserGuide.pdf`，便于自动匹配）
-   - `drive_url`：上面的分享链接或文件 ID
-   - `type`：可留空（按扩展名推断），或显式写 `manual` / `firmware`
-   - `firmware` 必须填 `version`（如 `2.3.1`）；`manual` 可填 `docType`（datasheet/user-guide/wiring-diagram/certification，缺省 user-guide）
-3. （可选）型号太短匹配不到的产品：脚本只匹配长度 ≥3 的型号（`B2`、`C20` 不会自动命中）。
-   建 `scripts/drive-mapping.csv`（列 `filename, slug`）强制指定，例如：`B2_Firmware_v2.3.1.bin,accessory-b2`
-4. 先试运行（只打印匹配，不写文件）：
-   `python3 scripts/drive_to_repo.py scripts/drive-manifest.csv --mapping=scripts/drive-mapping.csv`
-   确认每个文件都 `[WOULD CREATE] ... (manual|firmware <- <slug>)`；有 `[SKIP] 未匹配到产品` 就补 mapping 或改名含型号。
+3. 把填好的 `drive-manifest.csv` 发回给我（或你直接改本机文件）。
+4. 试运行（只打印，不写文件）：
+   `python3 scripts/drive_import.py scripts/drive-manifest.csv`
+   确认每个文件都 `[WOULD CREATE] ... (manual|firmware <- <slug>)`。
 5. 正式生成 yml：`... --write`（写入 `src/content/manual/` 与 `src/content/firmware/`）
 6. 提交并发布：`... --write --commit`（或自己 `git add` + commit + push 到 `main`，Cloudflare Pages 自动重建）
 
 提示：固件下载建议加 `--direct` 走直链（`uc?export=download`）；大文件 Drive 可能弹病毒扫描提示，二选一。
-进阶（整文件夹自动列出）：`python3 scripts/drive_to_repo.py --folder-id=<ID>`，需安装 `google-api-python-client google-auth` 并准备服务账号 `credentials.json`（`GOOGLE_APPLICATION_CREDENTIALS` 指向它）。你给文件夹 ID + 凭据后我可帮你配；清单模式更简单、无需任何凭据。
+备选（按文件名自动匹配 / 整文件夹列出）：若你更想让脚本按文件名里的型号自动匹配，或整文件夹自动列举，
+可用 `scripts/drive_to_repo.py`（清单列 `filename,drive_url,...`，短型号用 `drive-mapping.csv` 兜底；
+`--folder-id` 模式还需装 `google-api-python-client google-auth` + 服务账号凭据）。但「填链接」方式最省事。
 
 生成后 `git add` 并 push 到 `main`，Cloudflare Pages 会自动重新构建发布。
