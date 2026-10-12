@@ -1,4 +1,4 @@
-﻿﻿backend:
+﻿backend:
   name: github
   repo: leah-kong/Streamax-Knowledge-Base
   branch: main
@@ -7,11 +7,9 @@
 media_folder: public/uploads
 public_folder: /uploads
 
-# 双语：西语（墨西哥）为默认，字段在单个文件内以 es / en 分组保存
-i18n:
-  structure: single_file
-  locales: [es, en]
-  default_locale: es
+# 双语做法：不使用 Sveltia 的 i18n 语言切换器，改为每个双语字段做成一个
+# “ES / EN”分组（object 控件），与仓库里 src/content 的 `字段: {es, en}` 格式对齐。
+# 这样后台能直接显示并编辑现有条目，且不影响 Astro 站点（站点只读 src/content，不看本文件）。
 
 collections:
   - name: categories
@@ -19,10 +17,13 @@ collections:
     folder: src/content/categories
     extension: yml
     create: true
-    identifier_field: name
-    i18n: true
     fields:
-      - { label: Nombre, name: name, widget: string, i18n: true }
+      - name: name
+        label: Nombre (ES / EN)
+        widget: object
+        fields:
+          - { label: ES, name: es, widget: string }
+          - { label: EN, name: en, widget: string }
       - label: Nivel
         name: level
         widget: select
@@ -32,19 +33,34 @@ collections:
           - { label: 'Nivel 3 (agrupación)', value: 3 }
       - { label: Categoría padre, name: parent, widget: relation, collection: categories, search_fields: [name], value_field: name, display_fields: [name], required: false }
       - { label: Orden, name: order, widget: number, value_type: int, default: 99, required: false }
-      - { label: Descripción, name: summary, widget: text, i18n: true, required: false }
+      - name: summary
+        label: Descripción (ES / EN)
+        widget: object
+        fields:
+          - { label: ES, name: es, widget: text }
+          - { label: EN, name: en, widget: text }
 
   - name: products
     label: Productos / Products
-    i18n: true
     folder: src/content/products
     extension: yml
     create: true
     identifier_field: model
     fields:
-      - { label: Modelo, name: model, widget: string, i18n: false }
-      - { label: Nombre, name: name, widget: string, i18n: true }
-      - { label: Serie, name: series, widget: string, i18n: true, required: false }
+      - { label: Modelo, name: model, widget: string }
+      - name: name
+        label: Nombre (ES / EN)
+        widget: object
+        fields:
+          - { label: ES, name: es, widget: string }
+          - { label: EN, name: en, widget: string }
+      - name: series
+        label: Serie (ES / EN)
+        widget: object
+        required: false
+        fields:
+          - { label: ES, name: es, widget: string }
+          - { label: EN, name: en, widget: string }
       - { label: 'Categoría (nivel 1)', name: category, widget: relation, collection: categories, search_fields: [name], value_field: name, display_fields: [name] }
       - { label: 'Subcategoría (nivel 2)', name: subcategory, widget: relation, collection: categories, search_fields: [name], value_field: name, display_fields: [name], required: false }
       - { label: 'Agrupación (nivel 3)', name: platform, widget: relation, collection: categories, search_fields: [name], value_field: name, display_fields: [name], required: false }
@@ -63,13 +79,16 @@ collections:
 
   - name: manual
     label: Manuales / Manuals
-    i18n: true
     folder: src/content/manual
     extension: yml
     create: true
-    identifier_field: title
     fields:
-      - { label: Título, name: title, widget: string, i18n: true }
+      - name: title
+        label: Título (ES / EN)
+        widget: object
+        fields:
+          - { label: ES, name: es, widget: string }
+          - { label: EN, name: en, widget: string }
       - label: Tipo de documento
         name: docType
         widget: select
@@ -81,11 +100,16 @@ collections:
       - { label: Productos, name: products, widget: relation, collection: products, multiple: true, search_fields: [model], display_fields: [model] }
       - { label: Versión, name: version, widget: string, required: false }
       - { label: Fecha, name: date, widget: datetime, date_format: YYYY-MM-DD, time_format: false }
-      # URL de descarga：建议指向 GitHub Releases，避免把 PDF 提交进仓库
       - { label: 'Archivo ES (URL)', name: fileEs, widget: string, required: false, hint: 'URL del PDF en español, por ejemplo un asset de GitHub Releases' }
       - { label: 'Archivo EN (URL)', name: fileEn, widget: string, required: false }
       - { label: 'Enlace externo', name: externalUrl, widget: string, required: false, hint: 'Enlace a Google Drive (o cualquier URL externa). Se muestra como botón "Abrir" en la ficha del producto.' }
-      - { label: Resumen, name: summary, widget: text, i18n: true, required: false }
+      - name: summary
+        label: Resumen (ES / EN)
+        widget: object
+        required: false
+        fields:
+          - { label: ES, name: es, widget: text }
+          - { label: EN, name: en, widget: text }
 
   - name: firmware
     label: 'Firmware y herramientas'
@@ -93,7 +117,6 @@ collections:
     extension: yml
     create: true
     identifier_field: version
-    i18n: true
     fields:
       - { label: Versión, name: version, widget: string }
       - { label: Productos, name: products, widget: relation, collection: products, multiple: true, search_fields: [model], display_fields: [model] }
@@ -108,22 +131,37 @@ collections:
       - { label: 'Tamaño del archivo', name: fileSize, widget: string, required: false }
       - { label: Checksum, name: checksum, widget: string, required: false }
       - { label: 'URL de descarga', name: downloadUrl, widget: string, hint: 'Enlace directo al asset de GitHub Releases' }
-      - { label: Notas de versión, name: releaseNotes, widget: text, i18n: true, required: false }
+      - name: releaseNotes
+        label: Notas de versión (ES / EN)
+        widget: object
+        required: false
+        fields:
+          - { label: ES, name: es, widget: text }
+          - { label: EN, name: en, widget: text }
       - { label: 'Actualización obligatoria', name: mandatory, widget: boolean, default: false, required: false }
 
   - name: video
     label: Videos
-    i18n: true
     folder: src/content/video
     extension: yml
     create: true
-    identifier_field: title
     fields:
-      - { label: Título, name: title, widget: string, i18n: true }
+      - name: title
+        label: Título (ES / EN)
+        widget: object
+        fields:
+          - { label: ES, name: es, widget: string }
+          - { label: EN, name: en, widget: string }
       - { label: Productos, name: products, widget: relation, collection: products, multiple: true, search_fields: [model], display_fields: [model] }
       - { label: Fecha, name: date, widget: datetime, date_format: YYYY-MM-DD, time_format: false }
       - { label: Duración, name: duration, widget: string, required: false }
       - { label: 'URL del video', name: url, widget: string, hint: 'Enlace de YouTube (se incrusta el reproductor) u otra URL de video externa.' }
       - { label: 'Enlace externo', name: external, widget: boolean, default: true, required: false }
       - { label: Portada, name: cover, widget: string, required: false }
-      - { label: Resumen, name: summary, widget: text, i18n: true, required: false }
+      - name: summary
+        label: Resumen (ES / EN)
+        widget: object
+        required: false
+        fields:
+          - { label: ES, name: es, widget: text }
+          - { label: EN, name: en, widget: text }
