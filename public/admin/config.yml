@@ -1,4 +1,4 @@
-﻿backend:
+﻿﻿backend:
   name: github
   repo: leah-kong/Streamax-Knowledge-Base
   branch: main
@@ -20,6 +20,7 @@ collections:
     extension: yml
     create: true
     identifier_field: name
+    i18n: true
     fields:
       - { label: Nombre, name: name, widget: string, i18n: true }
       - label: Nivel
@@ -35,6 +36,7 @@ collections:
 
   - name: products
     label: Productos / Products
+    i18n: true
     folder: src/content/products
     extension: yml
     create: true
@@ -61,6 +63,7 @@ collections:
 
   - name: manual
     label: Manuales / Manuals
+    i18n: true
     folder: src/content/manual
     extension: yml
     create: true
@@ -90,6 +93,7 @@ collections:
     extension: yml
     create: true
     identifier_field: version
+    i18n: true
     fields:
       - { label: Versión, name: version, widget: string }
       - { label: Productos, name: products, widget: relation, collection: products, multiple: true, search_fields: [model], display_fields: [model] }
@@ -109,6 +113,7 @@ collections:
 
   - name: video
     label: Videos
+    i18n: true
     folder: src/content/video
     extension: yml
     create: true
