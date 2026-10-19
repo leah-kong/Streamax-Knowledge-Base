@@ -5,6 +5,7 @@ name:
 category: trucking
 subcategory: trucking-asset-security
 order: 1
+related: []
 manuals:
 - title:
     es: trucking-z5 Certificación

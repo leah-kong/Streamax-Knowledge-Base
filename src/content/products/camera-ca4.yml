@@ -5,6 +5,7 @@ name:
 category: camera
 subcategory: camera-surveillance
 order: 8
+related: []
 manuals:
 - title:
     es: camera-ca4 Certificación

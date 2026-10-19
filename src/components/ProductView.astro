@@ -44,8 +44,8 @@ function buildChain(id: string) {
 
 const chain = buildChain(product.data.category);
 
-// 手动指定的关联产品优先（编辑器在 CMS 中勾选）；未指定时回退到同分类自动关联。
-// 同时兼容 slug(id) 与 model 两种存储方式，避免与现有 products 字段不一致。
+// 只展示在 CMS 中手动关联的 related 产品（产品 id / slug 或 model 均可），
+// 不再回退到同分类自动关联——未手动挂接的产品不显示。
 function resolveRelated(vals: string[] | undefined): CollectionEntry<'products'>[] {
   if (!vals || vals.length === 0) return [];
   const out: CollectionEntry<'products'>[] = [];
@@ -60,15 +60,8 @@ function resolveRelated(vals: string[] | undefined): CollectionEntry<'products'>
   return out;
 }
 
-const manualRelated = resolveRelated(product.data.related);
-const siblings = allProducts
-  .filter((p) => p.data.category === product.data.category && p.id !== product.id)
-  .sort((a, b) => a.data.order - b.data.order);
-const shownIds = new Set(manualRelated.map((p) => p.id));
-const relatedProducts = [
-  ...manualRelated,
-  ...siblings.filter((p) => !shownIds.has(p.id)),
-].slice(0, 12);
+// 仅手动关联的产品才展示（related 字段为空时整段不渲染）
+const relatedProducts = resolveRelated(product.data.related);
 
 const manuals = await getManualByProduct(productId);
 const firmwares = await getFirmwareByProduct(productId);

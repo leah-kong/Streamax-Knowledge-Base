@@ -5,6 +5,7 @@ name:
 category: camera
 subcategory: camera-surveillance
 order: 4
+related: []
 manuals:
 - title:
     es: camera-c39a Certificación

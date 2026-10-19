@@ -5,6 +5,7 @@ name:
 category: public-transport
 subcategory: public-transport-pis
 order: 1
+related: []
 manuals:
 - title:
     es: public-transport-ims-100 Certificación

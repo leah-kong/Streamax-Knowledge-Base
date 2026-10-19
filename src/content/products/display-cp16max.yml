@@ -4,6 +4,7 @@ name:
   en: CP16Max
 category: display
 order: 10
+related: []
 manuals:
 - title:
     es: display-cp16max Certificación

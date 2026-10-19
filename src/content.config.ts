@@ -38,7 +38,8 @@ const products = defineCollection({
     image: z.string().optional(),
     order: z.number().default(99),
     eol: z.boolean().default(false),
-    // 手动指定的关联产品（产品 id / slug 或 model 均可），优先于自动同分类关联
+    // 手动指定的关联产品（产品 id / slug 或 model 均可）；产品页只展示此处手动挂接的产品，
+    // 不再自动同分类关联。清空即不显示任何关联产品，由编辑在 CMS 中手动添加。
     related: z.array(z.string()).optional(),
     // 内嵌资源（物理嵌套）：产品页 manual/firmware/video 的真源，站点直接从这里读取。
     // 不再依赖独立的 manual/firmware/video 集合。

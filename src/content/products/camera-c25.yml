@@ -5,6 +5,7 @@ name:
 category: camera
 subcategory: camera-surveillance
 order: 6
+related: []
 manuals:
 - title:
     es: camera-c25 Certificación

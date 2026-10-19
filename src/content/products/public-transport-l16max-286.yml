@@ -5,6 +5,7 @@ name:
 category: public-transport
 subcategory: public-transport-pis
 order: 3
+related: []
 manuals:
 - title:
     es: public-transport-l16max-286 Certificación

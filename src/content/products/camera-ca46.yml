@@ -5,6 +5,7 @@ name:
 category: camera
 subcategory: camera-bsd
 order: 3
+related: []
 manuals:
 - title:
     es: camera-ca46 Certificación

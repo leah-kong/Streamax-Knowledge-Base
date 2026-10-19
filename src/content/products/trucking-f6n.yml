@@ -5,6 +5,7 @@ name:
 category: trucking
 subcategory: trucking-mdvr
 order: 1
+related: []
 manuals:
 - title:
     es: trucking-f6n Certificación

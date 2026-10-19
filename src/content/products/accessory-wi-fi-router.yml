@@ -4,6 +4,7 @@ name:
   en: Wi-Fi Router
 category: accessory
 order: 9
+related: []
 manuals:
 - title:
     es: accessory-wi-fi-router Ficha técnica

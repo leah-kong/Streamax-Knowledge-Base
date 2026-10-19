@@ -4,6 +4,7 @@ name:
   en: LED Alarm
 category: accessory
 order: 3
+related: []
 manuals:
 - title:
     es: accessory-led-alarm Certificación

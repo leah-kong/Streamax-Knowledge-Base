@@ -5,6 +5,7 @@ name:
 category: camera
 subcategory: camera-avm
 order: 1
+related: []
 manuals:
 - title:
     es: camera-ca51 Certificación

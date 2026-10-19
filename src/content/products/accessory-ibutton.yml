@@ -4,6 +4,7 @@ name:
   en: iButton
 category: accessory
 order: 2
+related: []
 manuals:
 - title:
     es: accessory-ibutton Certificación
