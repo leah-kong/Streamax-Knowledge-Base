@@ -1,5 +1,5 @@
 ---
-import { getCollection, type CollectionEntry } from 'astro:content';
+import { getCollection } from 'astro:content';
 import {
   useTranslations,
   localizedPath,
@@ -7,6 +7,7 @@ import {
   type Lang,
 } from '../i18n/utils';
 import VideoCard from './VideoCard.astro';
+import { getAllVideos } from '../lib/data';
 
 interface Props {
   lang: Lang;
@@ -16,36 +17,15 @@ const { lang } = Astro.props;
 const t = useTranslations(lang);
 
 const allCategories = await getCollection('categories');
-const allProducts = await getCollection('products');
-const allVideos = await getCollection('video');
 
 // 一级分类（用于筛选下拉）
 const l1Categories = allCategories
   .filter((c) => c.data.level === 1)
   .sort((a, b) => a.data.order - b.data.order);
 
-// 把视频关联的 products（slug 或 model 两种存储都兼容）解析成产品条目
-function resolveProducts(refs: string[]): CollectionEntry<'products'>[] {
-  const out: CollectionEntry<'products'>[] = [];
-  const seen = new Set<string>();
-  for (const ref of refs) {
-    const p = allProducts.find((x) => x.id === ref || x.data.model === ref);
-    if (p && !seen.has(p.id)) {
-      seen.add(p.id);
-      out.push(p);
-    }
-  }
-  return out;
-}
-
-// 每个视频：解析产品、收集所属一级分类（用于筛选）、按日期倒序
-const items = allVideos
-  .map((v) => {
-    const products = resolveProducts(v.data.products);
-    const catIds = [...new Set(products.map((p) => p.data.category))];
-    return { video: v, products, catIds };
-  })
-  .sort((a, b) => b.video.data.date.valueOf() - a.video.data.date.valueOf());
+// 视频已物理嵌套进每个产品（products.videos）。这里聚合所有产品内嵌视频，
+// 按 (title|url) 去重并回链关联产品与一级分类，按日期倒序。
+const items = await getAllVideos();
 
 // 仅当视频确实跨多个一级分类时，才显示筛选下拉
 const activeCatIds = [...new Set(items.flatMap((i) => i.catIds))];

@@ -71,13 +71,10 @@ const groups = children.length
     }))
   : [{ category: null, items: scopedProducts }];
 
-// 聚合该分类（含子级）下所有产品的视频，去重并按日期倒序。
-// products 字段可能存 slug 或 model，两种都匹配（与 getResourcesByProduct 一致）。
-const scopedIds = new Set(scopedProducts.map((p) => p.id));
-const scopedModels = new Set(scopedProducts.map((p) => p.data.model));
-const allVideos = await getCollection('video');
-const catVideos = allVideos
-  .filter((v) => v.data.products.some((ref) => scopedIds.has(ref) || scopedModels.has(ref)))
+// 聚合该分类（含子级）下所有产品内嵌的视频，按日期倒序。
+// 视频已物理嵌套进每个产品（products.videos）。
+const catVideos = scopedProducts
+  .flatMap((p) => (p.data.videos ?? []).map((v) => ({ data: v })))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
 

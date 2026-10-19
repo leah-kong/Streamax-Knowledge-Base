@@ -40,56 +40,53 @@ const products = defineCollection({
     eol: z.boolean().default(false),
     // 手动指定的关联产品（产品 id / slug 或 model 均可），优先于自动同分类关联
     related: z.array(z.string()).optional(),
+    // 内嵌资源（物理嵌套）：产品页 manual/firmware/video 的真源，站点直接从这里读取。
+    // 不再依赖独立的 manual/firmware/video 集合。
+    manuals: z
+      .array(
+        z.object({
+          title: i18nText,
+          docType: z.enum(['datasheet', 'user-guide', 'wiring-diagram', 'certification']),
+          version: z.string().optional(),
+          date: z.coerce.date(),
+          fileEs: z.string().optional(),
+          fileEn: z.string().optional(),
+          externalUrl: z.string().optional(),
+          summary: i18nText.optional(),
+        })
+      )
+      .optional(),
+    firmware: z
+      .array(
+        z.object({
+          version: z.string(),
+          date: z.coerce.date(),
+          type: z.enum(['firmware', 'tool']).default('firmware'),
+          fileSize: z.string().optional(),
+          checksum: z.string().optional(),
+          downloadUrl: z.string().optional(),
+          releaseNotes: i18nText.optional(),
+          mandatory: z.boolean().default(false),
+        })
+      )
+      .optional(),
+    videos: z
+      .array(
+        z.object({
+          title: z.string(),
+          date: z.coerce.date(),
+          duration: z.string().optional(),
+          url: z.string(),
+          external: z.boolean().default(true),
+          cover: z.string().optional(),
+          summary: z.string().optional(),
+        })
+      )
+      .optional(),
   }),
 });
 
-// manual：产品手册、指南、数据表等
-const manual = defineCollection({
-  loader: glob({ pattern: '**/*.yml', base: './src/content/manual' }),
-  schema: z.object({
-    title: i18nText,
-    // 手册清单：Datasheet / User Guide / Wiring Diagram / Certification
-    // Firmware 与 Video 走独立集合，不在这里
-    docType: z.enum(['datasheet', 'user-guide', 'wiring-diagram', 'certification']),
-    products: z.array(z.string()),
-    version: z.string().optional(),
-    date: z.coerce.date(),
-    fileEs: z.string().optional(),
-    fileEn: z.string().optional(),
-    externalUrl: z.string().optional(),
-    summary: i18nText.optional(),
-  }),
-});
+// 注：manual / firmware / video 已物理嵌套进每个产品的内嵌列表（见 products.manuals / .firmware / .videos），
+// 不再作为独立集合存在。站点资源全部从产品内嵌列表读取，独立目录 src/content/{manual,firmware,video} 已删除。
 
-// firmware：固件包与工具，文件托管在 GitHub Releases
-const firmware = defineCollection({
-  loader: glob({ pattern: '**/*.yml', base: './src/content/firmware' }),
-  schema: z.object({
-    version: z.string(),
-    products: z.array(z.string()),
-    date: z.coerce.date(),
-    releaseNotes: i18nText.optional(),
-    fileSize: z.string().optional(),
-    checksum: z.string().optional(),
-    downloadUrl: z.string(),
-    mandatory: z.boolean().default(false),
-    type: z.enum(['firmware', 'tool']).default('firmware'),
-  }),
-});
-
-// video：视频教程，本地 mp4 或外部链接
-const video = defineCollection({
-  loader: glob({ pattern: '**/*.yml', base: './src/content/video' }),
-  schema: z.object({
-    title: i18nText,
-    products: z.array(z.string()),
-    date: z.coerce.date(),
-    duration: z.string().optional(),
-    cover: z.string().optional(),
-    url: z.string(),
-    external: z.boolean().default(true),
-    summary: i18nText.optional(),
-  }),
-});
-
-export const collections = { categories, products, manual, firmware, video };
+export const collections = { categories, products };

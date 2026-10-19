@@ -9,9 +9,10 @@ import {
   type Lang,
 } from '../i18n/utils';
 import { youtubeEmbed, youtubeWatch, youtubeThumb } from '../lib/video';
+import type { VideoEntry } from '../lib/data';
 
 interface Props {
-  video: CollectionEntry<'video'>;
+  video: VideoEntry;
   lang: Lang;
   // 关联产品（用于展示“兼容产品” chip 并链接到产品页）
   products?: CollectionEntry<'products'>[];
