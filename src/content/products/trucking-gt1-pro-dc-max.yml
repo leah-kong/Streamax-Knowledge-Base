@@ -1,8 +1,20 @@
-# trucking / trucking-dash-camera
-model: "GT1 Pro + DC Max"
+model: GT1 Pro + DC Max
 name:
-  es: "GT1 Pro + DC Max"
-  en: "GT1 Pro + DC Max"
+  es: GT1 Pro + DC Max
+  en: GT1 Pro + DC Max
 category: trucking
 subcategory: trucking-dash-camera
 order: 7
+manuals:
+- title:
+    es: trucking-gt1-pro-dc-max Certificación
+    en: trucking-gt1-pro-dc-max Certification
+  docType: certification
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/1zcwV0K-gmZhVeJ1h713Zl62JP3Jj8p_f/view?usp=sharing
+  summary: ''
+firmware: []
+videos: []

@@ -1,8 +1,37 @@
-# trucking / trucking-dash-camera
-model: "AD Plus 2.0-S"
+model: AD Plus 2.0-S
 name:
-  es: "AD Plus 2.0-S"
-  en: "AD Plus 2.0-S"
+  es: AD Plus 2.0-S
+  en: AD Plus 2.0-S
 category: trucking
 subcategory: trucking-dash-camera
 order: 5
+manuals:
+- title:
+    es: trucking-ad-plus-2-0-s Certificación
+    en: trucking-ad-plus-2-0-s Certification
+  docType: certification
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/1nWvDkrqP5sGRxCvDCCXAYvF3fxBOyaCl/view?usp=sharing
+  summary: ''
+- title:
+    es: trucking-ad-plus-2-0-s Guía de usuario
+    en: trucking-ad-plus-2-0-s User Guide
+  docType: user-guide
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://docs.google.com/document/d/1KSbH8rnmuWGFkYdi-wlhpW2FezAKfJCn/edit?usp=drivesdk&ouid=109851906381756440300&rtpof=true&sd=true
+  summary: ''
+firmware: []
+videos:
+- title: How To Connect Via Veyes In AD Plus 2 0 AP Mode
+  date: 2026-09-21
+  duration: ''
+  url: https://www.youtube.com/watch?v=aOJfJq8_3_4
+  external: true
+  cover: ''
+  summary: ''

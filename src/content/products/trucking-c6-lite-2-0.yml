@@ -8,3 +8,46 @@ image: /uploads/C6 Lite2.0 Cabin.jpg
 order: 2
 eol: false
 related: []
+manuals:
+- title:
+    es: trucking-c6-lite-2-0 Certificación
+    en: trucking-c6-lite-2-0 Certification
+  docType: certification
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/1Q-sYBq7aJgz1PUAWshS7m0XYvQS2suo3/view?usp=sharing
+  summary: ''
+- title:
+    es: trucking-c6-lite-2-0 Diagrama de cableado
+    en: trucking-c6-lite-2-0 Wiring Diagram
+  docType: wiring-diagram
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/1PrphWpLSYG7Bvx0ZT6rgVJ2ViIfh6VjW/view?usp=sharing
+  summary: ''
+- title:
+    es: trucking-c6-lite-2-0 Ficha técnica
+    en: trucking-c6-lite-2-0 Datasheet
+  docType: datasheet
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/11gITX0F7bnYw70ej4nyvrcKZur8CZHMJ/view?usp=sharing
+  summary: ''
+- title:
+    es: trucking-c6-lite-2-0 Guía de usuario
+    en: trucking-c6-lite-2-0 User Guide
+  docType: user-guide
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/1p1mJO_jNcxfEOsbFQTOoI5ReK35iAYoM/view?usp=sharing
+  summary: ''
+firmware: []
+videos: []

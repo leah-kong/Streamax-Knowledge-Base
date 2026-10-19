@@ -1,8 +1,53 @@
-# trucking / trucking-dash-camera
-model: "DS100"
+model: DS100
 name:
-  es: "DS100"
-  en: "DS100"
+  es: DS100
+  en: DS100
 category: trucking
 subcategory: trucking-dash-camera
 order: 1
+manuals:
+- title:
+    es: DS100 Certification (CE / FCC)
+    en: DS100 Certification (CE / FCC)
+  docType: certification
+  date: 2026-04-22
+  fileEs: /docs/placeholder-es.pdf
+  fileEn: /docs/placeholder-en.pdf
+- title:
+    es: DS100 Datasheet
+    en: DS100 Datasheet
+  docType: datasheet
+  version: '1.3'
+  date: 2026-08-12
+  externalUrl: https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf
+  summary:
+    es: Especificaciones técnicas y dimensiones (demo)
+    en: Technical specifications and dimensions (demo)
+- title:
+    es: DS100 User Guide
+    en: DS100 User Guide
+  docType: user-guide
+  version: '2.1'
+  date: 2026-07-30
+  fileEs: /docs/placeholder-es.pdf
+  fileEn: /docs/placeholder-en.pdf
+- title:
+    es: DS100 Wiring Diagram
+    en: DS100 Wiring Diagram
+  docType: wiring-diagram
+  version: '1.0'
+  date: 2026-06-18
+  fileEs: /docs/placeholder-es.pdf
+  fileEn: /docs/placeholder-en.pdf
+firmware:
+- version: 1.2.0
+  date: 2026-09-01
+  type: firmware
+  mandatory: false
+  fileSize: 86 MB
+  checksum: 'SHA256: 9b2c4e6a8d1f3a5c7e9b0d2f4a6c8e1b3d5f7a9c0e2b4d6f8a1c3e5b7d9f0a2c'
+  releaseNotes:
+    es: Mejora la detección de eventos y corrige un error de sincronización GPS.
+    en: Improves event detection and fixes a GPS sync issue.
+  downloadUrl: https://github.com/OWNER/REPO/releases/download/fw-ds100-1.2.0/ds100_1.2.0.zip
+videos: []

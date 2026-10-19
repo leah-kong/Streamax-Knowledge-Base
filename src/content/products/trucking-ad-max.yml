@@ -1,8 +1,40 @@
-# trucking / trucking-dash-camera
-model: "AD Max"
+model: AD Max
 name:
-  es: "AD Max"
-  en: "AD Max"
+  es: AD Max
+  en: AD Max
 category: trucking
 subcategory: trucking-dash-camera
 order: 6
+manuals:
+- title:
+    es: trucking-ad-max Certificación
+    en: trucking-ad-max Certification
+  docType: certification
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/10pRsUsNEtkDxoXX0NqGx9PXUCmOeZSd8/view?usp=sharing
+  summary: ''
+- title:
+    es: trucking-ad-max Ficha técnica
+    en: trucking-ad-max Datasheet
+  docType: datasheet
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/1XUSb0qZ1F3fEb18hoDloCpk8oTAQBCft/view?usp=sharing
+  summary: ''
+- title:
+    es: trucking-ad-max Guía de usuario
+    en: trucking-ad-max User Guide
+  docType: user-guide
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/1G77Be522cp_R4WHhl7li99q6IwOQBb2c/view?usp=sharing
+  summary: ''
+firmware: []
+videos: []

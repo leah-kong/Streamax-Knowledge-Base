@@ -8,3 +8,26 @@ image: /uploads/POWER BOX渲染-正面-45度右侧面.jpg
 order: 8
 eol: false
 related: []
+manuals:
+- title:
+    es: trucking-power-box-max Certificación
+    en: trucking-power-box-max Certification
+  docType: certification
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/1ly7Mb6ri28J1m4h4k0ZdPT1VKjlPLVhU/view?usp=sharing
+  summary: ''
+- title:
+    es: trucking-power-box-max Guía de usuario
+    en: trucking-power-box-max User Guide
+  docType: user-guide
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://docs.google.com/document/d/1WTIpMzrPL5NnY_cTrsxbnlIbLWoYB2yp/edit?usp=drivesdk&ouid=109851906381756440300&rtpof=true&sd=true
+  summary: ''
+firmware: []
+videos: []

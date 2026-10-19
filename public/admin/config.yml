@@ -77,6 +77,79 @@ collections:
         required: false
         hint: 'Selecciona manualmente los productos relacionados. Tienen prioridad sobre la asociación automática por categoría.'
 
+      - label: 'Documentos anidados (manuals)'
+        name: manuals
+        widget: list
+        required: false
+        summary: '{{fields.docType}} — {{fields.title.en}}'
+        fields:
+          - label: Tipo de documento
+            name: docType
+            widget: select
+            options:
+              - { label: Datasheet, value: datasheet }
+              - { label: 'User Guide', value: user-guide }
+              - { label: 'Wiring Diagram', value: wiring-diagram }
+              - { label: Certification, value: certification }
+          - name: title
+            label: Título (ES / EN)
+            widget: object
+            required: false
+            fields:
+              - { label: ES, name: es, widget: string }
+              - { label: EN, name: en, widget: string }
+          - { label: Versión, name: version, widget: string, required: false }
+          - { label: Fecha, name: date, widget: datetime, date_format: YYYY-MM-DD, time_format: false, required: false }
+          - { label: 'Archivo ES (URL)', name: fileEs, widget: string, required: false }
+          - { label: 'Archivo EN (URL)', name: fileEn, widget: string, required: false }
+          - { label: 'Enlace externo', name: externalUrl, widget: string, required: false }
+          - name: summary
+            label: Resumen (ES / EN)
+            widget: object
+            required: false
+            fields:
+              - { label: ES, name: es, widget: text }
+              - { label: EN, name: en, widget: text }
+      - label: 'Firmware anidado (firmware)'
+        name: firmware
+        widget: list
+        required: false
+        summary: '{{fields.version}}'
+        fields:
+          - { label: Versión, name: version, widget: string }
+          - { label: Fecha, name: date, widget: datetime, date_format: YYYY-MM-DD, time_format: false, required: false }
+          - label: Tipo
+            name: type
+            widget: select
+            options:
+              - { label: Firmware, value: firmware }
+              - { label: Herramienta, value: tool }
+            default: firmware
+          - { label: 'Tamaño del archivo', name: fileSize, widget: string, required: false }
+          - { label: Checksum, name: checksum, widget: string, required: false }
+          - { label: 'URL de descarga', name: downloadUrl, widget: string, required: false }
+          - name: releaseNotes
+            label: Notas de versión (ES / EN)
+            widget: object
+            required: false
+            fields:
+              - { label: ES, name: es, widget: text }
+              - { label: EN, name: en, widget: text }
+          - { label: 'Actualización obligatoria', name: mandatory, widget: boolean, default: false, required: false }
+      - label: 'Videos anidados (videos)'
+        name: videos
+        widget: list
+        required: false
+        summary: '{{fields.title}}'
+        fields:
+          - { label: Título, name: title, widget: string }
+          - { label: Fecha, name: date, widget: datetime, date_format: YYYY-MM-DD, time_format: false, required: false }
+          - { label: Duración, name: duration, widget: string, required: false }
+          - { label: 'URL del video', name: url, widget: string, required: false }
+          - { label: 'Enlace externo', name: external, widget: boolean, default: true, required: false }
+          - { label: Portada, name: cover, widget: string, required: false }
+          - { label: Resumen, name: summary, widget: string, required: false }
+
   - name: manual
     label: Manuales / Manuals
     folder: src/content/manual
@@ -165,3 +238,4 @@ collections:
         fields:
           - { label: ES, name: es, widget: text }
           - { label: EN, name: en, widget: text }
+
