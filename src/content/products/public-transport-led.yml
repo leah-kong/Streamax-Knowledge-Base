@@ -1,8 +1,40 @@
-# public-transport / public-transport-pis
-model: "LED"
+model: LED
 name:
-  es: "LED"
-  en: "LED"
+  es: LED
+  en: LED
 category: public-transport
 subcategory: public-transport-pis
 order: 4
+manuals:
+- title:
+    es: public-transport-led Certificación
+    en: public-transport-led Certification
+  docType: certification
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/1IWGmUKrLmcqodhSPrTLySwfR5b0SaOSH/view?usp=sharing
+  summary: ''
+- title:
+    es: public-transport-led Diagrama de cableado
+    en: public-transport-led Wiring Diagram
+  docType: wiring-diagram
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/1OFqiSQR6Yh2sf-_VRx8fKjtsrfrZiINX/view?usp=sharing
+  summary: ''
+- title:
+    es: public-transport-led Guía de usuario
+    en: public-transport-led User Guide
+  docType: user-guide
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/1EcPmIN3Qb4E6_OGO5Ye9ZKEfuCeDOhoy/view?usp=sharing
+  summary: ''
+firmware: []
+videos: []

@@ -1,8 +1,40 @@
-# law-enforcement / law-enforcement-office
-model: "Vigilant Multi Dock"
+model: Vigilant Multi Dock
 name:
-  es: "Vigilant Multi Dock"
-  en: "Vigilant Multi Dock"
+  es: Vigilant Multi Dock
+  en: Vigilant Multi Dock
 category: law-enforcement
 subcategory: law-enforcement-office
 order: 1
+manuals:
+- title:
+    es: law-enforcement-vigilant-multi-dock Certificación
+    en: law-enforcement-vigilant-multi-dock Certification
+  docType: certification
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/1zpMpMdmng4SsbUeGeT9rl0Nv89D8Eedy/view?usp=sharing
+  summary: ''
+- title:
+    es: law-enforcement-vigilant-multi-dock Ficha técnica
+    en: law-enforcement-vigilant-multi-dock Datasheet
+  docType: datasheet
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/1FikBBWUcCrWs2t3TD82FbDUkicW6ZA5U/view?usp=sharing
+  summary: ''
+- title:
+    es: law-enforcement-vigilant-multi-dock Guía de usuario
+    en: law-enforcement-vigilant-multi-dock User Guide
+  docType: user-guide
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/1jSKOosWYlaCTXpljf6-ryeYKP6aP8Dm6/view?usp=sharing
+  summary: ''
+firmware: []
+videos: []

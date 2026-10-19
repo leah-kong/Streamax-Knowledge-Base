@@ -1,8 +1,30 @@
-# camera / camera-adas
-model: "CA20S"
+model: CA20S
 name:
-  es: "CA20S"
-  en: "CA20S"
+  es: CA20S
+  en: CA20S
 category: camera
 subcategory: camera-adas
 order: 3
+manuals:
+- title:
+    es: camera-ca20s Certificación
+    en: camera-ca20s Certification
+  docType: certification
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/1D7XDtp1AfdsPrrrrxRX4Z4fM9DejKlCc/view?usp=sharing
+  summary: ''
+- title:
+    es: camera-ca20s Ficha técnica
+    en: camera-ca20s Datasheet
+  docType: datasheet
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/1MKQ0JGhUuA2UJh71p02LIGab0qcCw1wx/view?usp=sharing
+  summary: ''
+firmware: []
+videos: []

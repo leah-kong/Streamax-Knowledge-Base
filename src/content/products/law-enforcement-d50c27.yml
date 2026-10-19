@@ -1,8 +1,20 @@
-# law-enforcement / law-enforcement-in-car-system
-model: "D50C27"
+model: D50C27
 name:
-  es: "D50C27"
-  en: "D50C27"
+  es: D50C27
+  en: D50C27
 category: law-enforcement
 subcategory: law-enforcement-in-car-system
 order: 3
+manuals:
+- title:
+    es: law-enforcement-d50c27 Ficha técnica
+    en: law-enforcement-d50c27 Datasheet
+  docType: datasheet
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/1QC2B654u377y6PXFgKej7GTLlyTGhJyV/view?usp=sharing
+  summary: ''
+firmware: []
+videos: []

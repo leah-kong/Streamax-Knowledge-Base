@@ -1,8 +1,40 @@
-# public-transport / public-transport-pis
-model: "L16Max - 215"
+model: L16Max - 215
 name:
-  es: "L16Max - 215"
-  en: "L16Max - 215"
+  es: L16Max - 215
+  en: L16Max - 215
 category: public-transport
 subcategory: public-transport-pis
 order: 2
+manuals:
+- title:
+    es: public-transport-l16max-215 Certificación
+    en: public-transport-l16max-215 Certification
+  docType: certification
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/12GZDcjYyJcqifaQIZ9OqmomOlOT77tQ4/view?usp=sharing
+  summary: ''
+- title:
+    es: public-transport-l16max-215 Ficha técnica
+    en: public-transport-l16max-215 Datasheet
+  docType: datasheet
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://docs.google.com/document/d/1C0V5XjzZmqmrzay89pJdosfPi43F0TSU/edit?usp=drivesdk&ouid=109851906381756440300&rtpof=true&sd=true
+  summary: ''
+- title:
+    es: public-transport-l16max-215 Guía de usuario
+    en: public-transport-l16max-215 User Guide
+  docType: user-guide
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://docs.google.com/document/d/1r5QWpKZVux7fywRKehBFTRhCUX1tcpB4/edit?usp=drivesdk&ouid=109851906381756440300&rtpof=true&sd=true
+  summary: ''
+firmware: []
+videos: []

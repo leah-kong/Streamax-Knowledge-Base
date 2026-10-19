@@ -1,7 +1,39 @@
-# display
-model: "CP4"
+model: CP4
 name:
-  es: "CP4"
-  en: "CP4"
+  es: CP4
+  en: CP4
 category: display
 order: 8
+manuals:
+- title:
+    es: display-cp4 Certificación
+    en: display-cp4 Certification
+  docType: certification
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/1QgIncSLTmIlDFuTziDJpfnqelDiYZE3P/view?usp=sharing
+  summary: ''
+- title:
+    es: display-cp4 Ficha técnica
+    en: display-cp4 Datasheet
+  docType: datasheet
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://docs.google.com/document/d/1trrFDNIoQGMgFRaHdvGtHLwKpJalJYvR/edit?usp=drivesdk&ouid=109851906381756440300&rtpof=true&sd=true
+  summary: ''
+- title:
+    es: display-cp4 Guía de usuario
+    en: display-cp4 User Guide
+  docType: user-guide
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://docs.google.com/document/d/1sXFu7hZUozMaB4zlgAGeQVF8Sbgl1THc/edit?usp=drivesdk&ouid=109851906381756440300&rtpof=true&sd=true
+  summary: ''
+firmware: []
+videos: []

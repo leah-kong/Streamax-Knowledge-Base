@@ -1,7 +1,39 @@
-# display
-model: "DP7Q-RT"
+model: DP7Q-RT
 name:
-  es: "DP7Q-RT"
-  en: "DP7Q-RT"
+  es: DP7Q-RT
+  en: DP7Q-RT
 category: display
 order: 6
+manuals:
+- title:
+    es: display-dp7q-rt Certificación
+    en: display-dp7q-rt Certification
+  docType: certification
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/1wBnrBx2XdBnRhSRxyMOGMDDfuqALsuu7/view?usp=sharing
+  summary: ''
+- title:
+    es: display-dp7q-rt Ficha técnica
+    en: display-dp7q-rt Datasheet
+  docType: datasheet
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://docs.google.com/document/d/1d3RBZYE87vMicnG39tK9K0rC_yLpr-CP/edit?usp=drivesdk&ouid=109851906381756440300&rtpof=true&sd=true
+  summary: ''
+- title:
+    es: display-dp7q-rt Guía de usuario
+    en: display-dp7q-rt User Guide
+  docType: user-guide
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://docs.google.com/document/d/1I0PXhWXIDfbsJSI9BQz4DjUFFWpwrn7R/edit?usp=drivesdk&ouid=109851906381756440300&rtpof=true&sd=true
+  summary: ''
+firmware: []
+videos: []

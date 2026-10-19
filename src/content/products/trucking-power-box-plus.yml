@@ -8,3 +8,36 @@ image: /uploads/PBP1.png
 order: 9
 eol: false
 related: []
+manuals:
+- title:
+    es: trucking-power-box-plus Certificación
+    en: trucking-power-box-plus Certification
+  docType: certification
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/1XCoVUVm6oxj2BuCMi4TZioB4T0Eur9bY/view?usp=sharing
+  summary: ''
+- title:
+    es: trucking-power-box-plus Diagrama de cableado
+    en: trucking-power-box-plus Wiring Diagram
+  docType: wiring-diagram
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/1Xy_usqiZJ4QLQdEAA14RjQWf-vd_hH0V/view?usp=sharing
+  summary: ''
+- title:
+    es: trucking-power-box-plus Guía de usuario
+    en: trucking-power-box-plus User Guide
+  docType: user-guide
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://docs.google.com/document/d/1wmc3O9iKPuzsQ5737HxWpOy-pIyZ9PDC/edit?usp=drivesdk&ouid=109851906381756440300&rtpof=true&sd=true
+  summary: ''
+firmware: []
+videos: []

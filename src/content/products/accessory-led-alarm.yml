@@ -1,7 +1,29 @@
-# accessory
-model: "LED Alarm"
+model: LED Alarm
 name:
-  es: "LED Alarm"
-  en: "LED Alarm"
+  es: LED Alarm
+  en: LED Alarm
 category: accessory
 order: 3
+manuals:
+- title:
+    es: accessory-led-alarm Certificación
+    en: accessory-led-alarm Certification
+  docType: certification
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/1ivc-q2g4ZPnwYgG5TNI4MTo9JmBgVNfX/view?usp=sharing
+  summary: ''
+- title:
+    es: accessory-led-alarm Ficha técnica
+    en: accessory-led-alarm Datasheet
+  docType: datasheet
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/1FG3z2CQiINEFWUIiwWmEARhe39xaeOGT/view?usp=sharing
+  summary: ''
+firmware: []
+videos: []

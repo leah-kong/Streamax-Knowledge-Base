@@ -1,7 +1,39 @@
-# display
-model: "CP5"
+model: CP5
 name:
-  es: "CP5"
-  en: "CP5"
+  es: CP5
+  en: CP5
 category: display
 order: 9
+manuals:
+- title:
+    es: display-cp5 Certificación
+    en: display-cp5 Certification
+  docType: certification
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/1jUf7oFmsCM7hihLHrDYY_ref3yBsJzVS/view?usp=sharing
+  summary: ''
+- title:
+    es: display-cp5 Diagrama de cableado
+    en: display-cp5 Wiring Diagram
+  docType: wiring-diagram
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/1yvYzDuF9OYn_rPV6pWUOz4pkAzmJXFys/view?usp=sharing
+  summary: ''
+- title:
+    es: display-cp5 Guía de usuario
+    en: display-cp5 User Guide
+  docType: user-guide
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://docs.google.com/document/d/13oE2E--pKmRY3IhYHECa2AvsC1w_SFVF/edit?usp=drivesdk&ouid=109851906381756440300&rtpof=true&sd=true
+  summary: ''
+firmware: []
+videos: []

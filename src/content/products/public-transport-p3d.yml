@@ -1,8 +1,40 @@
-# public-transport / public-transport-apc
-model: "P3D"
+model: P3D
 name:
-  es: "P3D"
-  en: "P3D"
+  es: P3D
+  en: P3D
 category: public-transport
 subcategory: public-transport-apc
 order: 3
+manuals:
+- title:
+    es: public-transport-p3d Certificación
+    en: public-transport-p3d Certification
+  docType: certification
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/1pzMxmrwyiX4u2xYo5V7GrHT4eW4rB5Sf/view?usp=sharing
+  summary: ''
+- title:
+    es: public-transport-p3d Diagrama de cableado
+    en: public-transport-p3d Wiring Diagram
+  docType: wiring-diagram
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/1rOen-9T60DZjHeR7KpeiGexj8X6pkerk/view?usp=sharing
+  summary: ''
+- title:
+    es: public-transport-p3d Ficha técnica
+    en: public-transport-p3d Datasheet
+  docType: datasheet
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/1KqLhhLq6qLpUg1_anKXYu3hTXNsXe3qX/view?usp=sharing
+  summary: ''
+firmware: []
+videos: []

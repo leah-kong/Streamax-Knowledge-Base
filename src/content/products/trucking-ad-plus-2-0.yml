@@ -11,6 +11,14 @@ related:
 - trucking-power-box-max
 - trucking-power-box-plus
 manuals:
+- title: AD Plus 2.0 datasheet
+  docType: datasheet
+  version: ''
+  date: 2026-09-21
+  fileEs: https://drive.google.com/file/d/1qxpeAkDh2IDZhTD8b4QWGbUzzg8YgHPp/view?usp=drive_link
+  fileEn: https://drive.google.com/file/d/1qxpeAkDh2IDZhTD8b4QWGbUzzg8YgHPp/view?usp=drive_link
+  externalUrl: ''
+  summary: ''
 - title:
     es: trucking-ad-plus-2-0 Certificación
     en: trucking-ad-plus-2-0 Certification
@@ -32,16 +40,6 @@ manuals:
   externalUrl: https://drive.google.com/file/d/1J9e3OB0Q49UXEiveBHiMd1Lkfb63BlSP/view?usp=sharing
   summary: ''
 - title:
-    es: trucking-ad-plus-2-0 Ficha técnica
-    en: trucking-ad-plus-2-0 Datasheet
-  docType: datasheet
-  version: ''
-  date: 2026-09-24
-  fileEs: ''
-  fileEn: ''
-  externalUrl: https://drive.google.com/file/d/1nX60Fr51zBTI4jprpiDl865u0Wcx54JS/view?usp=sharing
-  summary: ''
-- title:
     es: trucking-ad-plus-2-0 Guía de usuario
     en: trucking-ad-plus-2-0 User Guide
   docType: user-guide
@@ -57,6 +55,13 @@ videos:
   date: 2026-09-21
   duration: ''
   url: https://www.youtube.com/watch?v=aOJfJq8_3_4
+  external: true
+  cover: ''
+  summary: ''
+- title: How To Upgrade Locally In AP Mode
+  date: 2026-09-21
+  duration: ''
+  url: https://www.youtube.com/watch?v=42qjAcz9fec
   external: true
   cover: ''
   summary: ''

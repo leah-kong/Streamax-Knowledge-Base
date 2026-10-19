@@ -1,8 +1,40 @@
-# law-enforcement / law-enforcement-in-car-system
-model: "Vigilant Single Dock"
+model: Vigilant Single Dock
 name:
-  es: "Vigilant Single Dock"
-  en: "Vigilant Single Dock"
+  es: Vigilant Single Dock
+  en: Vigilant Single Dock
 category: law-enforcement
 subcategory: law-enforcement-in-car-system
 order: 7
+manuals:
+- title:
+    es: law-enforcement-vigilant-single-dock Certificación
+    en: law-enforcement-vigilant-single-dock Certification
+  docType: certification
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/1NlXh1JKjoH9X95FGlKmqYJr523mibs1O/view?usp=sharing
+  summary: ''
+- title:
+    es: law-enforcement-vigilant-single-dock Ficha técnica
+    en: law-enforcement-vigilant-single-dock Datasheet
+  docType: datasheet
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/1A1DpHefxPutdz9z5B8AscNcbmxM8kLNk/view?usp=sharing
+  summary: ''
+- title:
+    es: law-enforcement-vigilant-single-dock Guía de usuario
+    en: law-enforcement-vigilant-single-dock User Guide
+  docType: user-guide
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://docs.google.com/document/d/1SmMifySBmTUdMH7xo_l2k-Y57QluM4yL/edit?usp=drivesdk&ouid=109851906381756440300&rtpof=true&sd=true
+  summary: ''
+firmware: []
+videos: []

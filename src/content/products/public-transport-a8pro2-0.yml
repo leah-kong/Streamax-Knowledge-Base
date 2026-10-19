@@ -1,8 +1,40 @@
-# public-transport / public-transport-mdvr
-model: "A8Pro2.0"
+model: A8Pro2.0
 name:
-  es: "A8Pro2.0"
-  en: "A8Pro2.0"
+  es: A8Pro2.0
+  en: A8Pro2.0
 category: public-transport
 subcategory: public-transport-mdvr
 order: 6
+manuals:
+- title:
+    es: public-transport-a8pro2-0 Certificación
+    en: public-transport-a8pro2-0 Certification
+  docType: certification
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/1zq2694_fxLEIbHP5EYIAlQJh4ygX0My0/view?usp=sharing
+  summary: ''
+- title:
+    es: public-transport-a8pro2-0 Diagrama de cableado
+    en: public-transport-a8pro2-0 Wiring Diagram
+  docType: wiring-diagram
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/1jHL5-LVziglqDMmFfJ3krQ2wak5eoeZ4/view?usp=sharing
+  summary: ''
+- title:
+    es: public-transport-a8pro2-0 Guía de usuario
+    en: public-transport-a8pro2-0 User Guide
+  docType: user-guide
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://docs.google.com/document/d/1U4geW2-uW25vU8j9G_fDYGpFWX4m8xNd/edit?usp=drivesdk&ouid=109851906381756440300&rtpof=true&sd=true
+  summary: ''
+firmware: []
+videos: []

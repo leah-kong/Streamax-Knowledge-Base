@@ -1,7 +1,19 @@
-# accessory
-model: "Wi-Fi Router"
+model: Wi-Fi Router
 name:
-  es: "Wi-Fi Router"
-  en: "Wi-Fi Router"
+  es: Wi-Fi Router
+  en: Wi-Fi Router
 category: accessory
 order: 9
+manuals:
+- title:
+    es: accessory-wi-fi-router Ficha técnica
+    en: accessory-wi-fi-router Datasheet
+  docType: datasheet
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://docs.google.com/document/d/1EDrPAFipEdOTJbPUmfmwEEXpspvnCd1x/edit?usp=drivesdk&ouid=109851906381756440300&rtpof=true&sd=true
+  summary: ''
+firmware: []
+videos: []

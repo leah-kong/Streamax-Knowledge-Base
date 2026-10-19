@@ -1,8 +1,40 @@
-# camera / camera-dms
-model: "AD Kit 3.0"
+model: AD Kit 3.0
 name:
-  es: "AD Kit 3.0"
-  en: "AD Kit 3.0"
+  es: AD Kit 3.0
+  en: AD Kit 3.0
 category: camera
 subcategory: camera-dms
 order: 2
+manuals:
+- title:
+    es: camera-ad-kit-3-0 Certificación
+    en: camera-ad-kit-3-0 Certification
+  docType: certification
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/10XwGCjo6AeiG5llgshJU_h7Slp_wNwK6/view?usp=sharing
+  summary: ''
+- title:
+    es: camera-ad-kit-3-0 Diagrama de cableado
+    en: camera-ad-kit-3-0 Wiring Diagram
+  docType: wiring-diagram
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/1yjRtALTAta0QUooVDMFcbLi0I2w6b3GT/view?usp=sharing
+  summary: ''
+- title:
+    es: camera-ad-kit-3-0 Ficha técnica
+    en: camera-ad-kit-3-0 Datasheet
+  docType: datasheet
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/1wd3y3F685zh2eMpyYgTZMXoMtxl1i63M/view?usp=sharing
+  summary: ''
+firmware: []
+videos: []

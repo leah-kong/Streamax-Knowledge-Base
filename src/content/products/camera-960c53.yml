@@ -8,3 +8,36 @@ image: /uploads/C53黑色外盒ID图.png
 order: 1
 eol: false
 related: []
+manuals:
+- title:
+    es: camera-960c53 Certificación
+    en: camera-960c53 Certification
+  docType: certification
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/1xzEXUPtEVDDtVmWVlO0gfqmnWLQOtYwd/view?usp=sharing
+  summary: ''
+- title:
+    es: camera-960c53 Ficha técnica
+    en: camera-960c53 Datasheet
+  docType: datasheet
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/1oWuJLbdEzWI5riiHLzWYdtondlFaj9SY/view?usp=sharing
+  summary: ''
+- title:
+    es: camera-960c53 Guía de usuario
+    en: camera-960c53 User Guide
+  docType: user-guide
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://docs.google.com/document/d/1vm01TRA796aYes2rn3fjklpj2b9qx3Li/edit?usp=drivesdk&ouid=109851906381756440300&rtpof=true&sd=true
+  summary: ''
+firmware: []
+videos: []

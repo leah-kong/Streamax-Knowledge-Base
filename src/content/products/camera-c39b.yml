@@ -1,8 +1,30 @@
-# camera / camera-surveillance
-model: "C39B"
+model: C39B
 name:
-  es: "C39B"
-  en: "C39B"
+  es: C39B
+  en: C39B
 category: camera
 subcategory: camera-surveillance
 order: 2
+manuals:
+- title:
+    es: camera-c39b Certificación
+    en: camera-c39b Certification
+  docType: certification
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/1v9xmJLRvHB1V6J6s2ba9iBYLTm_foy6v/view?usp=sharing
+  summary: ''
+- title:
+    es: camera-c39b Ficha técnica
+    en: camera-c39b Datasheet
+  docType: datasheet
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/1bXypxHN62rzX6OTc5RCGNzbh7-_kUy2d/view?usp=sharing
+  summary: ''
+firmware: []
+videos: []

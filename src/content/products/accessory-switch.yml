@@ -1,7 +1,29 @@
-# accessory
-model: "Switch"
+model: Switch
 name:
-  es: "Switch"
-  en: "Switch"
+  es: Switch
+  en: Switch
 category: accessory
 order: 8
+manuals:
+- title:
+    es: accessory-switch Certificación
+    en: accessory-switch Certification
+  docType: certification
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/1hUQUOKhmBluur_SgS2TfmVFKueUqFqku/view?usp=sharing
+  summary: ''
+- title:
+    es: accessory-switch Ficha técnica
+    en: accessory-switch Datasheet
+  docType: datasheet
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://docs.google.com/document/d/1Ezg2ng8LMoTG3COxN51A7LGpQ7o6-Ffr/edit?usp=drivesdk&ouid=109851906381756440300&rtpof=true&sd=true
+  summary: ''
+firmware: []
+videos: []

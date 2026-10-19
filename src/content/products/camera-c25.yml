@@ -1,8 +1,30 @@
-# camera / camera-surveillance
-model: "C25"
+model: C25
 name:
-  es: "C25"
-  en: "C25"
+  es: C25
+  en: C25
 category: camera
 subcategory: camera-surveillance
 order: 6
+manuals:
+- title:
+    es: camera-c25 Certificación
+    en: camera-c25 Certification
+  docType: certification
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/1hFrJfEJ7KjofrNuEC0Tt1J31Hh9YL79d/view?usp=sharing
+  summary: ''
+- title:
+    es: camera-c25 Ficha técnica
+    en: camera-c25 Datasheet
+  docType: datasheet
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/13_Dh8oneWWUq61LVPeaKiJoGvWRjzIC0/view?usp=sharing
+  summary: ''
+firmware: []
+videos: []

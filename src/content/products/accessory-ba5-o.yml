@@ -1,7 +1,19 @@
-# accessory
-model: "BA5-O"
+model: BA5-O
 name:
-  es: "BA5-O"
-  en: "BA5-O"
+  es: BA5-O
+  en: BA5-O
 category: accessory
 order: 7
+manuals:
+- title:
+    es: accessory-ba5-o Ficha técnica
+    en: accessory-ba5-o Datasheet
+  docType: datasheet
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://docs.google.com/document/d/1AIua33xji1IeP5CxcHMP6-lZBCxzrxp9/edit?usp=drivesdk&ouid=109851906381756440300&rtpof=true&sd=true
+  summary: ''
+firmware: []
+videos: []

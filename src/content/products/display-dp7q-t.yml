@@ -1,7 +1,39 @@
-# display
-model: "DP7Q-T"
+model: DP7Q-T
 name:
-  es: "DP7Q-T"
-  en: "DP7Q-T"
+  es: DP7Q-T
+  en: DP7Q-T
 category: display
 order: 5
+manuals:
+- title:
+    es: display-dp7q-t Certificación
+    en: display-dp7q-t Certification
+  docType: certification
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/1-97nQSzLVXAgijBq0Uyc5bXe78DWAs9m/view?usp=sharing
+  summary: ''
+- title:
+    es: display-dp7q-t Ficha técnica
+    en: display-dp7q-t Datasheet
+  docType: datasheet
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://docs.google.com/document/d/1ZSCyJWDEKKKMY07vOh7B0DgrJidUoC9a/edit?usp=drivesdk&ouid=109851906381756440300&rtpof=true&sd=true
+  summary: ''
+- title:
+    es: display-dp7q-t Guía de usuario
+    en: display-dp7q-t User Guide
+  docType: user-guide
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://docs.google.com/document/d/11hJ0-au7hAIls-dDKzUHdF8Qa3h3EtlN/edit?usp=drivesdk&ouid=109851906381756440300&rtpof=true&sd=true
+  summary: ''
+firmware: []
+videos: []

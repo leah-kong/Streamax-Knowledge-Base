@@ -1,8 +1,30 @@
-# trucking / trucking-mdvr
-model: "F6N"
+model: F6N
 name:
-  es: "F6N"
-  en: "F6N"
+  es: F6N
+  en: F6N
 category: trucking
 subcategory: trucking-mdvr
 order: 1
+manuals:
+- title:
+    es: trucking-f6n Certificación
+    en: trucking-f6n Certification
+  docType: certification
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/1nJu0CoW6gLcFV795WZ28NR3BqPNZ6Fs2/view?usp=sharing
+  summary: ''
+- title:
+    es: trucking-f6n Guía de usuario
+    en: trucking-f6n User Guide
+  docType: user-guide
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://docs.google.com/document/d/1YLRnaYvpyMBAouKOf8aD3LRl7dGzxXlu/edit?usp=drivesdk&ouid=109851906381756440300&rtpof=true&sd=true
+  summary: ''
+firmware: []
+videos: []

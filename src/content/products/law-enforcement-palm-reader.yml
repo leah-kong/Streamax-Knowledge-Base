@@ -1,8 +1,30 @@
-# law-enforcement / law-enforcement-in-car-system
-model: "Palm Reader"
+model: Palm Reader
 name:
-  es: "Palm Reader"
-  en: "Palm Reader"
+  es: Palm Reader
+  en: Palm Reader
 category: law-enforcement
 subcategory: law-enforcement-in-car-system
 order: 8
+manuals:
+- title:
+    es: law-enforcement-palm-reader Ficha técnica
+    en: law-enforcement-palm-reader Datasheet
+  docType: datasheet
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://docs.google.com/document/d/1w1WG41Zvc5GneqxlM1-EElrw99h3ifTR/edit?usp=drivesdk&ouid=109851906381756440300&rtpof=true&sd=true
+  summary: ''
+- title:
+    es: law-enforcement-palm-reader Guía de usuario
+    en: law-enforcement-palm-reader User Guide
+  docType: user-guide
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://docs.google.com/document/d/1lL69SZtAOfjaVb110Bm1uuXlAeuF2hgd/edit?usp=drivesdk&ouid=109851906381756440300&rtpof=true&sd=true
+  summary: ''
+firmware: []
+videos: []

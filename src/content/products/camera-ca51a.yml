@@ -8,3 +8,26 @@ image: /uploads/CA51A.jpg
 order: 7
 eol: false
 related: []
+manuals:
+- title:
+    es: camera-ca51a Certificación
+    en: camera-ca51a Certification
+  docType: certification
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/14lawG0kGqGNkbIh0SaCFm7j7cXBqBmn2/view?usp=sharing
+  summary: ''
+- title:
+    es: camera-ca51a Ficha técnica
+    en: camera-ca51a Datasheet
+  docType: datasheet
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/13RXb2qUHdjdZSNnqJDLqUmmDF_hZV6wn/view?usp=sharing
+  summary: ''
+firmware: []
+videos: []

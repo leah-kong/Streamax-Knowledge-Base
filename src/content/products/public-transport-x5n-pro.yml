@@ -1,8 +1,20 @@
-# public-transport / public-transport-mdvr
-model: "X5N Pro"
+model: X5N Pro
 name:
-  es: "X5N Pro"
-  en: "X5N Pro"
+  es: X5N Pro
+  en: X5N Pro
 category: public-transport
 subcategory: public-transport-mdvr
 order: 5
+manuals:
+- title:
+    es: public-transport-x5n-pro Certificación
+    en: public-transport-x5n-pro Certification
+  docType: certification
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/15syNwLFS7-2ofrjDa-70fQ5yP-t2raRy/view?usp=sharing
+  summary: ''
+firmware: []
+videos: []

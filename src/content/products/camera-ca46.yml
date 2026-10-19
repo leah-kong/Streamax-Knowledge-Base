@@ -1,8 +1,20 @@
-# camera / camera-bsd
-model: "CA46"
+model: CA46
 name:
-  es: "CA46"
-  en: "CA46"
+  es: CA46
+  en: CA46
 category: camera
 subcategory: camera-bsd
 order: 3
+manuals:
+- title:
+    es: camera-ca46 Certificación
+    en: camera-ca46 Certification
+  docType: certification
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/1GlOeWCj-9zWYKSchClLPBbAJNPsz9ify/view?usp=sharing
+  summary: ''
+firmware: []
+videos: []

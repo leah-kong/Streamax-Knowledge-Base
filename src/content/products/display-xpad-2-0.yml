@@ -1,7 +1,39 @@
-# display
-model: "XPAD 2.0"
+model: XPAD 2.0
 name:
-  es: "XPAD 2.0"
-  en: "XPAD 2.0"
+  es: XPAD 2.0
+  en: XPAD 2.0
 category: display
 order: 1
+manuals:
+- title:
+    es: display-xpad-2-0 Certificación
+    en: display-xpad-2-0 Certification
+  docType: certification
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/13_EujhRQRXN-mowRRT2qpqFeO0kxFCOp/view?usp=sharing
+  summary: ''
+- title:
+    es: display-xpad-2-0 Diagrama de cableado
+    en: display-xpad-2-0 Wiring Diagram
+  docType: wiring-diagram
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/1KUAWgOP-Dg5c73RaLr8hAV6Yeu9y4zF_/view?usp=sharing
+  summary: ''
+- title:
+    es: display-xpad-2-0 Guía de usuario
+    en: display-xpad-2-0 User Guide
+  docType: user-guide
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://docs.google.com/document/d/1-KAgHF8aS5xs5YeloPsPmfBIgjg2eXaf/edit?usp=drivesdk&ouid=109851906381756440300&rtpof=true&sd=true
+  summary: ''
+firmware: []
+videos: []

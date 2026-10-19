@@ -1,8 +1,50 @@
-# camera / camera-dms
-model: "SC"
+model: SC
 name:
-  es: "SC"
-  en: "SC"
+  es: SC
+  en: SC
 category: camera
 subcategory: camera-dms
 order: 3
+manuals:
+- title:
+    es: camera-sc Certificación
+    en: camera-sc Certification
+  docType: certification
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/1qwbCqLJVSkKbcdMD36arcu0tC0Wf0uJS/view?usp=sharing
+  summary: ''
+- title:
+    es: camera-sc Diagrama de cableado
+    en: camera-sc Wiring Diagram
+  docType: wiring-diagram
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/1pvedPv1QMZT8QraaxbeaR0-xr3RyjAPs/view?usp=sharing
+  summary: ''
+- title:
+    es: camera-sc Ficha técnica
+    en: camera-sc Datasheet
+  docType: datasheet
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/1DaXJzgW9lNxsdXzCj4QodSdV3j8CRkHK/view?usp=sharing
+  summary: ''
+- title:
+    es: camera-sc Guía de usuario
+    en: camera-sc User Guide
+  docType: user-guide
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/1uvThOIMiesQxENunIl5VZx61xu3uFt_g/view?usp=sharing
+  summary: ''
+firmware: []
+videos: []

@@ -1,8 +1,20 @@
-# camera / camera-adas
-model: "CA20D"
+model: CA20D
 name:
-  es: "CA20D"
-  en: "CA20D"
+  es: CA20D
+  en: CA20D
 category: camera
 subcategory: camera-adas
 order: 1
+manuals:
+- title:
+    es: camera-ca20d Certificación
+    en: camera-ca20d Certification
+  docType: certification
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/1LqAUWRPpkj4ci5U8rFg1LZtyz9BALoH5/view?usp=sharing
+  summary: ''
+firmware: []
+videos: []

@@ -1,7 +1,29 @@
-# display
-model: "XPAD 5.0"
+model: XPAD 5.0
 name:
-  es: "XPAD 5.0"
-  en: "XPAD 5.0"
+  es: XPAD 5.0
+  en: XPAD 5.0
 category: display
 order: 2
+manuals:
+- title:
+    es: display-xpad-5-0 Certificación
+    en: display-xpad-5-0 Certification
+  docType: certification
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/1feI4lekDddnkRGWIsFIVdoec1aaRMN4_/view?usp=sharing
+  summary: ''
+- title:
+    es: display-xpad-5-0 Guía de usuario
+    en: display-xpad-5-0 User Guide
+  docType: user-guide
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/16bm3_wYw5cftm3csng_jZh12JUnchFUU/view?usp=sharing
+  summary: ''
+firmware: []
+videos: []

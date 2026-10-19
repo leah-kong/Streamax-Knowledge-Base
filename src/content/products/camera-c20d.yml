@@ -1,8 +1,50 @@
-# camera / camera-adas
-model: "C20D"
+model: C20D
 name:
-  es: "C20D"
-  en: "C20D"
+  es: C20D
+  en: C20D
 category: camera
 subcategory: camera-adas
 order: 2
+manuals:
+- title:
+    es: camera-c20d Certificación
+    en: camera-c20d Certification
+  docType: certification
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/1t7qaLzkhjVImKfcz1aUifT7aNWJt6W2j/view?usp=sharing
+  summary: ''
+- title:
+    es: camera-c20d Diagrama de cableado
+    en: camera-c20d Wiring Diagram
+  docType: wiring-diagram
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/1zH4vq6DADEMC52rXPdg2oXxcyP-Onnyr/view?usp=sharing
+  summary: ''
+- title:
+    es: camera-c20d Ficha técnica
+    en: camera-c20d Datasheet
+  docType: datasheet
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/1JtGXvUtHwuhyOBz8UewjmlcWSllP7i-x/view?usp=sharing
+  summary: ''
+- title:
+    es: camera-c20d Guía de usuario
+    en: camera-c20d User Guide
+  docType: user-guide
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://docs.google.com/document/d/16kOc-HUMepdHjPkgSApx0vfY-Pnrq3TG/edit?usp=drivesdk&ouid=109851906381756440300&rtpof=true&sd=true
+  summary: ''
+firmware: []
+videos: []

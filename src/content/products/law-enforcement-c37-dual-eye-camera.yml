@@ -1,8 +1,30 @@
-# law-enforcement / law-enforcement-in-car-system
-model: "C37 Dual Eye Camera"
+model: C37 Dual Eye Camera
 name:
-  es: "C37 Dual Eye Camera"
-  en: "C37 Dual Eye Camera"
+  es: C37 Dual Eye Camera
+  en: C37 Dual Eye Camera
 category: law-enforcement
 subcategory: law-enforcement-in-car-system
 order: 1
+manuals:
+- title:
+    es: law-enforcement-c37-dual-eye-camera Certificación
+    en: law-enforcement-c37-dual-eye-camera Certification
+  docType: certification
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/1iTVR8kD2x0j980bl6HVjoTDCV1IAdx5D/view?usp=sharing
+  summary: ''
+- title:
+    es: law-enforcement-c37-dual-eye-camera Ficha técnica
+    en: law-enforcement-c37-dual-eye-camera Datasheet
+  docType: datasheet
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://docs.google.com/document/d/1lil3_51PTn-jfxg5qSs-2Q-t9_EbnRTb/edit?usp=drivesdk&ouid=109851906381756440300&rtpof=true&sd=true
+  summary: ''
+firmware: []
+videos: []

@@ -1,8 +1,20 @@
-# law-enforcement / law-enforcement-in-car-system
-model: "B68C27"
+model: B68C27
 name:
-  es: "B68C27"
-  en: "B68C27"
+  es: B68C27
+  en: B68C27
 category: law-enforcement
 subcategory: law-enforcement-in-car-system
 order: 2
+manuals:
+- title:
+    es: law-enforcement-b68c27 Certificación
+    en: law-enforcement-b68c27 Certification
+  docType: certification
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/15nTHOa6rqAWvxd9JJHPeCRpfCChXWZ_Q/view?usp=sharing
+  summary: ''
+firmware: []
+videos: []

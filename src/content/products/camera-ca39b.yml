@@ -1,8 +1,20 @@
-# camera / camera-surveillance
-model: "CA39B"
+model: CA39B
 name:
-  es: "CA39B"
-  en: "CA39B"
+  es: CA39B
+  en: CA39B
 category: camera
 subcategory: camera-surveillance
 order: 1
+manuals:
+- title:
+    es: camera-ca39b Certificación
+    en: camera-ca39b Certification
+  docType: certification
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/1cy5GgGjHVwu-yrq7VkiWgLWAVvDyk7lU/view?usp=sharing
+  summary: ''
+firmware: []
+videos: []

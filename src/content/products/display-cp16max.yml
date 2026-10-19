@@ -1,7 +1,29 @@
-# display
-model: "CP16Max"
+model: CP16Max
 name:
-  es: "CP16Max"
-  en: "CP16Max"
+  es: CP16Max
+  en: CP16Max
 category: display
 order: 10
+manuals:
+- title:
+    es: display-cp16max Certificación
+    en: display-cp16max Certification
+  docType: certification
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/1YdkM1D8O9If2YpkoKjBKk0pw0EG3viBW/view?usp=sharing
+  summary: ''
+- title:
+    es: display-cp16max Ficha técnica
+    en: display-cp16max Datasheet
+  docType: datasheet
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://docs.google.com/document/d/1822fibxSZd5mx5R2sarmliUtd2uHhcpO/edit?usp=drivesdk&ouid=109851906381756440300&rtpof=true&sd=true
+  summary: ''
+firmware: []
+videos: []

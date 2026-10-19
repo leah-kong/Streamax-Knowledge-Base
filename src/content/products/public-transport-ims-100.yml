@@ -1,8 +1,30 @@
-# public-transport / public-transport-pis
-model: "IMS 100"
+model: IMS 100
 name:
-  es: "IMS 100"
-  en: "IMS 100"
+  es: IMS 100
+  en: IMS 100
 category: public-transport
 subcategory: public-transport-pis
 order: 1
+manuals:
+- title:
+    es: public-transport-ims-100 Certificación
+    en: public-transport-ims-100 Certification
+  docType: certification
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/1mClyGqxH4q-NAhgj2BKSf6gTe0zCRW0u/view?usp=sharing
+  summary: ''
+- title:
+    es: public-transport-ims-100 Ficha técnica
+    en: public-transport-ims-100 Datasheet
+  docType: datasheet
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://docs.google.com/document/d/1a996FU2bMplSu3wBtLjdZWg34Lf50g3S/edit?usp=drivesdk&rtpof=true&sd=true
+  summary: ''
+firmware: []
+videos: []

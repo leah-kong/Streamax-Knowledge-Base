@@ -1,8 +1,50 @@
-# public-transport / public-transport-mdvr
-model: "X5N"
+model: X5N
 name:
-  es: "X5N"
-  en: "X5N"
+  es: X5N
+  en: X5N
 category: public-transport
 subcategory: public-transport-mdvr
 order: 4
+manuals:
+- title:
+    es: public-transport-x5n Certificación
+    en: public-transport-x5n Certification
+  docType: certification
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/1t_0bbNaKOhsiR_wULdutXGsXy20SXcb_/view?usp=sharing
+  summary: ''
+- title:
+    es: public-transport-x5n Diagrama de cableado
+    en: public-transport-x5n Wiring Diagram
+  docType: wiring-diagram
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/1I_Fdu5YUdY7QdApzO_6yBl5MvhxM2Vk3/view?usp=sharing
+  summary: ''
+- title:
+    es: public-transport-x5n Ficha técnica
+    en: public-transport-x5n Datasheet
+  docType: datasheet
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/1Y8eFHfZKL37b7Xs78RYnr-dK56mRTBWv/view?usp=sharing
+  summary: ''
+- title:
+    es: public-transport-x5n Guía de usuario
+    en: public-transport-x5n User Guide
+  docType: user-guide
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://docs.google.com/document/d/1yzQAbSQQCcoct_a1Oz27nssDIaOZNDDI/edit?usp=drivesdk&ouid=109851906381756440300&rtpof=true&sd=true
+  summary: ''
+firmware: []
+videos: []

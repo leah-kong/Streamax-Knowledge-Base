@@ -1,8 +1,50 @@
-# trucking / trucking-asset-security
-model: "Z5"
+model: Z5
 name:
-  es: "Z5"
-  en: "Z5"
+  es: Z5
+  en: Z5
 category: trucking
 subcategory: trucking-asset-security
 order: 1
+manuals:
+- title:
+    es: trucking-z5 Certificación
+    en: trucking-z5 Certification
+  docType: certification
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/1JEksC2D8uybNCowOZbMqKMj_KqVn4igV/view?usp=sharing
+  summary: ''
+- title:
+    es: trucking-z5 Diagrama de cableado
+    en: trucking-z5 Wiring Diagram
+  docType: wiring-diagram
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/1bNVmrQKoW8r2TmEFG4Fp6C-RdFSg-0PU/view?usp=sharing
+  summary: ''
+- title:
+    es: trucking-z5 Ficha técnica
+    en: trucking-z5 Datasheet
+  docType: datasheet
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/17qjQ-Iapb-vt061iJlrDu7ID6TLw9Lba/view?usp=sharing
+  summary: ''
+- title:
+    es: trucking-z5 Guía de usuario
+    en: trucking-z5 User Guide
+  docType: user-guide
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/1IQ6AlKq-mXSJ3rDg7LQam1Usde0mJB5A/view?usp=sharing
+  summary: ''
+firmware: []
+videos: []

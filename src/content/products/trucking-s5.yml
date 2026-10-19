@@ -1,8 +1,40 @@
-# trucking / trucking-asset-security
-model: "S5"
+model: S5
 name:
-  es: "S5"
-  en: "S5"
+  es: S5
+  en: S5
 category: trucking
 subcategory: trucking-asset-security
 order: 2
+manuals:
+- title:
+    es: trucking-s5 Certificación
+    en: trucking-s5 Certification
+  docType: certification
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/1rbUIHDlms0TN_5pulUPvaTX533XfNX7k/view?usp=sharing
+  summary: ''
+- title:
+    es: trucking-s5 Ficha técnica
+    en: trucking-s5 Datasheet
+  docType: datasheet
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://docs.google.com/document/d/1vcDDABZSBed8pDZ0lHN5lGC6ClW3dw_X/edit?usp=drivesdk&ouid=109851906381756440300&rtpof=true&sd=true
+  summary: ''
+- title:
+    es: trucking-s5 Guía de usuario
+    en: trucking-s5 User Guide
+  docType: user-guide
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://docs.google.com/document/d/1OkbhQh_CNSOu23ZtGpn5hhZeHUzoOg3L/edit?usp=drivesdk&ouid=109851906381756440300&rtpof=true&sd=true
+  summary: ''
+firmware: []
+videos: []

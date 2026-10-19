@@ -1,8 +1,50 @@
-# public-transport / public-transport-mdvr
-model: "M1N 2.0"
+model: M1N 2.0
 name:
-  es: "M1N 2.0 (Autobús)"
-  en: "M1N 2.0 (Bus)"
+  es: M1N 2.0 (Autobús)
+  en: M1N 2.0 (Bus)
 category: public-transport
 subcategory: public-transport-mdvr
 order: 1
+manuals:
+- title:
+    es: public-transport-m1n-2-0 Certificación
+    en: public-transport-m1n-2-0 Certification
+  docType: certification
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/1S9g2uiWdHPLbiAxcgRD11nbTccL5DG41/view?usp=sharing
+  summary: ''
+- title:
+    es: public-transport-m1n-2-0 Diagrama de cableado
+    en: public-transport-m1n-2-0 Wiring Diagram
+  docType: wiring-diagram
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/1TMqKK34SxPSDtbcbWvoFbqQ-s0RjPxE_/view?usp=sharing
+  summary: ''
+- title:
+    es: public-transport-m1n-2-0 Ficha técnica
+    en: public-transport-m1n-2-0 Datasheet
+  docType: datasheet
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://docs.google.com/document/d/1uRn06ilPNjk9lGpDDTmaEv16U6FjZk0e/edit?usp=drivesdk&ouid=109851906381756440300&rtpof=true&sd=true
+  summary: ''
+- title:
+    es: public-transport-m1n-2-0 Guía de usuario
+    en: public-transport-m1n-2-0 User Guide
+  docType: user-guide
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/11g5C62vc1GTgeObaqdLXGZHf5pNbBt_Y/view?usp=sharing
+  summary: ''
+firmware: []
+videos: []

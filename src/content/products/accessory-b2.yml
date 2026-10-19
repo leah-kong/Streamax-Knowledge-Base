@@ -1,7 +1,29 @@
-# accessory
-model: "B2"
+model: B2
 name:
-  es: "B2"
-  en: "B2"
+  es: B2
+  en: B2
 category: accessory
 order: 4
+manuals:
+- title:
+    es: accessory-b2 Certificación
+    en: accessory-b2 Certification
+  docType: certification
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/139-D09RVjOHyuxahQEtYuTe_aaU0Sz-s/view?usp=sharing
+  summary: ''
+- title:
+    es: accessory-b2 Ficha técnica
+    en: accessory-b2 Datasheet
+  docType: datasheet
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://docs.google.com/document/d/1xxI5oJzn-5f72FgQMYGX3eLOGobWqvbd/edit?usp=drivesdk&ouid=109851906381756440300&rtpof=true&sd=true
+  summary: ''
+firmware: []
+videos: []

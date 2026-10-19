@@ -1,8 +1,20 @@
-# camera / camera-surveillance
-model: "C39A"
+model: C39A
 name:
-  es: "C39A"
-  en: "C39A"
+  es: C39A
+  en: C39A
 category: camera
 subcategory: camera-surveillance
 order: 4
+manuals:
+- title:
+    es: camera-c39a Certificación
+    en: camera-c39a Certification
+  docType: certification
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/1vgcqAsYq8-q-Mw3uerD_foeckvCK71Ft/view?usp=sharing
+  summary: ''
+firmware: []
+videos: []

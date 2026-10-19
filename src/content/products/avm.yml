@@ -8,3 +8,46 @@ image: /uploads/AVM BOX渲染-正面-30度侧面1.jpg
 order: 99
 eol: false
 related: []
+manuals:
+- title:
+    es: avm Certificación
+    en: avm Certification
+  docType: certification
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/1s8CrRP321fp10bell68U_8oBdWq5TptU/view?usp=sharing
+  summary: ''
+- title:
+    es: avm Diagrama de cableado
+    en: avm Wiring Diagram
+  docType: wiring-diagram
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/1uSnfV2YCqlsExd_dX4nfplCB_iqDIUqi/view?usp=sharing
+  summary: ''
+- title:
+    es: avm Ficha técnica
+    en: avm Datasheet
+  docType: datasheet
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/1MtgO_nrlzgSc8j7pgloc_Gsaql5L70TD/view?usp=sharing
+  summary: ''
+- title:
+    es: avm Guía de usuario
+    en: avm User Guide
+  docType: user-guide
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://docs.google.com/document/d/1eoSu6VdeALZxvKg8vEaEbdbf94R4qKPu/edit?usp=drivesdk&ouid=109851906381756440300&rtpof=true&sd=true
+  summary: ''
+firmware: []
+videos: []

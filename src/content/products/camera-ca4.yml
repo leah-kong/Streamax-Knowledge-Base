@@ -1,8 +1,30 @@
-# camera / camera-surveillance
-model: "CA4"
+model: CA4
 name:
-  es: "CA4"
-  en: "CA4"
+  es: CA4
+  en: CA4
 category: camera
 subcategory: camera-surveillance
 order: 8
+manuals:
+- title:
+    es: camera-ca4 Certificación
+    en: camera-ca4 Certification
+  docType: certification
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/1SrnCkeXx-AhAt5iao8pexsY-f2JzkxuJ/view?usp=sharing
+  summary: ''
+- title:
+    es: camera-ca4 Ficha técnica
+    en: camera-ca4 Datasheet
+  docType: datasheet
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/1zufN3On5Cr3U_xO7CNzHP4JFdGwgc8O3/view?usp=sharing
+  summary: ''
+firmware: []
+videos: []

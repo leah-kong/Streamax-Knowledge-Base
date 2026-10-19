@@ -1,7 +1,29 @@
-# accessory
-model: "B3"
+model: B3
 name:
-  es: "B3"
-  en: "B3"
+  es: B3
+  en: B3
 category: accessory
 order: 5
+manuals:
+- title:
+    es: accessory-b3 Certificación
+    en: accessory-b3 Certification
+  docType: certification
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/1in0Kcm9MpmnhHJpzyxLpzi6cmfAyIok1/view?usp=sharing
+  summary: ''
+- title:
+    es: accessory-b3 Ficha técnica
+    en: accessory-b3 Datasheet
+  docType: datasheet
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://docs.google.com/document/d/1b7Oe8LFFupYC6x-tT4u1W3TrrzYasNjZ/edit?usp=drivesdk&ouid=109851906381756440300&rtpof=true&sd=true
+  summary: ''
+firmware: []
+videos: []

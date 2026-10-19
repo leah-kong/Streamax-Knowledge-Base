@@ -1,8 +1,40 @@
-# camera / camera-dms
-model: "C29N"
+model: C29N
 name:
-  es: "C29N"
-  en: "C29N"
+  es: C29N
+  en: C29N
 category: camera
 subcategory: camera-dms
 order: 1
+manuals:
+- title:
+    es: camera-c29n Certificación
+    en: camera-c29n Certification
+  docType: certification
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/10QQhG0x_aSnDSCZBS7nIj0MYgKUHn1eJ/view?usp=sharing
+  summary: ''
+- title:
+    es: camera-c29n Diagrama de cableado
+    en: camera-c29n Wiring Diagram
+  docType: wiring-diagram
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/1olRidN8uFq3dvpzHiNQnPQM-VQfh9u5-/view?usp=sharing
+  summary: ''
+- title:
+    es: camera-c29n Ficha técnica
+    en: camera-c29n Datasheet
+  docType: datasheet
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/1FeYQPbA7XB7qOf5uuvrhLUrwfw_yySpb/view?usp=sharing
+  summary: ''
+firmware: []
+videos: []

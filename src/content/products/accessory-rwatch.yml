@@ -1,7 +1,29 @@
-# accessory
-model: "RWatch"
+model: RWatch
 name:
-  es: "RWatch"
-  en: "RWatch"
+  es: RWatch
+  en: RWatch
 category: accessory
 order: 1
+manuals:
+- title:
+    es: accessory-rwatch Certificación
+    en: accessory-rwatch Certification
+  docType: certification
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/1seylZvHhWCbz6oegBf0aKwLEvaWa3oE3/view?usp=sharing
+  summary: ''
+- title:
+    es: accessory-rwatch Ficha técnica
+    en: accessory-rwatch Datasheet
+  docType: datasheet
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://docs.google.com/document/d/1Gx3XrJwXpobwcNZ6N_4Mjq0Y5OCSkDxC/edit?usp=drivesdk&ouid=109851906381756440300&rtpof=true&sd=true
+  summary: ''
+firmware: []
+videos: []

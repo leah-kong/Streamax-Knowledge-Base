@@ -1,7 +1,29 @@
-# accessory
-model: "iButton"
+model: iButton
 name:
-  es: "iButton"
-  en: "iButton"
+  es: iButton
+  en: iButton
 category: accessory
 order: 2
+manuals:
+- title:
+    es: accessory-ibutton Certificación
+    en: accessory-ibutton Certification
+  docType: certification
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/1EH2-qf4WMZPSfUVWG8vzrj1hHIUq-YqI/view?usp=sharing
+  summary: ''
+- title:
+    es: accessory-ibutton Guía de usuario
+    en: accessory-ibutton User Guide
+  docType: user-guide
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://docs.google.com/document/d/1W2RVEZDf1zn52DN41RwfUM4zGvzb6Qno/edit?usp=drivesdk&ouid=109851906381756440300&rtpof=true&sd=true
+  summary: ''
+firmware: []
+videos: []

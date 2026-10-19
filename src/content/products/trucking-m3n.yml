@@ -1,8 +1,50 @@
-# trucking / trucking-mdvr
-model: "M3N"
+model: M3N
 name:
-  es: "M3N"
-  en: "M3N"
+  es: M3N
+  en: M3N
 category: trucking
 subcategory: trucking-mdvr
 order: 3
+manuals:
+- title:
+    es: trucking-m3n Certificación
+    en: trucking-m3n Certification
+  docType: certification
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/1Vz5rr-M75R6IeBQ-UdNsIJl0nzBXnEOm/view?usp=sharing
+  summary: ''
+- title:
+    es: trucking-m3n Diagrama de cableado
+    en: trucking-m3n Wiring Diagram
+  docType: wiring-diagram
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/1JLxNjpTYFQBs1gylmNSe1KyPWRZmsAxJ/view?usp=sharing
+  summary: ''
+- title:
+    es: trucking-m3n Ficha técnica
+    en: trucking-m3n Datasheet
+  docType: datasheet
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/1i1fh584-ACVqQANedJPL5lIojT169p21/view?usp=sharing
+  summary: ''
+- title:
+    es: trucking-m3n Guía de usuario
+    en: trucking-m3n User Guide
+  docType: user-guide
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/1GoS4G2WUOfGL9phT6pFkZLqNo88bCY1e/view?usp=sharing
+  summary: ''
+firmware: []
+videos: []

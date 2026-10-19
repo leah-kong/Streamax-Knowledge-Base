@@ -1,8 +1,30 @@
-# camera / camera-surveillance
-model: "CA38"
+model: CA38
 name:
-  es: "CA38"
-  en: "CA38"
+  es: CA38
+  en: CA38
 category: camera
 subcategory: camera-surveillance
 order: 10
+manuals:
+- title:
+    es: camera-ca38 Certificación
+    en: camera-ca38 Certification
+  docType: certification
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/10d6tQ-bh28suN94WeY1p4raGKaRqEz3j/view?usp=sharing
+  summary: ''
+- title:
+    es: camera-ca38 Ficha técnica
+    en: camera-ca38 Datasheet
+  docType: datasheet
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/1hyY-4gQ0_kGSNEgcWmCtOvt_KCw-3FqK/view?usp=sharing
+  summary: ''
+firmware: []
+videos: []

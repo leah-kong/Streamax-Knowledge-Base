@@ -1,8 +1,20 @@
-# camera / camera-surveillance
-model: "CA25"
+model: CA25
 name:
-  es: "CA25"
-  en: "CA25"
+  es: CA25
+  en: CA25
 category: camera
 subcategory: camera-surveillance
 order: 5
+manuals:
+- title:
+    es: camera-ca25 Certificación
+    en: camera-ca25 Certification
+  docType: certification
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/13qWQobx17EhS-QSkjjpL4DI6ILnfJK4v/view?usp=sharing
+  summary: ''
+firmware: []
+videos: []

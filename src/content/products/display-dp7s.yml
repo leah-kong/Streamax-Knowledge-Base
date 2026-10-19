@@ -1,7 +1,49 @@
-# display
-model: "DP7S"
+model: DP7S
 name:
-  es: "DP7S"
-  en: "DP7S"
+  es: DP7S
+  en: DP7S
 category: display
 order: 3
+manuals:
+- title:
+    es: display-dp7s Certificación
+    en: display-dp7s Certification
+  docType: certification
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/1vEqnaiMlHlPhyV0_ceOKRt7fTDcE0tMt/view?usp=sharing
+  summary: ''
+- title:
+    es: display-dp7s Diagrama de cableado
+    en: display-dp7s Wiring Diagram
+  docType: wiring-diagram
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/1OzP6LohSMMS0ZBgsGeaRjuGnshXWV_i5/view?usp=sharing
+  summary: ''
+- title:
+    es: display-dp7s Ficha técnica
+    en: display-dp7s Datasheet
+  docType: datasheet
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://docs.google.com/document/d/1XhDmNgdP3GThIhTiJxtvNgSQjWl2s4Kz/edit?usp=drivesdk&ouid=109851906381756440300&rtpof=true&sd=true
+  summary: ''
+- title:
+    es: display-dp7s Guía de usuario
+    en: display-dp7s User Guide
+  docType: user-guide
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/1WHGldnXwovJ4yfRoCAAvC8FDD7OTA5Cs/view?usp=sharing
+  summary: ''
+firmware: []
+videos: []

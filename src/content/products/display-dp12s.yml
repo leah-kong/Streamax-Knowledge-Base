@@ -1,7 +1,39 @@
-# display
-model: "DP12S"
+model: DP12S
 name:
-  es: "DP12S"
-  en: "DP12S"
+  es: DP12S
+  en: DP12S
 category: display
 order: 7
+manuals:
+- title:
+    es: display-dp12s Certificación
+    en: display-dp12s Certification
+  docType: certification
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/1HJjZYQHS9Qr738BmJ-Tx0ylZpXtI2Z8A/view?usp=sharing
+  summary: ''
+- title:
+    es: display-dp12s Ficha técnica
+    en: display-dp12s Datasheet
+  docType: datasheet
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://docs.google.com/document/d/1EbcQIF7vTDeTD8eyJE93JdY5bxSw-2Oa/edit?usp=drivesdk&ouid=109851906381756440300&rtpof=true&sd=true
+  summary: ''
+- title:
+    es: display-dp12s Guía de usuario
+    en: display-dp12s User Guide
+  docType: user-guide
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://docs.google.com/document/d/1nrJU3nFP7qQPHdozKcVkrxshE19L5R0h/edit?usp=drivesdk&ouid=109851906381756440300&rtpof=true&sd=true
+  summary: ''
+firmware: []
+videos: []

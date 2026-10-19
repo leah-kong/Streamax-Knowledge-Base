@@ -1,8 +1,30 @@
-# law-enforcement / law-enforcement-on-site
-model: "Body-Worn Camera"
+model: Body-Worn Camera
 name:
-  es: "Body-Worn Camera"
-  en: "Body-Worn Camera"
+  es: Body-Worn Camera
+  en: Body-Worn Camera
 category: law-enforcement
 subcategory: law-enforcement-on-site
 order: 1
+manuals:
+- title:
+    es: law-enforcement-body-worn-camera Certificación
+    en: law-enforcement-body-worn-camera Certification
+  docType: certification
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/1wFvkpwLVVyvv4wLUGUqzbgKpWITXMywl/view?usp=sharing
+  summary: ''
+- title:
+    es: law-enforcement-body-worn-camera Diagrama de cableado
+    en: law-enforcement-body-worn-camera Wiring Diagram
+  docType: wiring-diagram
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/1gwpWvkHF0CkpqAklWUPzER7JuLmXObC5/view?usp=sharing
+  summary: ''
+firmware: []
+videos: []

@@ -1,8 +1,40 @@
-# public-transport / public-transport-pis
-model: "L16Max - 286"
+model: L16Max - 286
 name:
-  es: "L16Max - 286"
-  en: "L16Max - 286"
+  es: L16Max - 286
+  en: L16Max - 286
 category: public-transport
 subcategory: public-transport-pis
 order: 3
+manuals:
+- title:
+    es: public-transport-l16max-286 Certificación
+    en: public-transport-l16max-286 Certification
+  docType: certification
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/1iM6utvkKwXnTfugb-eJoUbRjLwzvmAPr/view?usp=sharing
+  summary: ''
+- title:
+    es: public-transport-l16max-286 Ficha técnica
+    en: public-transport-l16max-286 Datasheet
+  docType: datasheet
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://docs.google.com/document/d/1dqyeg1Myo0YUEawmkoazIgkEZtL2l13A/edit?usp=drivesdk&ouid=109851906381756440300&rtpof=true&sd=true
+  summary: ''
+- title:
+    es: public-transport-l16max-286 Guía de usuario
+    en: public-transport-l16max-286 User Guide
+  docType: user-guide
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://docs.google.com/document/d/1qZjYSm6gFOm5QOg6p4kCPnKFf5E8jK90/edit?usp=drivesdk&ouid=109851906381756440300&rtpof=true&sd=true
+  summary: ''
+firmware: []
+videos: []

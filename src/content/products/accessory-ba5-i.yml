@@ -1,7 +1,29 @@
-# accessory
-model: "BA5-I"
+model: BA5-I
 name:
-  es: "BA5-I"
-  en: "BA5-I"
+  es: BA5-I
+  en: BA5-I
 category: accessory
 order: 6
+manuals:
+- title:
+    es: accessory-ba5-i Certificación
+    en: accessory-ba5-i Certification
+  docType: certification
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/1EQ0ARSOC9_V9eU-LxdutOylIqJZoB8B2/view?usp=sharing
+  summary: ''
+- title:
+    es: accessory-ba5-i Ficha técnica
+    en: accessory-ba5-i Datasheet
+  docType: datasheet
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://docs.google.com/document/d/1IUJILoGliKiv0cJmEPuYlm_BVO_wHmIn/edit?usp=drivesdk&ouid=109851906381756440300&rtpof=true&sd=true
+  summary: ''
+firmware: []
+videos: []

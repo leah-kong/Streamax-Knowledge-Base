@@ -1,8 +1,30 @@
-# camera / camera-avm
-model: "CA51"
+model: CA51
 name:
-  es: "CA51"
-  en: "CA51"
+  es: CA51
+  en: CA51
 category: camera
 subcategory: camera-avm
 order: 1
+manuals:
+- title:
+    es: camera-ca51 Certificación
+    en: camera-ca51 Certification
+  docType: certification
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://drive.google.com/file/d/11kjxWAXfa7Ey8dHDkpqXL9cTEp4YlIxS/view?usp=sharing
+  summary: ''
+- title:
+    es: camera-ca51 Ficha técnica
+    en: camera-ca51 Datasheet
+  docType: datasheet
+  version: ''
+  date: 2026-09-24
+  fileEs: ''
+  fileEn: ''
+  externalUrl: https://docs.google.com/document/d/1zRPbyb0zPTRqWIY6_u9ir5hGlPXrtJsD/edit?usp=drivesdk&ouid=109851906381756440300&rtpof=true&sd=true
+  summary: ''
+firmware: []
+videos: []
