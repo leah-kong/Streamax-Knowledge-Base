@@ -12,6 +12,12 @@ const i18nText = z.union([
   z.string(),
 ]);
 
+// 可选的 i18n 字段：Sveltia CMS 会把空的可选字段保存成 null，
+// 而 .optional() 不接受 null（曾导致整站构建失败、部署中断）。
+// 这里用 .nullish() 接受 null，并 transform 归一化为 undefined，
+// 下游 translated() 对 null/undefined 均已安全处理。
+const optionalI18nText = i18nText.nullish().transform((v) => v ?? undefined);
+
 // 一级 / 二级 / 三级分类
 const categories = defineCollection({
   loader: glob({ pattern: '**/*.yml', base: './src/content/categories' }),
@@ -20,7 +26,7 @@ const categories = defineCollection({
     level: z.union([z.literal(1), z.literal(2), z.literal(3)]),
     parent: z.string().optional(),
     order: z.number().default(99),
-    summary: i18nText.optional(),
+    summary: optionalI18nText,
     icon: z.string().optional(),
   }),
 });
@@ -31,7 +37,7 @@ const products = defineCollection({
   schema: z.object({
     model: z.string(),
     name: i18nText,
-    series: i18nText.optional(),
+    series: optionalI18nText,
     category: z.string(),
     subcategory: z.string().optional(),
     platform: z.string().optional(),
@@ -53,7 +59,7 @@ const products = defineCollection({
           fileEs: z.string().optional(),
           fileEn: z.string().optional(),
           externalUrl: z.string().optional(),
-          summary: i18nText.optional(),
+          summary: optionalI18nText,
         })
       )
       .optional(),
@@ -66,7 +72,7 @@ const products = defineCollection({
           fileSize: z.string().optional(),
           checksum: z.string().optional(),
           downloadUrl: z.string().optional(),
-          releaseNotes: i18nText.optional(),
+          releaseNotes: optionalI18nText,
           mandatory: z.boolean().default(false),
         })
       )

@@ -2,7 +2,6 @@ model: C6 Lite 2.0
 name:
   es: '1'
   en: '1'
-series: null
 category: trucking
 subcategory: trucking-dash-camera
 platform: ''
@@ -20,7 +19,6 @@ manuals:
     fileEs: ''
     fileEn: ''
     externalUrl: https://drive.google.com/file/d/1Q-sYBq7aJgz1PUAWshS7m0XYvQS2suo3/view?usp=sharing
-    summary: null
   - docType: wiring-diagram
     title:
       es: trucking-c6-lite-2-0 Diagrama de cableado
@@ -30,7 +28,6 @@ manuals:
     fileEs: ''
     fileEn: ''
     externalUrl: https://drive.google.com/file/d/1PrphWpLSYG7Bvx0ZT6rgVJ2ViIfh6VjW/view?usp=sharing
-    summary: null
   - docType: datasheet
     title:
       es: trucking-c6-lite-2-0 Ficha técnica
@@ -40,7 +37,6 @@ manuals:
     fileEs: ''
     fileEn: ''
     externalUrl: https://drive.google.com/file/d/11gITX0F7bnYw70ej4nyvrcKZur8CZHMJ/view?usp=sharing
-    summary: null
   - docType: user-guide
     title:
       es: trucking-c6-lite-2-0 Guía de usuario
@@ -50,7 +46,6 @@ manuals:
     fileEs: ''
     fileEn: ''
     externalUrl: https://drive.google.com/file/d/1p1mJO_jNcxfEOsbFQTOoI5ReK35iAYoM/view?usp=sharing
-    summary: null
 firmware:
   - version: C6LITE_B358_T240119.70_M0010
     date: 2026-10-22
@@ -58,6 +53,5 @@ firmware:
     fileSize: ''
     checksum: ''
     downloadUrl: https://drive.google.com/open?id=1XmDQD-25aq52cgToegGQrZlkD7hbBDKL&usp=drive_copy
-    releaseNotes: null
     mandatory: false
 videos: []
