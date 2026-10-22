@@ -1,6 +1,8 @@
 model: AD Plus 2.0
-name: AD Plus 2.0
-series: ''
+name:
+  es: '1'
+  en: '1'
+series: null
 category: trucking
 subcategory: trucking-dash-camera
 platform: ''
@@ -8,60 +10,60 @@ image: /uploads/AD Plus 2.0 Cabin Side_2-No Background.png
 order: 4
 eol: false
 related:
-- trucking-power-box-max
-- trucking-power-box-plus
+  - trucking-power-box-max
+  - trucking-power-box-plus
 manuals:
-- title: AD Plus 2.0 datasheet
-  docType: datasheet
-  version: ''
-  date: 2026-09-21
-  fileEs: https://drive.google.com/file/d/1qxpeAkDh2IDZhTD8b4QWGbUzzg8YgHPp/view?usp=drive_link
-  fileEn: https://drive.google.com/file/d/1qxpeAkDh2IDZhTD8b4QWGbUzzg8YgHPp/view?usp=drive_link
-  externalUrl: ''
-  summary: ''
-- title:
-    es: trucking-ad-plus-2-0 Certificación
-    en: trucking-ad-plus-2-0 Certification
-  docType: certification
-  version: ''
-  date: 2026-09-24
-  fileEs: ''
-  fileEn: ''
-  externalUrl: https://drive.google.com/file/d/1MMSHlRe0SB5fYpYj5hCZ68M-7jeDkLu8/view?usp=sharing
-  summary: ''
-- title:
-    es: trucking-ad-plus-2-0 Diagrama de cableado
-    en: trucking-ad-plus-2-0 Wiring Diagram
-  docType: wiring-diagram
-  version: ''
-  date: 2026-09-24
-  fileEs: ''
-  fileEn: ''
-  externalUrl: https://drive.google.com/file/d/1J9e3OB0Q49UXEiveBHiMd1Lkfb63BlSP/view?usp=sharing
-  summary: ''
-- title:
-    es: trucking-ad-plus-2-0 Guía de usuario
-    en: trucking-ad-plus-2-0 User Guide
-  docType: user-guide
-  version: ''
-  date: 2026-09-24
-  fileEs: ''
-  fileEn: ''
-  externalUrl: https://drive.google.com/file/d/1U2agEi98Yrbdkx7hVHOBjfGLNFzzGd4P/view?usp=sharing
-  summary: ''
+  - docType: datasheet
+    title: null
+    version: ''
+    date: 2026-09-21
+    fileEs: https://drive.google.com/file/d/1qxpeAkDh2IDZhTD8b4QWGbUzzg8YgHPp/view?usp=drive_link
+    fileEn: https://drive.google.com/file/d/1qxpeAkDh2IDZhTD8b4QWGbUzzg8YgHPp/view?usp=drive_link
+    externalUrl: ''
+    summary: null
+  - docType: certification
+    title:
+      es: trucking-ad-plus-2-0 Certificación
+      en: trucking-ad-plus-2-0 Certification
+    version: ''
+    date: 2026-09-24
+    fileEs: ''
+    fileEn: ''
+    externalUrl: https://drive.google.com/file/d/1MMSHlRe0SB5fYpYj5hCZ68M-7jeDkLu8/view?usp=sharing
+    summary: null
+  - docType: wiring-diagram
+    title:
+      es: trucking-ad-plus-2-0 Diagrama de cableado
+      en: trucking-ad-plus-2-0 Wiring Diagram
+    version: ''
+    date: 2026-09-24
+    fileEs: ''
+    fileEn: ''
+    externalUrl: https://drive.google.com/file/d/1J9e3OB0Q49UXEiveBHiMd1Lkfb63BlSP/view?usp=sharing
+    summary: null
+  - docType: user-guide
+    title:
+      es: trucking-ad-plus-2-0 Guía de usuario
+      en: trucking-ad-plus-2-0 User Guide
+    version: ''
+    date: 2026-09-24
+    fileEs: ''
+    fileEn: ''
+    externalUrl: https://drive.google.com/file/d/1U2agEi98Yrbdkx7hVHOBjfGLNFzzGd4P/view?usp=sharing
+    summary: null
 firmware: []
 videos:
-- title: How To Connect Via Veyes In AD Plus 2 0 AP Mode
-  date: 2026-09-21
-  duration: ''
-  url: https://www.youtube.com/watch?v=aOJfJq8_3_4
-  external: true
-  cover: ''
-  summary: ''
-- title: How To Upgrade Locally In AP Mode
-  date: 2026-09-21
-  duration: ''
-  url: https://www.youtube.com/watch?v=42qjAcz9fec
-  external: true
-  cover: ''
-  summary: ''
+  - title: How To Connect Via Veyes In AD Plus 2 0 AP Mode
+    date: 2026-09-21
+    duration: ''
+    url: https://www.youtube.com/watch?v=aOJfJq8_3_4
+    external: true
+    cover: ''
+    summary: ''
+  - title: How To Upgrade Locally In AP Mode
+    date: 2026-09-21
+    duration: ''
+    url: https://www.youtube.com/watch?v=42qjAcz9fec
+    external: true
+    cover: ''
+    summary: ''
