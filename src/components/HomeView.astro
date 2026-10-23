@@ -69,7 +69,7 @@ const videos = await getRecentVideo(4);
               <div class="title">{translated(m.data.title, lang)}</div>
               <div class="sub">{t(`doctype.${m.data.docType}`)}</div>
             </div>
-            <div class="date">{formatDate(m.data.date, lang)}</div>
+            <div class="date">{m.data.date ? formatDate(m.data.date, lang) : ''}</div>
             {(m.data.fileEs || m.data.fileEn || m.data.externalUrl) && (
               <a
                 class="btn-download"
@@ -107,7 +107,7 @@ const videos = await getRecentVideo(4);
                 <div class="notes">{translated(f.data.releaseNotes, lang)}</div>
               )}
             </div>
-            <div class="date">{formatDate(f.data.date, lang)}</div>
+            <div class="date">{f.data.date ? formatDate(f.data.date, lang) : ''}</div>
             <a class="btn-download" href={f.data.downloadUrl} target="_blank" rel="noopener">
               {t('field.download')}
             </a>

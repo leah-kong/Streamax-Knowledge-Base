@@ -18,6 +18,14 @@ const i18nText = z.union([
 // 下游 translated() 对 null/undefined 均已安全处理。
 const optionalI18nText = i18nText.nullish().transform((v) => v ?? undefined);
 
+// 可选的日期：Sveltia CMS 的 datetime 控件留空时会写 null 或 ''，
+// 而 z.coerce.date() 不接受 null/空串（曾导致整站构建失败）。
+// 统一预处理为 undefined；渲染侧（formatDate 调用点）与排序侧均已做保护。
+const optionalDate = z.preprocess(
+  (v) => (v === null || v === '' ? undefined : v),
+  z.coerce.date().optional()
+);
+
 // 一级 / 二级 / 三级分类
 const categories = defineCollection({
   loader: glob({ pattern: '**/*.yml', base: './src/content/categories' }),
@@ -36,7 +44,7 @@ const products = defineCollection({
   loader: glob({ pattern: '**/*.yml', base: './src/content/products' }),
   schema: z.object({
     model: z.string(),
-    name: i18nText,
+    name: optionalI18nText,
     series: optionalI18nText,
     category: z.string(),
     subcategory: z.string().optional(),
@@ -52,10 +60,10 @@ const products = defineCollection({
     manuals: z
       .array(
         z.object({
-          title: i18nText,
+          title: optionalI18nText,
           docType: z.enum(['datasheet', 'user-guide', 'wiring-diagram', 'certification']),
           version: z.string().optional(),
-          date: z.coerce.date(),
+          date: optionalDate,
           fileEs: z.string().optional(),
           fileEn: z.string().optional(),
           externalUrl: z.string().optional(),
@@ -67,7 +75,7 @@ const products = defineCollection({
       .array(
         z.object({
           version: z.string(),
-          date: z.coerce.date(),
+          date: optionalDate,
           type: z.enum(['firmware', 'tool']).default('firmware'),
           fileSize: z.string().optional(),
           checksum: z.string().optional(),
@@ -80,10 +88,10 @@ const products = defineCollection({
     videos: z
       .array(
         z.object({
-          title: z.string(),
-          date: z.coerce.date(),
+          title: z.string().nullish(),
+          date: optionalDate,
           duration: z.string().optional(),
-          url: z.string(),
+          url: z.string().nullish(),
           external: z.boolean().default(true),
           cover: z.string().optional(),
           summary: z.string().optional(),

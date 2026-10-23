@@ -159,7 +159,7 @@ const hasFaq = false;
                         <div class="title">{translated(m.data.title, lang)}</div>
                         <div class="sub">
                           {m.data.version ? `${t('field.version')} ${m.data.version} · ` : ''}
-                          {formatDate(m.data.date, lang)}
+                          {m.data.date ? formatDate(m.data.date, lang) : ''}
                         </div>
                       </div>
                       {(m.data.fileEs || m.data.fileEn || m.data.externalUrl) && (
@@ -212,7 +212,7 @@ const hasFaq = false;
                   <div class="notes">{translated(f.data.releaseNotes, lang)}</div>
                 )}
                 <div class="sub">
-                  {formatDate(f.data.date, lang)}
+                  {f.data.date ? formatDate(f.data.date, lang) : ''}
                   {f.data.fileSize ? ` · ${f.data.fileSize}` : ''}
                 </div>
                 {f.data.checksum && <div class="checksum">{f.data.checksum}</div>}

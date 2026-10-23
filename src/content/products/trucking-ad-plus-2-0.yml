@@ -14,7 +14,9 @@ related:
   - trucking-power-box-plus
 manuals:
   - docType: datasheet
-    title: null
+    title:
+      es: trucking-ad-plus-2-0 Ficha técnica
+      en: trucking-ad-plus-2-0 Datasheet
     version: ''
     date: 2026-09-21
     fileEs: https://drive.google.com/file/d/1qxpeAkDh2IDZhTD8b4QWGbUzzg8YgHPp/view?usp=drive_link

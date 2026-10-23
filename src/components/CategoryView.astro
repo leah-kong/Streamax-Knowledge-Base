@@ -75,7 +75,7 @@ const groups = children.length
 // 视频已物理嵌套进每个产品（products.videos）。
 const catVideos = scopedProducts
   .flatMap((p) => (p.data.videos ?? []).map((v) => ({ data: v })))
-  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+  .sort((a, b) => (b.data.date ?? new Date(0)).valueOf() - (a.data.date ?? new Date(0)).valueOf());
 ---
 
 <nav class="breadcrumb">

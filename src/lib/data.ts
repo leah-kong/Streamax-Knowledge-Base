@@ -5,7 +5,7 @@ export interface ManualItem {
   title: any;
   docType: 'datasheet' | 'user-guide' | 'wiring-diagram' | 'certification';
   version?: string;
-  date: Date;
+  date?: Date;
   fileEs?: string;
   fileEn?: string;
   externalUrl?: string;
@@ -13,7 +13,7 @@ export interface ManualItem {
 }
 export interface FirmwareItem {
   version: string;
-  date: Date;
+  date?: Date;
   type?: 'firmware' | 'tool';
   fileSize?: string;
   checksum?: string;
@@ -22,10 +22,10 @@ export interface FirmwareItem {
   mandatory?: boolean;
 }
 export interface VideoItem {
-  title: string;
-  date: Date;
+  title?: string;
+  date?: Date;
   duration?: string;
-  url: string;
+  url?: string;
   external?: boolean;
   cover?: string;
   summary?: string;
@@ -35,6 +35,11 @@ export interface ResourceEntry<T> {
   data: T;
 }
 export type VideoEntry = ResourceEntry<VideoItem>;
+
+// 日期可能缺失（CMS 留空写成 null 已被 schema 归一化为 undefined），
+// 排序时统一回退到 epoch，避免 undefined.valueOf() 抛错。
+const EPOCH = new Date(0);
+const timeOf = (d: Date | undefined) => (d ?? EPOCH).valueOf();
 
 function embed<T>(items?: T[]): ResourceEntry<T>[] {
   return (items ?? []).map((item) => ({ data: item }));
@@ -105,17 +110,17 @@ async function allVideos(): Promise<ResourceEntry<VideoItem>[]> {
 
 export async function getRecentManual(limit = 6): Promise<ResourceEntry<ManualItem>[]> {
   return (await allManuals())
-    .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+    .sort((a, b) => timeOf(b.data.date) - timeOf(a.data.date))
     .slice(0, limit);
 }
 export async function getRecentFirmware(limit = 5): Promise<ResourceEntry<FirmwareItem>[]> {
   return (await allFirmware())
-    .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+    .sort((a, b) => timeOf(b.data.date) - timeOf(a.data.date))
     .slice(0, limit);
 }
 export async function getRecentVideo(limit = 4): Promise<ResourceEntry<VideoItem>[]> {
   return (await allVideos())
-    .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+    .sort((a, b) => timeOf(b.data.date) - timeOf(a.data.date))
     .slice(0, limit);
 }
 
@@ -146,7 +151,7 @@ export async function getAllVideos(): Promise<VideoViewItem[]> {
     }
   }
   return [...bySig.values()].sort(
-    (a, b) => b.video.data.date.valueOf() - a.video.data.date.valueOf()
+    (a, b) => timeOf(b.video.data.date) - timeOf(a.video.data.date)
   );
 }
 

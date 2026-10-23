@@ -44,7 +44,7 @@ const hasChips = products.length > 0;
       </div>
       <div class="title">{translated(v.data.title, lang)}</div>
       <div class="meta">
-        {formatDate(v.data.date, lang)}
+        {v.data.date ? formatDate(v.data.date, lang) : ''}
         {v.data.duration ? ` · ${v.data.duration}` : ''}
         <a class="ext" href={youtubeWatch(v.data.url) ?? v.data.url} target="_blank" rel="noopener">
           {t('field.watch')} ↗
@@ -71,7 +71,7 @@ const hasChips = products.length > 0;
       </div>
       <div class="title">{translated(v.data.title, lang)}</div>
       <div class="meta">
-        {formatDate(v.data.date, lang)}
+        {v.data.date ? formatDate(v.data.date, lang) : ''}
         {v.data.duration ? ` · ${v.data.duration}` : ''}
       </div>
       {
@@ -93,7 +93,7 @@ const hasChips = products.length > 0;
       <div class="cover">{thumb ? <img src={thumb} alt="" /> : t('field.watch')}</div>
       <div class="title">{translated(v.data.title, lang)}</div>
       <div class="meta">
-        {formatDate(v.data.date, lang)}
+        {v.data.date ? formatDate(v.data.date, lang) : ''}
         {v.data.duration ? ` · ${v.data.duration}` : ''}
       </div>
       {
