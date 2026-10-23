@@ -2,40 +2,52 @@ model: A16Max (IBCU)
 name:
   es: A16Max (IBCU)
   en: A16Max (IBCU)
+series: null
 category: public-transport
 subcategory: public-transport-mdvr
+platform: ''
+image: ''
 order: 7
+eol: false
 related: []
 manuals:
-- title:
-    es: public-transport-a16max-ibcu Certificación
-    en: public-transport-a16max-ibcu Certification
-  docType: certification
-  version: ''
-  date: 2026-09-24
-  fileEs: ''
-  fileEn: ''
-  externalUrl: https://drive.google.com/file/d/1_MF0D6KLIZPa76dyhdJdsq85dtCH888u/view?usp=sharing
-  summary: ''
-- title:
-    es: public-transport-a16max-ibcu Ficha técnica
-    en: public-transport-a16max-ibcu Datasheet
-  docType: datasheet
-  version: ''
-  date: 2026-09-24
-  fileEs: ''
-  fileEn: ''
-  externalUrl: https://docs.google.com/document/d/1kp-NT0xe3Fr2pAG1_XmJUOoU2GCCk-Lt/edit?usp=drivesdk&ouid=109851906381756440300&rtpof=true&sd=true
-  summary: ''
-- title:
-    es: public-transport-a16max-ibcu Guía de usuario
-    en: public-transport-a16max-ibcu User Guide
-  docType: user-guide
-  version: ''
-  date: 2026-09-24
-  fileEs: ''
-  fileEn: ''
-  externalUrl: https://docs.google.com/document/d/1m74TGPIWLKq3SyQvumncGDcuwc2oKeA9/edit?usp=drivesdk&ouid=109851906381756440300&rtpof=true&sd=true
-  summary: ''
-firmware: []
+  - docType: certification
+    title:
+      es: public-transport-a16max-ibcu Certificación
+      en: public-transport-a16max-ibcu Certification
+    version: ''
+    date: 2026-09-24
+    fileEs: ''
+    fileEn: ''
+    externalUrl: https://drive.google.com/file/d/1_MF0D6KLIZPa76dyhdJdsq85dtCH888u/view?usp=sharing
+    summary: null
+  - docType: datasheet
+    title:
+      es: public-transport-a16max-ibcu Ficha técnica
+      en: public-transport-a16max-ibcu Datasheet
+    version: ''
+    date: 2026-09-24
+    fileEs: ''
+    fileEn: ''
+    externalUrl: https://docs.google.com/document/d/1kp-NT0xe3Fr2pAG1_XmJUOoU2GCCk-Lt/edit?usp=drivesdk&ouid=109851906381756440300&rtpof=true&sd=true
+    summary: null
+  - docType: user-guide
+    title:
+      es: public-transport-a16max-ibcu Guía de usuario
+      en: public-transport-a16max-ibcu User Guide
+    version: ''
+    date: 2026-09-24
+    fileEs: ''
+    fileEn: ''
+    externalUrl: https://docs.google.com/document/d/1m74TGPIWLKq3SyQvumncGDcuwc2oKeA9/edit?usp=drivesdk&ouid=109851906381756440300&rtpof=true&sd=true
+    summary: null
+firmware:
+  - version: BUS_A16Max_M0010_V3510_0010_B256_R26091513.STM
+    date: 2026-10-23
+    type: firmware
+    fileSize: ''
+    checksum: ''
+    downloadUrl: https://drive.google.com/file/d/1Rl-0UaTsMsZ8EbhKCaXCt-h5qq7lJApp/view?usp=drive_link
+    releaseNotes: null
+    mandatory: false
 videos: []
